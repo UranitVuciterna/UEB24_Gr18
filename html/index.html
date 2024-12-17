@@ -19,7 +19,7 @@
 <nav>
 	<div class="nav__header">
 		<div class="nav__logo">
-			<a href="#" class="logo">Web 24</a>
+			<a href="#Subscribe" class="logo">Web 24</a>
 		</div>
 		<div class="nav__menu__btn" id="menu-btn">
 			<i class="ri-menu-line"></i>
@@ -29,8 +29,9 @@
 		<li><a href="#">HOME</a></li>
 		<li><a href="#">Find a Cruise</a></li>
 		<li><a href="#">Destinations</a></li>
+		<li><a href="#">Deals</a></li>
 		<li><a href="#">Sign In</a></li>
-		<li><a href="#">BOOK TRIP</a></li>
+		<li><a href="#">BOOK A CRUISE</a></li>
 	</ul>
 	<div class="nav__btns">
 		<button class="btn">BOOK TRIP</button>
@@ -40,26 +41,77 @@
 <header id="home">
 	<div class="header__container">
 		<div class="header__content">
-			<p>ELEVATE YOUR VOYAGE</p>
-			<h1>Experience the Magic of the Sea!</h1>
-			<div class="header__btns">
-				<button class="btn">Book A Cruise Now</button>
-				<a href="#">
-					<span><i class="ri-play-circle-fill"></i></span>
-				</a>
+			<p> <b>ELEVATE YOUR VOYAGE </b> </p>    <!--tagu bold -->
+			<h1> <i> Experience the Magic of the Sea! </i></h1> <!-- tagu italik -->
+			
+			<div class = "header-form">
+				<h2>Choose your Travel location:</h2>
+				<form class = "flex">
+					<input type = "text" class = "form-control" placeholder="Destination name">
+					<input type="date" class = "form-control" placeholder="Date">
+					<input type="number" class = "form-control" placeholder="Price ($)">
+					<input type="submit" class = "btn" value = "Search">
+				</form>
 			</div>
-<!--		</div>-->
-<!--		<div class="header__image">-->
-<!--			<img src="../img/header.jp" alt="header" />-->
-<!--		</div>-->
 	</div>
  </header>
+
+
+<section class="section__container destination__container" id="about">
+	<h2 class="section__header">Popular Destination</h2>
+	<p class="section__description">
+		Discover the Most Loved Destinations Around the Globe
+	</p>
+	<div class="destination__grid">
+		<div class="destination__card">
+			<img src="../img/bahamas.jpg" alt="destination" />
+			<div class="destination__card__details">
+				<div>
+					<h4>Tropical Paradise</h4>
+					<p>BAHAMAS</p>
+				</div>
+				<div class="destination__rating">
+					<span><i class="ri-star-fill"></i></span>
+					4.7
+				</div>
+			</div>
+		</div>
+		<div class="destination__card">
+			<img src="../img/miami.webp" alt="destination" />
+			<div class="destination__card__details">
+				<div>
+					<h4>Vibrant Beaches</h4>
+					<p>MIAMI</p>
+				</div>
+				<div class="destination__rating">
+					<span><i class="ri-star-fill"></i></span>
+					4.5
+				</div>
+			</div>
+		</div>
+		<div class="destination__card">
+			<img src="../img/texas.jpg" alt="destination" />
+			<div class="destination__card__details">
+				<div>
+					<h4>Cowboy Culture</h4>
+					<p>TEXAS</p>
+				</div>
+				<div class="destination__rating">
+					<span><i class="ri-star-fill"></i></span>
+					4.8
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
 
 <footer id="contact">
 	<div class="section__container footer__container">
 		<div class="footer__col">
 			<div class="footer__logo">
-				<a href="#" class="logo">Skywings</a>
+				<a href="#" class="logo">WEB 24</a>
 			</div>
 			<p>
 				Explore the world with ease and excitement through our comprehensive
@@ -81,34 +133,42 @@
 		<div class="footer__col">
 			<h4>Quick Links</h4>
 			<ul class="footer__links">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Flights</a></li>
-				<li><a href="#">Hotels</a></li>
-				<li><a href="#">Cruise</a></li>
+				<li><a href="#"> <u> Home</u></a></li>
+				<li><a href="#"><u>Find a Cruise</u></a></li>
+				<li><a href="#"><u>Destinations</u></a></li>   <!-- tagu underline -->
+				<li><a href="#"><u>Deals</u></a></li>
+				<li><a href="#"><u>Sign In</u></a></li>
 			</ul>
 		</div>
 		<div class="footer__col">
 			<h4>Contact Us</h4>
 			<ul class="footer__links">
+				<li> <mark>
+					<a href="#">
+						<span><i class="ri-phone-fill"></i></span> <u>+91 9876543210</u> <!-- tagu underline , higlight-->
+					</a>
+				</mark>
+				</li>
 				<li>
 					<a href="#">
-						<span><i class="ri-phone-fill"></i></span> +91 9876543210
+						<span><i class="ri-record-mail-line"></i></span> info@WEB 24
 					</a>
 				</li>
 				<li>
 					<a href="#">
-						<span><i class="ri-record-mail-line"></i></span> info@skywings
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						<span><i class="ri-map-pin-2-fill"></i></span> New Delhi, India
+						<span><i class="ri-map-pin-2-fill"></i></span>
+						<address>
+							Rruga e Dibrës, Nr. 100, Tiranë, Shqipëri <!-- tagu adress-->
+						</address>
+					
 					</a>
 				</li>
 			</ul>
 		</div>
 		<div class="footer__col">
-			<h4>Subscribe</h4>
+			<h4>Subscribe
+				<section id="Subscribe">
+				</section>
 			<form action="/">
 				<input type="text" placeholder="Enter your email" />
 				<button class="btn">Subscribe</button>
@@ -116,9 +176,11 @@
 		</div>
 	</div>
 	<div class="footer__bar">
-		Copyright © 2024 Web Design Mastery. All rights reserved.
+		Copyright © 2024 Web 24. All rights reserved.
 	</div>
 </footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>
