@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Cruise</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #004080;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        button {
+            background-color: #004080;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0066cc;
+        }
+        #reset-button {
+            background-color: #e60000;
+        }
+        #reset-button:hover {
+            background-color: #cc0000;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        th {
+            background-color: #004080;
+            color: white;
+        }
+        tbody tr.no-results td {
+            text-align: center;
+            color: #e60000;
+        }
+        footer {
+            margin-top: 30px;
+            padding: 10px;
+            background-color: #004080;
+            color: white;
+            text-align: center;
+        }
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        footer ul li {
+            margin: 5px 0;
+        }
+        footer ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        footer ul li a:hover {
+            color: #ffdd57;
+        }
+        #message {
+            color: red;
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Find a Cruise</h1>
+    </header>
+    <div class="container">
+        <form id="cruise-form">
+            <div class="form-group">
+                <label for="destination">Destination:</label>
+                <select id="destination">
+                    <option value="">Select a destination</option>
+                    <option value="Caribbean">Caribbean</option>
+                    <option value="Alaska">Alaska</option>
+                    <option value="Mediterranean">Mediterranean</option>
+                    <option value="Miami">Miami</option>
+                    <option value="Bahamas">Bahamas</option>
+                    <option value="Texas">Texas</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="date-start">Departure Date Range (Start):</label>
+                <input type="date" id="date-start">
+            </div>
+            <div class="form-group">
+                <label for="date-end">Departure Date Range (End):</label>
+                <input type="date" id="date-end">
+            </div>
+            <div class="form-group">
+                <label for="duration">Duration (days):</label>
+                <select id="duration">
+                    <option value="">Select duration</option>
+                    <option value="3">3 Days</option>
+                    <option value="5">5 Days</option>
+                    <option value="7">7 Days</option>
+                    <option value="10">10+ Days</option>
+                </select>
+            </div>
+            <button type="button" id="search-button">Search Cruises</button>
+        </form>
+
+        <p id="message" aria-live="polite">Please fill in all fields before searching!</p>
+
+        <table id="results" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Destination</th>
+                    <th>Departure Date</th>
+                    <th>Duration</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Caribbean</td>
+                    <td>2025-01-15</td>
+                    <td>7 Days</td>
+                    <td>$1200</td>
+                </tr>
+                <tr>
+                    <td>Alaska</td>
+                    <td>2025-06-10</td>
+                    <td>5 Days</td>
+                    <td>$800</td>
+                </tr>
+                <tr>
+                    <td>Mediterranean</td>
+                    <td>2025-04-22</td>
+                    <td>10+ Days</td>
+                    <td>$1500</td>
+                </tr>
+                <tr>
+                    <td>Miami</td>
+                    <td>2026-02-20</td>
+                    <td>7 Days</td>
+                    <td>$1400</td>
+                </tr>
+                <tr>
+                    <td>Bahamas</td>
+                    <td>2026-05-10</td>
+                    <td>5 Days</td>
+                    <td>$950</td>
+                </tr>
+                <tr>
+                    <td>Texas</td>
+                    <td>2026-07-15</td>
+                    <td>3 Days</td>
+                    <td>$700</td>
+                </tr>
+                <tr class="no-results" style="display: none;">
+                    <td colspan="4">No cruises match your search criteria.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <h2>Links</h2>
+        <ul>
+            <li><a href="index.html" id="form-link">Index</a></li>
+         
+        </ul>
+    </footer>
+
+    <script>
+        $(document).ready(function () {
+            const $message = $("#message");
+            const $results = $("#results");
+            const $searchButton = $("#search-button");
+
+            function Cruise(destination, date, duration, price) {
+                this.destination = destination;
+                this.date = date;
+                this.duration = duration;
+                this.price = price;
+            }
+
+            const cruises = [
+                new Cruise("Caribbean", "2025-01-15", "7 Days", "$1200"),
+                new Cruise("Alaska", "2025-06-10", "5 Days", "$800"),
+                new Cruise("Mediterranean", "2025-04-22", "10+ Days", "$1500"),
+                new Cruise("Miami", "2026-02-20", "7 Days", "$1400"),
+                new Cruise("Bahamas", "2026-05-10", "5 Days", "$950"),
+                new Cruise("Texas", "2026-07-15", "3 Days", "$700")
+            ];
+
+            function showError(message) {
+                try {
+                    throw new Error(message);
+                } catch (error) {
+                    $message.text(error.message).fadeIn().delay(3000).fadeOut();
+                }
+            }
+
+            function validateDestination(destination) {
+                if (!destination) {
+                    showError("Destination is required!");
+                    return false;
+                }
+                return true;
+            }
+
+            function validateDateRange(startDate, endDate) {
+                if (!startDate || !endDate) {
+                    showError("Both start and end dates are required!");
+                    return false;
+                }
+
+                const start = new Date(startDate);
+                const end = new Date(endDate);
+                if (start > end) {
+                    showError("Start date must be before end date!");
+                    return false;
+                }
+
+                return true;
+            }
+
+            function validateDuration(duration) {
+                if (!duration) {
+                    showError("Duration is required!");
+                    return false;
+                }
+                return true;
+            }
+
+            $searchButton.click(function () {
+                const destination = $("#destination").val();
+                const startDate = $("#date-start").val();
+                const endDate = $("#date-end").val();
+                const duration = $("#duration").val();
+
+                if (validateDestination(destination) && validateDateRange(startDate, endDate) && validateDuration(duration)) {
+                    let matches = cruises.filter(c =>
+                        (!destination || c.destination === destination) &&
+                        (!duration || c.duration.includes(duration)) &&
+                        (new Date(c.date) >= new Date(startDate)) &&
+                        (new Date(c.date) <= new Date(endDate))
+                    );
+
+                    const $tbody = $results.find("tbody");
+                    $tbody.empty();
+
+                    if (matches.length > 0) {
+                        matches.forEach(cruise => {
+                            let formattedPrice = cruise.price.replace('$', 'USD ');
+                            $tbody.append(` 
+                                <tr>
+                                    <td>${cruise.destination}</td>
+                                    <td>${cruise.date}</td>
+                                    <td>${cruise.duration}</td>
+                                    <td>${formattedPrice}</td>
+                                </tr>
+                            `);
+                        });
+                    } else {
+                        $tbody.append('<tr class="no-results"><td colspan="4">No cruises match your search criteria.</td></tr>');
+                    }
+
+                    $results.show().hide().fadeIn(1000); // Advanced jQuery Effect (fadeIn)
+                }
+            });
+
+       
+        });
+    </script>
+</body>
+</html>
