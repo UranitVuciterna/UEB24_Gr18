@@ -424,6 +424,78 @@ footer {
     text-align: center;
 }
 
+/* SIGN UP STYLE */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.logo {
+    width: 7rem;
+}
+
+.nav-section1 {
+    margin: 0;
+    background-color: #f8f8f8;
+}
+
+.nav-menu {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.nav-menu li {
+    padding: 10px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+.register-section {
+    display: flex;
+    justify-content: center;
+    padding: 100px 0;
+}
+
+.form-container {
+    width: 50%;
+    display: grid;
+    justify-items: center;
+    text-align: center;
+}
+
+.form-container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.form-input {
+    width: 400px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block;
+}
+
+.register-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#message-container {
+    padding-bottom: 15px;
+}
+
 @media (width > 540px) {
     .destination__grid {
         grid-template-columns: repeat(2, 1fr);
