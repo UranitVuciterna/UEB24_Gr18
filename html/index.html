@@ -3,20 +3,10 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link
-					href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-					rel="stylesheet"
-	/>
-	<link
-					rel="stylesheet"
-					href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-	/>
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	
-	
-	
 	<link rel="stylesheet" href="../css/style.css" />
-	
 	<title>Web 24</title>
 </head>
 
@@ -27,23 +17,17 @@
 <header id="home">
 	<div class="header__container">
 		<div class="header__content">
-			<p> <b>ELEVATE YOUR VOYAGE </b> </p>    <!--tagu bold -->
-			<h1> <i> Experience the Magic of the Sea! </i></h1> <!-- tagu italik -->
-			
-			<div class = "header-form">
-				<h2>Choose your Travel location:</h2>
-				<form class = "flex">
-					<input type = "text" class = "form-control" placeholder="Destination name">
-					<input type="date" class = "form-control" placeholder="Date">
-					<input type="number" class = "form-control" placeholder="Price ($)">
-					<input type="submit" class = "btn" value = "Search">
-				</form>
+			<div class="header__text">
+				<h1><b>Creating Bespoke</b></h1> <!--tagu bold -->
+				<h1><b>Cruise Experiences</b></h1>
+				<p><i>CRUISE HOLIDAYS & DEALS</i></p> <!-- tagu italik -->
 			</div>
+			<form><input type="submit" class = "btn" value = "Search"></form>
 		</div>
 	</div>
 </header>
 <section class="section__container destination__container" id="about">
-	<h2 class="section__header">Popular Destination</h2>
+	<h2 class="section__header">Popular Destinations</h2>
 	<p class="section__description">
 		Discover the Most Loved Destinations Around the Globe
 	</p>
@@ -126,7 +110,7 @@
 							"An unforgettable voyage with breathtaking views!
 							The cruise exceeded all expectations with its luxurious amenities,
 							exceptional service, and captivating destinations.
-							Every moment onboard felt like a dream come true.
+							Like a dream come true.
 							Highly recommended!"
 						</p>
 					</div>
@@ -191,6 +175,9 @@
 				</div>
 			</div>
 		</div>
+		<div class="swiper-button-next"></div>
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-pagination"></div>
 	</div>
 </section>
 
@@ -201,13 +188,37 @@
 
 <script src="../js/script.js"></script>
 
-
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 10,
+            grabCursor: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 1, 
+                },
+            },
+        });
+    });
+</script>
 
 <script type="text/javascript">
 	$('#nav').load('../nav/nav.html');
 	$('#footer').load('../footer/footer.html');
 </script>
+
 </body>
 </html>
-
-
