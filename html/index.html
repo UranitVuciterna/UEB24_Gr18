@@ -11,32 +11,16 @@
 					rel="stylesheet"
 					href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 	/>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	
 	<link rel="stylesheet" href="../css/style.css" />
+	
 	<title>Web 24</title>
 </head>
 
 <body>
-<nav>
-	<div class="nav__header">
-		<div class="nav__logo">
-			<a href="#Subscribe" class="logo">Web 24</a>
-		</div>
-		<div class="nav__menu__btn" id="menu-btn">
-			<i class="ri-menu-line"></i>
-		</div>
-	</div>
-	<ul class="nav__links" id="nav-links">
-		<li><a href="#">HOME</a></li>
-		<li><a href="#">Find a Cruise</a></li>
-		<li><a href="#">Destinations</a></li>
-		<li><a href="#">Deals</a></li>
-		<li><a href="#">Sign In</a></li>
-		<li><a href="#">BOOK A CRUISE</a></li>
-	</ul>
-	<div class="nav__btns">
-		<button class="btn">BOOK TRIP</button>
-	</div>
-</nav>
+
+<div id="nav"></div>
 
 <header id="home">
 	<div class="header__container">
@@ -55,9 +39,7 @@
 			</div>
 		</div>
 	</div>
- </header>
-
-
+</header>
 <section class="section__container destination__container" id="about">
 	<h2 class="section__header">Popular Destination</h2>
 	<p class="section__description">
@@ -103,6 +85,17 @@
 				</div>
 			</div>
 		</div>
+	</div>
+</section>
+
+<section id = "video">
+	<div class = "video-wrapper flex">
+		<video loop autoplay muted controls>
+			<source src="../videos/short.mp4" type="video/mp4">
+		</video>
+		<button type = "button" id = "play-btn">
+			<i class = "fas fa-play"></i>
+		</button>
 	</div>
 </section>
 
@@ -195,110 +188,21 @@
 					</div>
 				</div>
 			</div>
-			<div class="swiper-slide">
-				<div class="client__card">
-					<div class="client__content">
-						<div class="client__rating">
-							<span><i class="ri-star-fill"></i></span>
-							<span><i class="ri-star-fill"></i></span>
-							<span><i class="ri-star-fill"></i></span>
-							<span><i class="ri-star-fill"></i></span>
-							<span><i class="ri-star-fill"></i></span>
-						</div>
-						<p>
-						
-						</p>
-					</div>
-					<div class="client__details">
-						<img src="../img/client-4.jpg" alt="client" />
-						<div>
-							<h4>David Patel</h4>
-							<h5>Business Executive</h5>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 </section>
 
-<footer id="contact">
-	<div class="section__container footer__container">
-		<div class="footer__col">
-			<div class="footer__logo">
-				<a href="#" class="logo">WEB 24</a>
-			</div>
-			<p>
-				Explore the world with ease and excitement through our comprehensive
-				travel platform. Your journey begins here, where seamless planning
-				meets unforgettable experiences.
-			</p>
-			<ul class="footer__socials">
-				<li>
-					<a href="#"><i class="ri-facebook-fill"></i></a>
-				</li>
-				<li>
-					<a href="#"><i class="ri-instagram-line"></i></a>
-				</li>
-				<li>
-					<a href="#"><i class="ri-youtube-line"></i></a>
-				</li>
-			</ul>
-		</div>
-		<div class="footer__col">
-			<h4>Quick Links</h4>
-			<ul class="footer__links">
-				<li><a href="#"> <u> Home</u></a></li>
-				<li><a href="#"><u>Find a Cruise</u></a></li>
-				<li><a href="#"><u>Destinations</u></a></li>   <!-- tagu underline -->
-				<li><a href="#"><u>Deals</u></a></li>
-				<li><a href="#"><u>Sign In</u></a></li>
-			</ul>
-		</div>
-		<div class="footer__col">
-			<h4>Contact Us</h4>
-			<ul class="footer__links">
-				<li> <mark>
-					<a href="#">
-						<span><i class="ri-phone-fill"></i></span> <u>+91 9876543210</u> <!-- tagu underline , higlight-->
-					</a>
-				</mark>
-				</li>
-				<li>
-					<a href="#">
-						<span><i class="ri-record-mail-line"></i></span> info@WEB 24
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						<span><i class="ri-map-pin-2-fill"></i></span>
-						<address>
-							Rruga e Dibrës, Nr. 100, Tiranë, Shqipëri <!-- tagu adress-->
-						</address>
-					
-					</a>
-				</li>
-			</ul>
-		</div>
-		<div class="footer__col">
-			<h4>Subscribe
-				<section id="Subscribe">
-				</section>
-			<form action="/">
-				<input type="text" placeholder="Enter your email" />
-				<button class="btn">Subscribe</button>
-			</form>
-			</h4>
-		</div>
-	</div>
-	<div class="footer__bar">
-		Copyright © 2024 Web 24. All rights reserved.
-	</div>
-</footer>
+<div id="footer"></div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 <script src="../js/script.js"></script>
 
+<script type="text/javascript">
+	$('#nav').load('../nav/nav.html');
+	$('#footer').load('../footer/footer.html');
+</script>
 </body>
 </html>
 
