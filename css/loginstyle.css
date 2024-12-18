@@ -64,3 +64,15 @@ body {
     font-size: 13px;
     padding-top: 15px;
 }
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 540px) {
+    .form-container {
+        padding: 0 20px;
+        h2 {
+            font-size: 25px;
+        }
+    }
+}
