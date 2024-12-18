@@ -136,15 +136,6 @@
                 window.location.href = 'index.html';
             }, 500);
         });
-
-
-        const params = new URLSearchParams(window.location.search);
-        const action = params.get('action');
-
-        if (action === 'logout') {
-            localStorage.removeItem('isloggedin');
-            window.location.href = 'index.html';
-        }
     </script>
 </body>
 </html>
