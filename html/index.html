@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<link rel="stylesheet" href="../css/style.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+					integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+					crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<link rel="stylesheet" href="../css/style.css"/>
 	<title>Web 24</title>
 </head>
 
@@ -21,20 +23,26 @@
 				<h1><b>Creating Bespoke</b></h1> <!--tagu bold -->
 				<h1><b>Cruise Experiences</b></h1>
 				<p><i>CRUISE HOLIDAYS & DEALS</i></p> <!-- tagu italik -->
-				<div class = "header-form">
+				<div class="header-form">
 					<h2>Choose your Travel location:</h2>
-					<form class = "flex">
-						<input type = "text" class = "form-control" placeholder="Destination name">
-						<input type="date" class = "form-control" placeholder="Date">
-						<input type="number" class = "form-control" placeholder="Price ($)">
-						<input type="submit" class = "btn" value = "Search">
+					<form class="flex">
+						<label>
+							<input type="text" class="form-control" placeholder="Destination name">
+						</label>
+						<label>
+							<input type="date" class="form-control" placeholder="Date">
+						</label>
+						<label>
+							<input type="number" class="form-control" placeholder="Price ($)">
+						</label>
+						<input type="submit" class="btn" value="Search">
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
 </header>
-<section class="section_container destination_container" id="about">
+<section class="section__container destination__container" id="about">
 	<h2 class="section__header">Popular Destinations</h2>
 	<p class="section__description">
 		Discover the Most Loved Destinations Around the Globe
@@ -42,7 +50,7 @@
 	<div class="destination__grid">
 		<!-- Existing Destinations -->
 		<div class="destination__card">
-			<img src="../img/bahamas.jpg" alt="destination" />
+			<img src="../img/bahamas.jpg" alt="destination"/>
 			<div class="destination_card_details">
 				<div>
 					<h4>Tropical Paradise</h4>
@@ -55,7 +63,7 @@
 			</div>
 		</div>
 		<div class="destination__card">
-			<img src="../img/miami.webp" alt="destination" />
+			<img src="../img/miami.webp" alt="destination"/>
 			<div class="destination_card_details">
 				<div>
 					<h4>Vibrant Beaches</h4>
@@ -68,7 +76,7 @@
 			</div>
 		</div>
 		<div class="destination__card">
-			<img src="../img/texas.jpg" alt="destination" />
+			<img src="../img/texas.jpg" alt="destination"/>
 			<div class="destination_card_details">
 				<div>
 					<h4>Cowboy Culture</h4>
@@ -83,7 +91,7 @@
 		
 		<!-- New Destinations -->
 		<div class="destination__card">
-			<img src="../img/Singapore.jpeg" alt="destination" />
+			<img src="../img/Singapore.jpeg" alt="destination"/>
 			<div class="destination_card_details">
 				<div>
 					<h4>A modern hub for Southeast Asian cruises.</h4>
@@ -96,7 +104,7 @@
 			</div>
 		</div>
 		<div class="destination__card">
-			<img src="../img/fiji.jpg" alt="destination" />
+			<img src="../img/fiji.jpg" alt="destination"/>
 			<div class="destination_card_details">
 				<div>
 					<h4> A paradise for relaxation </h4>
@@ -109,7 +117,7 @@
 			</div>
 		</div>
 		<div class="destination__card">
-			<img src="../img/Dubai-Marina.jpg" alt="destination" />
+			<img src="../img/Dubai-Marina.jpg" alt="destination"/>
 			<div class="destination_card_details">
 				<div>
 					<h4>Vibrant waterfront with skyscrapers</h4>
@@ -117,10 +125,21 @@
 				</div>
 				<div class="destination__rating">
 					<span><i class="ri-star-fill"></i></span>
-					4.7
+					4.9
 				</div>
 			</div>
 		</div>
+	</div>
+</section>
+
+<section id = "video">
+	<div class = "video-wrapper flex">
+		<video loop autoplay muted controls>
+			<source src="../videos/short.mp4" type="video/mp4">
+		</video>
+		<button type = "button" id = "play-btn">
+			<i class = "fas fa-play"></i>
+		</button>
 	</div>
 </section>
 
@@ -154,7 +173,7 @@
 						</p>
 					</div>
 					<div class="client__details">
-						<img src="../img/client-1.jpg" alt="client" />
+						<img src="../img/client-1.jpg" alt="client"/>
 						<div>
 							<h4>John Adams</h4>
 							<h5>Travel Blogger</h5>
@@ -174,12 +193,13 @@
 						</div>
 						<p>
 							"This cruise was the perfect blend of relaxation and adventure.
-							From exploring hidden islands to enjoying world-class entertainment, it was a seamless and unforgettable experience.
+							From exploring hidden islands to enjoying world-class entertainment, it was a seamless and unforgettable
+							experience.
 							I can’t wait to book my next one!"
 						</p>
 					</div>
 					<div class="client__details">
-						<img src="../img/client-2.jpg" alt="client" />
+						<img src="../img/client-2.jpg" alt="client"/>
 						<div>
 							<h4>Emily Thompson</h4>
 							<h5>Adventure Enthusiast</h5>
@@ -205,7 +225,7 @@
 						</p>
 					</div>
 					<div class="client__details">
-						<img src="../img/client-3.jpg" alt="client" />
+						<img src="../img/client-3.jpg" alt="client"/>
 						<div>
 							<h4>Sarah Lee</h4>
 							<h5>Cultural Historian</h5>
