@@ -220,14 +220,24 @@ header::before {
     border-radius: 1.5rem;
 }
 
+.destination_card_details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
 .destination__rating {
-    padding: 5px 10px;
+    padding: 5px 25px;
     font-size: 0.9rem;
     white-space: nowrap;
     color: var(--white);
     background-color: var(--primary-color);
     border-radius: 1rem;
     transition: 0.3s;
+    width: auto;
+    text-align: center;
+    margin-top: 10px;
 }
 
 .destination_card:hover .destination_rating {
@@ -279,6 +289,10 @@ header::before {
     .client__card {
         width: 95%;
     }
+}
+
+#video {
+    margin-top: 2rem;
 }
 
 /* (Tablets) */
