@@ -6,22 +6,30 @@
     <title>Sign Up</title>
     <link rel="stylesheet" href="../css/signupstyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
 </head>
 <body>
+    <div id="nav"></div>
+
     <section class="register-section">
         <div class="form-container">
             <h2>Sign Up</h2>
             <form id="register">
                 <input type="text" name="fullname" placeholder="Enter fullname" class="form-input" />
-                <input type="email" name="email" placeholder="Enter email address" class="form-input" />
-                <input type="password" name="password1" autocomplete="off" placeholder="Enter password" class="form-input" />
-                <input type="password" name="password2" autocomplete="off" placeholder="Confirm password" class="form-input" />
+                <input type="email" name="email" placeholder="Enter email address" class="form-input" autocomplete />
+                <input type="password" name="password1" autocomplete placeholder="Enter password" class="form-input" />
+                <input type="password" name="password2" autocomplete placeholder="Confirm password" class="form-input" />
                 <button type="submit" class="register-button">Submit</button>
                 <div id="message-container"></div>
                 <p>Already have an account? <a href="login.html">Log In</a></p>
             </form>
         </div>
     </section>
+
+    <div id="footer"></div>
 
     <script>
         const form = document.querySelector('#register');
@@ -78,6 +86,10 @@
             localStorage.removeItem('isloggedin');
             window.location.href = 'index.html';
         }
+    </script>
+    <script type="text/javascript">
+        $('#nav').load('../nav/nav.html');
+        $('#footer').load('../footer/footer.html');
     </script>
 </body>
 </html>
