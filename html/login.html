@@ -7,8 +7,8 @@
     <link href="../css/loginstyle.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-			integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-			crossorigin="anonymous" referrerpolicy="no-referrer">
+	integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+	crossorigin="anonymous" referrerpolicy="no-referrer">
 	</script>
 </head>
 <body>
@@ -21,10 +21,6 @@
                 <form id="login">
                     <input type="email" name="email" placeholder="Enter email address" class="form-input" />
                     <input type="password" name="password" placeholder="Enter password" class="form-input" />
-                    <div class="checkbox-container">
-                        <input type="checkbox" id="checkbox" class="checkbox-input" />
-                        <label for="checkbox" class="checkbox-label">I agree to the terms and conditions</label>
-                    </div>
                     <button class="form-button">Login</button>
                     <div id="message-container"></div>
                     <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
@@ -53,12 +49,6 @@
             
             const email = data['email'].value
             const password = data['password'].value
-
-            if (!checkbox.checked) {
-                messageContainer.textContent = "You must agree to the terms and conditions!"
-                messageContainer.style.color = "red";
-                return;
-            }
 
             if(users.length > 0) {
                 const userExists = users.filter(user => (user.email === email && user.password === password))
