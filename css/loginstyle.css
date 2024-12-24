@@ -64,24 +64,6 @@ body {
     margin-bottom: 20px;
 }
 
-.checkbox-container {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    margin-bottom: 20px;
-}
-
-.checkbox-input {
-    margin: 0 10px 0 0;
-}
-
-.checkbox-label {
-    font-size: 14px;
-    color: var(--text-dark);
-    cursor: pointer;
-}
-
-
 #message-container {
     font-size: 13px;
     padding-top: 15px;
