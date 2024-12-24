@@ -73,10 +73,10 @@ header::before {
     justify-content: center;
     height: 600px;
     gap: 10px;
-}
 
-.header__content p {
-    color: white;
+    p, h2 {
+        color: white;
+    }
 }
 
 .header__content h1 {
@@ -87,6 +87,22 @@ header::before {
     white-space: nowrap;
     color: white;
     line-height: 5.5rem;
+}
+
+.form-control {
+    padding: 10px;
+    border-radius: 5rem;
+    border: none;
+    outline: none;
+    font-family: "PT Serif", serif;
+}
+
+#price {
+    max-width: 100px;
+}
+
+#date {
+    color: var(--text-light);
 }
 
 .swiper {
