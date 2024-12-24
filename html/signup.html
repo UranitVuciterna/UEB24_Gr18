@@ -22,6 +22,10 @@
                 <input type="email" name="email" placeholder="Enter email address" class="form-input" autocomplete />
                 <input type="password" name="password1" autocomplete placeholder="Enter password" class="form-input" />
                 <input type="password" name="password2" autocomplete placeholder="Confirm password" class="form-input" />
+                <div class="checkbox-container">
+                    <input type="checkbox" id="checkbox" class="checkbox-input" />
+                    <label for="checkbox" class="checkbox-label">I agree to the terms and conditions</label>
+                </div>
                 <button type="submit" class="register-button">Submit</button>
                 <div id="message-container"></div>
                 <p>Already have an account? <a href="login.html">Log In</a></p>
@@ -55,6 +59,12 @@
 
             if (password1 !== password2) {
                 messageContainer.textContent = "Passwords must match!";
+                messageContainer.style.color = "red";
+                return;
+            }
+            
+            if (!checkbox.checked) {
+                messageContainer.textContent = "You must agree to the terms and conditions!"
                 messageContainer.style.color = "red";
                 return;
             }
