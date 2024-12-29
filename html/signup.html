@@ -10,8 +10,40 @@
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
     crossorigin="anonymous" referrerpolicy="no-referrer">
     </script>
+    <style>
+        body {
+            background-color: white;
+            margin: 0;
+            position: relative;
+        }
+
+        svg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+        }
+
+        .register-section {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
+    <svg xmlns="http://www.w3.org/2000/svg" id="bubbles">
+        <circle cx="50" cy="600" r="40" fill="none" stroke="lightblue" stroke-width="2" stroke-opacity="0.8" />
+        <circle cx="300" cy="700" r="25" fill="none" stroke="lightblue" stroke-width="2" stroke-opacity="0.8" />
+        <circle cx="700" cy="800" r="45" fill="none" stroke="lightblue" stroke-width="2" stroke-opacity="0.8" />
+        <circle cx="1100" cy="600" r="35" fill="none" stroke="lightblue" stroke-width="2" stroke-opacity="0.8" />
+        <circle cx="1500" cy="750" r="30" fill="none" stroke="lightblue" stroke-width="2" stroke-opacity="0.8" />
+        <circle cx="1600" cy="500" r="45" fill="none" stroke="lightblue" stroke-width="2" stroke-opacity="0.8" />
+        <circle cx="1800" cy="700" r="35" fill="none" stroke="lightblue" stroke-width="2" stroke-opacity="0.8" />
+    </svg>
+
     <div id="nav"></div>
 
     <section class="register-section">
@@ -62,7 +94,7 @@
                 messageContainer.style.color = "red";
                 return;
             }
-            
+
             if (!checkbox.checked) {
                 messageContainer.textContent = "You must agree to the terms and conditions!"
                 messageContainer.style.color = "red";
