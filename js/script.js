@@ -23,3 +23,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+
+const btn = document.getElementById('scrollToTop'), sound = document.getElementById('scrollSound');
+btn.onclick = () => {
+    sound.play().catch(err => console.error('Sound error:', err));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+window.onscroll = () => {
+    btn.style.display = (window.scrollY > 100) ? 'flex' : 'none';
+};

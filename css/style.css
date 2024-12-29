@@ -354,3 +354,17 @@ header::before {
         left: -2px;
     }
 }
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0; padding: 0;
+    height: 2000px;
+}
+#scrollToTop {
+    position: fixed; bottom: 20px; right: 20px;
+    background-color: var(--primary-color); color: #fff; border: none; border-radius: 50%;
+    width: 50px; height: 50px; display: none; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 18px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+#scrollToTop:hover {
+    background-color: var(--primary-color-dark); }
