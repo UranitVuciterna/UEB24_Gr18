@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
@@ -22,7 +21,7 @@
 .section__container {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 5rem 1rem;
+    padding: 3rem 1rem;
 }
 
 .section__header {
@@ -31,6 +30,10 @@
     font-weight: 700;
     color: var(--text-dark);
     text-align: center;
+}
+
+.text-container {
+    margin-bottom: 40px;
 }
 
 .section__description {
@@ -111,7 +114,7 @@ header::before {
 }
 
 .swiper-wrapper {
-    width: 80%;
+    width: 100%;
     height: 100%;
     display: flex;
     align-items: stretch;
@@ -121,16 +124,6 @@ header::before {
     display: flex;
     align-items: stretch;
     height: 100%;
-}
-
-.swiper-button-next {
-    position: absolute;
-    right: -2px;
-}
-
-.swiper-button-prev {
-    position: absolute;
-    left: -2px;
 }
 
 .client__card {
@@ -215,49 +208,50 @@ header::before {
 
 .destination__grid {
     display: grid;
-    width: 100%;
-    gap: 20px;
+    gap: 25px;
 }
 
-.destination__card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    max-width: 400px;
-    width: 100%;
-    overflow: hidden;
-}
-
-.destination__card img {
+.destination__card img{
+    border-radius: 20px;
     width: 100%;
     height: 250px;
     object-fit: cover;
-    border-radius: 1.5rem;
 }
 
 .destination_card_details {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    justify-content: space-between;
+    margin: 0 10px;
+}
+.destination__text i{
+    color: var(--primary-color);
+    margin-right: 5px;
+}
+
+.destination__text  {
+    letter-spacing: 0.03rem;   
+    font-size: 1rem;
+    text-transform: uppercase; 
+    white-space: nowrap;
+    h4 {
+        font-size: 15px;
+    }
 }
 
 .destination__rating {
-    padding: 5px 25px;
-    font-size: 0.9rem;
-    white-space: nowrap;
-    color: var(--white);
+    display: flex;
+    align-items: center;
     background-color: var(--primary-color);
-    border-radius: 1rem;
-    transition: 0.3s;
-    width: auto;
-    text-align: center;
-    margin-top: 10px;
-}
-
-.destination_card:hover .destination_rating {
-    background-color: var(--primary-color-dark);
+    border-radius: 20px;
+    padding: 5px 15px;
+    i {
+        color: var(--extra-light);
+        margin-right: 5px;
+    }
+    span {
+        color: var(--extra-light);
+        font-size: 16.65px;
+    }
 }
 
 .video-wrapper {
@@ -275,13 +269,13 @@ header::before {
 
 /* (Phones) */
 @media (max-width: 540px) {
-    .destination__grid {
+    /* .destination__grid {
         grid-template-columns: 1fr;
     }
     .destination__rating {
         padding: 4px 8px;
         font-size: 0.8rem;
-    }
+    } */
     .header__content {
         margin-top: 30px;
     }
@@ -316,6 +310,7 @@ header::before {
     .destination__grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .header__content h1 {
         font-size: 50px;
         line-height: 1.2;
@@ -345,11 +340,17 @@ header::before {
 @media (min-width: 1025px) {
     .destination__grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 2rem 1rem;
-        justify-items: center;
-        margin-top: 4rem;
     }
+
     .client__card {
         width: 95%;
+    }
+
+    .swiper-button-next{
+        right: -2px;
+    }
+
+    .swiper-button-prev {
+        left: -2px;
     }
 }

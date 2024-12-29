@@ -55,16 +55,17 @@ footer {
 .footer__socials {
     display: flex;
     gap: 1rem;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
 }
 
 .footer__socials a {
     font-size: 1.5rem;
     color: var(--white);
+    text-decoration: none;
     background-color: var(--primary-color);
-    padding: 10px;
-    border-radius: 50%;
+    padding: 8px 10px;
+    border-radius: 100%;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 

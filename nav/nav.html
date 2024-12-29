@@ -10,7 +10,7 @@
 <body>
 <nav class="nav-container">
     <div class="nav__logo">
-        <a href="#" class="logo">Web 24</a>
+        <a href="#"><canvas id="logoCanvas" width="150" height="80"></canvas></a>
     </div>
     <ul class="nav__links" id="nav-links">
         <li><a href="../html/index.html">Home</a></li>
@@ -20,12 +20,21 @@
         <li><a href="../html/signup.html">Sign Up</a></li>
     </ul>
     <div class="nav__btns">
-        <button class="btnn">BOOK A TRIP</button>
+        <a href="cruises.html"><button class="btnn">BOOK A TRIP</button></a>
 		<div id="menu-icon" onclick="toggleNavLinks()"><i class="ri-menu-line"></i></div>
     </div>
 </nav>
 
+<script>
+    const canvas = document.getElementById('logoCanvas');
+    const ctx = canvas.getContext('2d');
 
+    ctx.font = 'bold 34px Arial';
+    ctx.fillStyle = 'black';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('Web24', canvas.width / 2, canvas.height / 2);
+</script>
 <script>
     function toggleNavLinks() {
         const navLinks = document.getElementById("nav-links");

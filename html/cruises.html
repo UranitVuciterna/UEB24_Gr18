@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/cruisesstyle.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+		integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+		crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+    <style>
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="nav"></div>
+
+    <section><div id="cruise-container"></div></section>
+
+    <div id="footer"></div>
+
+    <script src="../js/cruisesapi.js"></script>
+    <script>
+        const cruisecontainer = document.getElementById("cruise-container");
+        let onecruise = "";
+        
+        cruises.forEach((cruise, index) => {
+            onecruise 
+            += `
+                <div class="cruisecard">
+                    <img src="${cruise.image}" alt="${cruise.name}" class="cruise-image" data-id="${index}">
+                    <div class="card-content">
+                        <h3>${cruise.name}</h3>     
+                        <hr>
+                        <h4 class="price">$${cruise.price}</h4>
+                        <h5 class="duration">${cruise.duration} Days</h5>
+                        <p><span>ROUNDTRIP FROM:</span> ${cruise.ports[0]}</p>
+                        <p><span>Visiting:</span> ${cruise.ports.map(port => `<a class="port">${port}</a>`).join(' &#9679; ')}</p>
+                        <p><span>Destination:</span> ${cruise.destination}</p>
+                        <p><span>Cruise:</span> ${cruise.ship}</p>
+                        <div class="cruise-rating"> 
+                            <i class="ri-star-fill"></i><span>${cruise.rating}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+    cruisecontainer.innerHTML = onecruise;
+
+    document.querySelectorAll(".cruise-image").forEach(image => {
+        image.addEventListener("click", function() {
+            const cruiseid = this.getAttribute("data-id");
+            window.location.href = `onecruise.html?id=${cruiseid}`;
+        });
+});
+
+    </script>
+
+    <script type="text/javascript">
+        $('#nav').load('../nav/nav.html');
+        $('#footer').load('../footer/footer.html');
+    </script>
+</body>
+</html>

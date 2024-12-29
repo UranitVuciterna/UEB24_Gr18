@@ -34,10 +34,9 @@ nav {
 }
 
 .nav__logo a {
-    font-size: 40px;
-    font-weight: bold;
     text-decoration: none;
-    color: var(--text-dark);    
+    display: flex;
+    justify-content: center;
 }
 
 .nav__links {
@@ -69,6 +68,7 @@ nav {
     color: var(--white); 
     background-color: var(--text-dark); 
     border-radius: 5rem;
+    border: none;
     cursor: pointer;
 }
 
