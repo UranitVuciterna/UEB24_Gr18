@@ -31,6 +31,7 @@
     font-weight: 700;
     color: var(--text-dark);
     text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .text-container {
@@ -64,6 +65,7 @@ header::before {
     background-size: cover;
     background-repeat: no-repeat;
     z-index: -1;
+    background-origin: border-box;
 }
 
 .header__container {

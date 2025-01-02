@@ -23,7 +23,7 @@ body {
 
 
 footer {
-    background-color: var(--extra-light);
+    background: linear-gradient(135deg, #ffffff, #d3d3d3);
     padding: 4rem 1rem;
 }
 
@@ -50,6 +50,7 @@ footer {
     margin: 1.5rem 0;
     color: var(--text-light);
     font-size: 0.95rem;
+    text-wrap: wrap;
 }
 
 .footer__socials {
@@ -112,7 +113,7 @@ footer {
 }
 
 .footer__col .btn {
-    background-color: var(--primary-color);
+    background: radial-gradient(circle, #2887ff, #2476da);
     color: var(--white);
     border: none;
     padding: 0.75rem 1.5rem;
