@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
@@ -210,13 +211,19 @@ header::before {
     color: var(--extra-light);
 }
 
-.destination__grid {
+#destination__grid {
     display: grid;
     gap: 25px;
 }
 
+.destination__card {
+    box-shadow: 0px 0px 12px 6px #efefef;
+    border-radius: 10px;
+}
+
 .destination__card img{
-    border-radius: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     width: 100%;
     height: 250px;
     object-fit: cover;
@@ -226,6 +233,7 @@ header::before {
     display: flex;
     justify-content: space-between;
     margin: 0 10px;
+    padding: 10px 0;
 }
 .destination__text i{
     color: var(--primary-color);
@@ -273,13 +281,7 @@ header::before {
 
 /* (Phones) */
 @media (max-width: 540px) {
-    /* .destination__grid {
-        grid-template-columns: 1fr;
-    }
-    .destination__rating {
-        padding: 4px 8px;
-        font-size: 0.8rem;
-    } */
+
     .header__content {
         margin-top: 30px;
     }
@@ -311,7 +313,7 @@ header::before {
 
 /* (Tablets) */
 @media (min-width: 541px) and (max-width: 1024px) {
-    .destination__grid {
+    #destination__grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -342,7 +344,7 @@ header::before {
 
 /* (Desktops and Widescreens) */
 @media (min-width: 1025px) {
-    .destination__grid {
+    #destination__grid {
         grid-template-columns: repeat(3, 1fr);
     }
 
