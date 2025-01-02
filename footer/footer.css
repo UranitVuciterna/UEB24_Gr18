@@ -50,6 +50,7 @@ footer {
     margin: 1.5rem 0;
     color: var(--text-light);
     font-size: 0.95rem;
+    text-wrap: wrap;
 }
 
 .footer__socials {
