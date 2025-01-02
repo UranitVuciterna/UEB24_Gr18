@@ -137,6 +137,14 @@ ul li {
     list-style: none;
 }
 
+.bullet-square {
+    list-style-type: square;
+}
+
+.bullet-circle {
+    list-style-type: circle;
+}
+
 
 @media (max-width: 1024px) {
     .footer__container {
