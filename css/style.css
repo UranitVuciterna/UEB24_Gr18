@@ -64,6 +64,7 @@ header::before {
     background-size: cover;
     background-repeat: no-repeat;
     z-index: -1;
+    background-origin: border-box;
 }
 
 .header__container {
