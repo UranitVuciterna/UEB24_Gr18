@@ -9,19 +9,69 @@
 		integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
 		crossorigin="anonymous" referrerpolicy="no-referrer">
     </script>
-    <style>
-        section {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-    </style>
+    <!-- date cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 <body>
 
     <div id="nav"></div>
 
-    <section><div id="cruise-container"></div></section>
-
+    <section>
+        <div class="site-grid">  
+            <div class="grid1-wrapper">
+                <div>
+                    <h2>Collections</h2>
+                    <label><input type="checkbox" value="Caribbean">Caribbean</label>
+                    <label><input type="checkbox" value="Mediterranean">Mediterranean</label>
+                    <label><input type="checkbox" value="Alaska">Alaska</label>
+                    <label><input type="checkbox" value="Asia">Asia</label>
+                    <label><input type="checkbox" value="Northern Europe">Northern Europe</label>
+                    <label><input type="checkbox" value="South America">South America</label>
+                    <label><input type="checkbox" value="Australia">Australia</label>
+                    <label><input type="checkbox" value="Middle East">Middle East</label>
+                </div>
+                <div>
+                    <h2>Price Range</h2>
+                    <div class="price-range-container">
+                        <input type="range" class="custom-range" min="0" max="3000" value="300" />
+                    </div>                      
+                    <div class="price-range-text">
+                        <span>0</span>
+                        <span>3000</span>
+                    </div>
+                    <label><input type="checkbox">Value Packs</label>
+                    <label><input type="checkbox">Budget Packs</label>
+                    <label><input type="checkbox">Exclusive Deals</label>
+                    <label><input type="checkbox">Premium Grabs</label>
+                    <label><input type="checkbox">Luxurious</label>
+                </div>
+                <div>
+                    <h2>Select Dates</h2>
+                    <div class="date-picker-container">
+                        <input type="text" id="datePicker" placeholder="Select Date">
+                    </div>
+                </div>
+                <div>
+                    <h2>Event time</h2>
+                    <label><input type="checkbox">Morning</label>
+                    <label><input type="checkbox">Afternoon</label>
+                    <label><input type="checkbox">Evening</label>
+                    <label><input type="checkbox">Night</label>
+                </div>
+                <div>
+                    <h2>Duration</h2>
+                    <label><input type="checkbox" value="5">5 days</label>
+                    <label><input type="checkbox" value="6">6 days</label>
+                    <label><input type="checkbox" value="7">7 days</label>
+                    <label><input type="checkbox" value="8">8 days</label>
+                    <label><input type="checkbox" value="9">9 days</label>
+                    <label><input type="checkbox">more than 10 days</label>
+                </div>
+            </div>
+            <div id="cruise-container"></div>
+    </section>
+    
     <div id="footer"></div>
 
     <script src="../js/cruisesapi.js"></script>
@@ -30,40 +80,49 @@
         let onecruise = "";
         
         cruises.forEach((cruise, index) => {
-            onecruise 
-            += `
-                <div class="cruisecard">
-                    <img src="${cruise.image}" alt="${cruise.name}" class="cruise-image" data-id="${index}">
-                    <div class="card-content">
-                        <h3>${cruise.name}</h3>     
-                        <hr>
-                        <abbr title="Cmimi" style="text-decoration: none;">
-                        	<h4 class="price">$${cruise.price}</h4>
-												</abbr>
-                        <h5 class="duration">${cruise.duration} Days</h5>
-                        <p><span>ROUNDTRIP FROM:</span> ${cruise.ports[0]}</p>
-                        <p><span>Visiting:</span> ${cruise.ports.map(port => `<a class="port">${port}</a>`).join(' &#9679; ')}</p>
-                        <p><span>Destination:</span> ${cruise.destination}</p>
-                        <p><span>Cruise:</span> ${cruise.ship}</p>
-                        <div class="cruise-rating"> 
-                            <i class="ri-star-fill"></i><span>${cruise.rating}</span>
+            onecruise += `
+                <div class="cruise-card">
+                    <div class="cruise-card-header">
+                        <img src="${cruise.image}" alt="${cruise.name}" class="cruise-image" data-id="${index}">
+                        <div class="img-top">
+                            <span>${cruise.duration} Days</span>    
+                            <p>${cruise.ship}</p>
                         </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-name">
+                            <h3>${cruise.name}</h3>
+                            <p><i class="ri-map-pin-2-fill"></i> ${cruise.destination}</p>    
+                        </div>
+                        <div class="tour-details">
+                            <p>ROUNDTRIP</p>
+                            <span>$${cruise.price}</span>
+                        </div>
+                        <p>VISITING: ${cruise.ports.map(port => `<a class="port">${port}`).join(' &#9679; ')}</a></p>
+                        <span><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i> ${cruise.rating}</span>
+                        <button class="details-btn" onclick="window.location.href='onecruise.html?id=${cruise.id-1}'">Details</button>
                     </div>
                 </div>
             `;
         });
 
-    cruisecontainer.innerHTML = onecruise;
+        cruisecontainer.innerHTML = onecruise;
 
-    document.querySelectorAll(".cruise-image").forEach(image => {
-        image.addEventListener("click", function() {
-            const cruiseid = this.getAttribute("data-id");
-            window.location.href = `onecruise.html?id=${cruiseid}`;
+        document.querySelectorAll(".cruise-image").forEach(image => {
+            image.addEventListener("click", function() {
+                const cruiseid = this.getAttribute("data-id");
+                window.location.href = `onecruise.html?id=${cruiseid}`;
+            });
         });
-});
 
+        flatpickr("#datePicker", {
+        dateFormat: "Y-m-d",
+        defaultDate: "today", 
+        inline: true,
+        enableTime: false, 
+        mode: "single",
+        });
     </script>
-
     <script type="text/javascript">
         $('#nav').load('../nav/nav.html');
         $('#footer').load('../footer/footer.html');
