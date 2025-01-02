@@ -68,7 +68,7 @@ nav {
     color: var(--white); 
     background-color: var(--text-dark); 
     border-radius: 5rem;
-    border: none;
+    border: inset;
     cursor: pointer;
 }
 
