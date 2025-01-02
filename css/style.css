@@ -191,6 +191,10 @@ header::before {
     cursor: pointer;
 }
 
+.btn:focus {
+    outline: 2px solid var(--primary-color-dark);
+}
+
 .client__card:hover h4 {
     color: var(--white);
 }
