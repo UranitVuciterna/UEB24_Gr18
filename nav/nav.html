@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Navigation</title>
     <link rel="stylesheet" href="../nav/nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
 </head>
 <body>
@@ -14,26 +15,36 @@
     </div>
     <ul class="nav__links" id="nav-links">
         <li><a href="../html/index.html">Home</a></li>
-        <li><a href="../html/cruise-find.html">Find a Cruise</a></li>
+        <li><a href="#">Find a Cruise</a></li>
         <li><a href="#">Destinations</a></li>
         <li><a href="#">Deals</a></li>
         <li><a href="../html/signup.html">Sign Up</a></li>
     </ul>
     <div class="nav__btns">
         <a href="cruises.html"><button class="btnn">BOOK A TRIP</button></a>
-		<div id="menu-icon" onclick="toggleNavLinks()"><i class="ri-menu-line"></i></div>
+        <span id="fullname" class="user-fullname"></span>
+        <div id="menu-icon" onclick="toggleNavLinks()"></div>
     </div>
 </nav>
 
 <script>
     const canvas = document.getElementById('logoCanvas');
     const ctx = canvas.getContext('2d');
-
     ctx.font = 'bold 34px Arial';
     ctx.fillStyle = 'black';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText('Web24', canvas.width / 2, canvas.height / 2);
+
+    const user = JSON.parse(localStorage.getItem('user'));
+    const fullnameElement = document.getElementById('fullname');
+    
+    if (user && user.fullname) {
+        fullnameElement.innerHTML = `<i class="fa fa-user"></i> ${user.fullname}`;
+    } else {
+        fullnameElement.remove();
+    }
+
 </script>
 <script>
     function toggleNavLinks() {

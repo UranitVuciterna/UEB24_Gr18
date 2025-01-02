@@ -7,9 +7,9 @@
     <link href="../css/loginstyle.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-	integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-	crossorigin="anonymous" referrerpolicy="no-referrer">
-	</script>
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
 </head>
 <body>
     <div id="nav"></div>
@@ -19,8 +19,8 @@
             <div class="form-container">
                 <h2 class="form-title">Log In</h2>
                 <form id="login">
-                    <input type="email" name="email" placeholder="Enter email address" class="form-input" autocomplete />
-                    <input type="password" name="password" placeholder="Enter password" class="form-input" />
+                    <input type="email" name="email" placeholder="Enter email address" class="form-input" required />
+                    <input type="password" name="password" placeholder="Enter password" class="form-input" required />
                     <button class="form-button">Login</button>
                     <div id="message-container"></div>
                     <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
@@ -31,44 +31,42 @@
 
     <div id="footer"></div>
 
-
     <script type="module">
-        const form = document.querySelector('#login')
-        const isloggedin = localStorage.getItem('isloggedin') ?? false
-        const messageContainer = document.getElementById('message-container')
-        const checkbox = document.getElementById('checkbox')
+        const form = document.querySelector('#login');
+        const isloggedin = localStorage.getItem('isloggedin') ?? false;
+        const messageContainer = document.getElementById('message-container');
 
-        if(isloggedin) {
-            window.location.href = 'index.html'
+        if (isloggedin === 'true') {
+            window.location.href = 'index.html';
         }
 
         form.addEventListener('submit', event => {
-            event.preventDefault()
-            const data = event.target.elements
+            event.preventDefault();
+
+            const data = event.target.elements;
             const users = localStorage.getItem('users') !== null ? JSON.parse(localStorage.getItem('users')) : [];
             
-            const email = data['email'].value
-            const password = data['password'].value
+            const email = data['email'].value;
+            const password = data['password'].value;
 
-            if(users.length > 0) {
-                const userExists = users.filter(user => (user.email === email && user.password === password))
+            if (users.length > 0) {
+                const user = users.find(user => user.email === email && user.password === password);
 
-                if(userExists.length) {
-                    localStorage.setItem('isloggedin', true)
-                    localStorage.setItem('user', email)
-                    window.location.href = 'index.html'
+                if (user) {
+                    localStorage.setItem('isloggedin', true);
+                    localStorage.setItem('user', JSON.stringify({ email: user.email, fullname: user.fullname }));
+                    window.location.href = 'index.html';
                 } else {
-                    messageContainer.textContent = "Invalid credentials!"
+                    messageContainer.textContent = "Invalid credentials!";
                     messageContainer.style.color = "red";
                 }
             } else {
-                messageContainer.textContent = "Please create your account first!"
+                messageContainer.textContent = "Please create your account first!";
                 messageContainer.style.color = "red";
             }
-        })
-
-        
+        });
     </script>
+
     <script type="text/javascript">
         $('#nav').load('../nav/nav.html');
         $('#footer').load('../footer/footer.html');

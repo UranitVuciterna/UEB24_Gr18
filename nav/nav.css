@@ -68,13 +68,19 @@ nav {
     color: var(--white); 
     background-color: var(--text-dark); 
     border-radius: 5rem;
-    border: inset;
+    border: none;
     cursor: pointer;
 }
 
 .btnn:hover {
     background-color: #3e3e3e; 
     color: var(--white); 
+}
+
+.user-fullname {
+    border: 1px solid black;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5rem;
 }
 
 #menu-icon {
