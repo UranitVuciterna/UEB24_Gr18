@@ -37,7 +37,9 @@
                     <div class="card-content">
                         <h3>${cruise.name}</h3>     
                         <hr>
-                        <h4 class="price">$${cruise.price}</h4>
+                        <abbr title="Cmimi" style="text-decoration: none;">
+                        	<h4 class="price">$${cruise.price}</h4>
+												</abbr>
                         <h5 class="duration">${cruise.duration} Days</h5>
                         <p><span>ROUNDTRIP FROM:</span> ${cruise.ports[0]}</p>
                         <p><span>Visiting:</span> ${cruise.ports.map(port => `<a class="port">${port}</a>`).join(' &#9679; ')}</p>
