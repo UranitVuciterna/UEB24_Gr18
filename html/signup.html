@@ -65,6 +65,12 @@
             const users = localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')) : [];
 
             const fullname = data['fullname'].value.trim();
+						// check if fullname contains invalid characters
+						if (!fullname.match(/^[a-zA-Z0-9 ]+$/)) {
+							messageContainer.textContent = "Fullname contains invalid characters!";
+							messageContainer.style.color = "red";
+							return;
+						}
             const email = data['email'].value.trim().toLowerCase();
             const password1 = data['password1'].value;
             const password2 = data['password2'].value;
