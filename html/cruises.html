@@ -82,35 +82,33 @@
 
     <script src="../js/cruisesapi.js"></script>
     <script>
-        const cruisecontainer = document.getElementById("cruise-container");
-        let onecruise = "";
-        
-        cruises.forEach((cruise, index) => {
-            onecruise += `
-                <div class="cruise-card">
-                    <div class="cruise-card-header">
-                        <img src="${cruise.image}" alt="${cruise.name}" class="cruise-image" data-id="${index}">
-                        <div class="img-top">
-                            <span>${cruise.duration} Days</span>    
-                            <p>${cruise.ship}</p>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-name">
-                            <h3>${cruise.name}</h3>
-                            <p><i class="ri-map-pin-2-fill"></i> ${cruise.destination}</p>    
-                        </div>
-                        <div class="tour-details">
-                            <p>ROUNDTRIP</p>
-                            <span>$${cruise.price}</span>
-                        </div>
-                        <p>VISITING: ${cruise.ports.map(port => `<a class="port">${port}`).join(' &#9679; ')}</a></p>
-                        <span><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i> ${cruise.rating}</span>
-                        <button class="details-btn" onclick="window.location.href='onecruise.html?id=${cruise.id-1}'">Details</button>
-                    </div>
-                </div>
-            `;
-        });
+			const cruisecontainer = document.getElementById("cruise-container");
+			let onecruise = cruises.reduce((acc, cruise, index) => {
+					return acc + `
+							<div class="cruise-card">
+									<div class="cruise-card-header">
+											<img src="${cruise.image}" alt="${cruise.name}" class="cruise-image" data-id="${index}">
+											<div class="img-top">
+													<span>${cruise.duration} Days</span>
+													<p>${cruise.ship}</p>
+											</div>
+									</div>
+									<div class="card-content">
+											<div class="card-name">
+													<h3>${cruise.name}</h3>
+													<p><i class="ri-map-pin-2-fill"></i> ${cruise.destination}</p>
+											</div>
+											<div class="tour-details">
+													<p>ROUNDTRIP</p>
+													<span>$${cruise.price}</span>
+											</div>
+											<p>VISITING: ${cruise.ports.map(port => `<a class="port">${port}`).join(' &#9679; ')}</a></p>
+											<span><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i> ${cruise.rating}</span>
+											<button class="details-btn" onclick="window.location.href='onecruise.html?id=${cruise.id-1}'">Details</button>
+									</div>
+							</div>
+					`;
+			}, "");
 
         cruisecontainer.innerHTML = onecruise;
 
