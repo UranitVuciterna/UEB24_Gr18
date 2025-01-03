@@ -14,6 +14,9 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 <body>
+		<audio id="background-audio" loop>
+			<source src="../videos/background-sound.mp3" type="audio/mpeg">
+		</audio>
 
     <div id="nav"></div>
 
@@ -70,6 +73,7 @@
                 </div>
             </div>
             <div id="cruise-container"></div>
+				</div>
     </section>
     
     <div id="footer"></div>
@@ -122,6 +126,8 @@
         enableTime: false, 
         mode: "single",
         });
+				
+				document.getElementById('background-audio').play();
     </script>
     <script type="text/javascript">
         $('#nav').load('../nav/nav.html');
