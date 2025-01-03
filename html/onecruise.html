@@ -181,15 +181,34 @@
     <script src="../js/cruisesapi.js"></script>
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-        const cruiseid = urlParams.get('id');
-        const cruise = cruises[cruiseid];
+        const cruiseid = Number(urlParams.get('id'));
+				let cruise = null;
+				if (cruiseid > Number.MAX_VALUE) {
+					alert('Invalid cruise id');
+				} else {
+					 cruise = cruises[cruiseid];
+				}
         const cruiseDetailsContainer = document.getElementById('one-cruise');
         const roomDetailsContainer = document.getElementById('room-cruise');
         const cruisecontainer = document.getElementById("cruise-container");
         let onecruise = "";
         let onecruisedetails = "";
+				
+				const cruiseValidation = (cruise) => {
+					if (isNaN(cruiseid)) {
+						alert('Invalid cruise id');
+						return false;
+					}
+					
+					if (!cruise) {
+						alert('Cruise not found!');
+						return false;
+					}
+					
+					return true;
+				}
 
-        if (cruise) {
+        if (cruiseValidation(cruise)) {
             cruiseDetailsContainer.innerHTML = `
             <div class="clicked-cruise">
                 <div class="clicked-cruise-grid1">
@@ -203,8 +222,9 @@
                     <h2>${cruise.name}</h2> 
                     <p><span>${cruise.description}</span></p> 
                     <span><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i> ${cruise.rating}</span>
-                    <p>Destination: <span>${cruise.destination}</span></p> 
-                    <p>Price: <span>$${cruise.price}</span></p> 
+                    <p>Destination: <span>${cruise.destination}</span></p>
+										<p>Distance: <span>${cruise.distanceFromThePort.toExponential(2)}km</span></p>
+                    <p>Price: <span>$${cruise.price.toString(10)}</span></p>
                     <p>Departure Date: <span>${cruise.departuredate}</span></p> 
                     <p>Return Date: <span>${cruise.returndate}</span></p> 
                     <p>Ports: <span>${cruise.ports.join(', ')}</span></p> 
