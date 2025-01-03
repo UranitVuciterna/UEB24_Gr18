@@ -16,6 +16,72 @@
         padding: 20px 0 60px 0;
     }
 
+    .clicked-cruise {
+        display: grid;
+        grid-template-columns: 60% 40%;
+        margin: 0 0 40px 0;
+        border-radius: 15px;
+        height: 100%;
+        box-shadow: 0px 0px 11px 3px #f1f1f1;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+    }
+    
+    .clicked-cruise-text {
+        margin: 0 15px;
+        i {
+            color: #ffd500;
+        }
+    }
+    
+    
+    .clicked-cruise-text {
+        font-family: 'Montserrat', sans-serif;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        span {
+            color: #666666;
+        }
+    }
+    
+    .clicked-cruise-text h2 {
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        color: #052d5e;
+    }
+
+    .clicked-cruise-grid1 {
+        position: relative;
+    }
+
+    .clicked-cruise-img-text {
+        font-family: 'Montserrat';
+        text-transform: uppercase;
+        position: absolute;
+        left: 20px;
+        bottom: 10px;
+        font-weight: bold;
+        letter-spacing: 1.4px;
+        p {
+            color: white;
+            font-size: 22px;
+            margin-top: 7px;
+        }
+        span {
+            color: #052d5e;
+            border: 1px solid white;
+            background-color: white;
+            padding: 5px 10px;
+        }
+    }
+
+
     .onecruise-container {
         display: flex;
         img {
@@ -33,15 +99,16 @@
 
     .room-card {
         box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.16);
-        padding: 10px;
-        border-radius: 10px;
+        border-radius: 15px;
+        height: 450px;
         img {
-        border-radius: 10px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
     }
         h4 {
             font-family: "Montserrat", serif;
             text-transform: uppercase;
-            color: #12014e;
+            color: #052d5e;
         }
     
         h5 {
@@ -60,12 +127,17 @@
         }
     }
 
-    h3 {
+    h6 {
         font-family: "Montserrat", serif;
         font-size: 22px;
         text-transform: uppercase;
-        padding-bottom: 25px;
+        padding: 25px 0;
         color: #12014e;
+    }
+
+    .room-card-text {
+        padding: 15px;
+        height: 40%;
     }
 
     .room-card img {
@@ -80,6 +152,20 @@
         padding: 10px 0;
     }
 
+    .book-btn-wrapper {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .book-btn {
+        padding: 10px 0;
+        background-color: #2887ff;
+        color: white;
+        border-radius: 30px;
+        border: none;
+        width: 100%;
+    }
+
 </style>
 </head>
 <body>
@@ -87,6 +173,8 @@
     <section>
         <div id="one-cruise"></div>
         <div id="room-cruise"></div>
+        <div><h6>Explore more cruises</h6></div>
+        <div id="cruise-container"></div>
     </section>
     <div id="footer"></div>
 
@@ -97,49 +185,84 @@
         const cruise = cruises[cruiseid];
         const cruiseDetailsContainer = document.getElementById('one-cruise');
         const roomDetailsContainer = document.getElementById('room-cruise');
-
-        let onecruisedetails = '';
+        const cruisecontainer = document.getElementById("cruise-container");
+        let onecruise = "";
+        let onecruisedetails = "";
 
         if (cruise) {
             cruiseDetailsContainer.innerHTML = `
-                <div class="cruisecard">
-                    <img src="${cruise.image}" alt="${cruise.name}" class="cruise-image">
-                    <div class="card-content">
-                        <h3>${cruise.name}</h3>     
-                        <hr>
-                        <h4 class="price"><sup>$</sup>${cruise.price}</h4>
-                        <h5 class="duration">${cruise.duration} Days</h5>
-                        <p><span>ROUNDTRIP FROM:</span> ${cruise.ports[0]}</p>
-                        <p><span>Visiting:</span> ${cruise.ports.map(port => `<a class="port">${port}</a>`).join(' &#9679; ')}</p>
-                        <p><span>Destination:</span> ${cruise.destination}</p>
-                        <p><span>Cruise:</span> ${cruise.ship}</p>
-                        <div class="cruise-rating"> 
-                            <i class="ri-star-fill"></i><span>${cruise.rating}</span>
-                        </div>
+            <div class="clicked-cruise">
+                <div class="clicked-cruise-grid1">
+                    <img src="${cruise.image}"/>
+                    <div class="clicked-cruise-img-text">
+                        <span>${cruise.duration} days</span>   
+                        <p>${cruise.ship}</p>     
                     </div>
                 </div>
-                <h3>Room Types</h3>
-            `;
+                <div class="clicked-cruise-text">
+                    <h2>${cruise.name}</h2> 
+                    <p><span>${cruise.description}</span></p> 
+                    <span><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i> ${cruise.rating}</span>
+                    <p>Destination: <span>${cruise.destination}</span></p> 
+                    <p>Price: <span>$${cruise.price}</span></p> 
+                    <p>Departure Date: <span>${cruise.departuredate}</span></p> 
+                    <p>Return Date: <span>${cruise.returndate}</span></p> 
+                    <p>Ports: <span>${cruise.ports.join(', ')}</span></p> 
+                    <p>Activities: <span>${cruise.activities.join(', ')}</span></p> 
+                    <p>Dining: <span>${cruise.dining.join(', ')}</span></p> 
+                </div>
+            </div> `;
 
             cruise.rooms.forEach(room => {
                 roomDetailsContainer.innerHTML += `
                     <div class="room-card">
                         <img src="${room.roomsimage ? room.roomsimage : '../cruiseimages/default-room.jpg'}" alt="${room.type}" class="room-image">
-                        <div>
+                        <div class="room-card-text">
                             <div class="room-price">
                                 <h4>${room.type}</h4>
                                 <h5>$${room.price}</h5>
                             </div>
-                            <hr>
-                            <p><span>Capacity:</span> ${room.sleeps} people</p>
-                            <p>${room.description.join('<br>')}</p>
+                            <div>
+                                <p><span>Capacity:</span> ${room.sleeps} people</p>
+                                <p>${room.description.join('. ')}</p>
+                            </div>
                         </div>
+                        <div class="book-btn-wrapper"><button class="book-btn">BOOK A ROOM</button></div>
                     </div>
                 `;
             });
         } else {
             cruiseDetailsContainer.innerHTML = '<p>Cruise not found!</p>';
         }
+        // explore more 
+        cruises.forEach((cruise, index) => {
+            onecruise += `
+                <div class="cruise-card">
+                    <div class="cruise-card-header">
+                        <img src="${cruise.image}" alt="${cruise.name}" class="cruise-image" data-id="${index}">
+                        <div class="img-top">
+                            <span>${cruise.duration} Days</span>    
+                            <p>${cruise.ship}</p>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-name">
+                            <h3>${cruise.name}</h3>
+                            <p><i class="ri-map-pin-2-fill"></i> ${cruise.destination}</p>    
+                        </div>
+                        <div class="tour-details">
+                            <p>ROUNDTRIP</p>
+                            <span>$${cruise.price}</span>
+                        </div>
+                        <p>VISITING: ${cruise.ports.map(port => `<a class="port">${port}`).join(' &#9679; ')}</a></p>
+                        <span><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i> ${cruise.rating}</span>
+                        <button class="details-btn" onclick="window.location.href='onecruise.html?id=${cruise.id-1}'">Details</button>
+                    </div>
+                </div>
+            `;
+        });
+
+        cruisecontainer.innerHTML = onecruise;
 
 
     </script>
