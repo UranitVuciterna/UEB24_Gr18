@@ -3,15 +3,233 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="../css/explore-more.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
 					integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
 					crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<title>Explore More</title>
+	<style>
+		:root {
+			--primary-color: #2887ff;
+			--primary-color-dark: #2476da;
+			--text-dark: #0a0a0a;
+			--text-light: #737373;
+			--extra-light: #f3f4f6;
+			--white: #ffffff;
+			--max-width: 1200px;
+			--trans: all 0.3s ease;
+		}
+		
+		body {
+			margin: 0;
+			font-family: Arial, sans-serif;
+		}
+		
+		.cruise-features {
+			background-color: #d3f1f2;
+			margin: 5rem auto 5rem;
+			max-width: var(--max-width);
+			text-align: center;
+			border-radius: 10px;
+		}
+		
+		.cruise-features h2 {
+			font-size: 2rem;
+			color: var(--primary-color);
+			margin-bottom: 1rem;
+		}
+		
+		.cruise-features p {
+			font-size: 1rem;
+			color: #333;
+			margin-bottom: 2rem;
+			line-height: 1.5;
+		}
+		
+		.cruise-features p a {
+			color: var(--primary-color);
+			text-decoration: none;
+		}
+		
+		.features-list {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: 1.5rem;
+			margin-bottom: 2rem;
+		}
+		
+		.feature-item {
+			background-color: #fff;
+			border-radius: 10px;
+			padding: 1rem;
+			text-align: center;
+			width: 250px;
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		}
+		
+		.feature-item img {
+			width: 50px;
+			height: 50px;
+			margin-bottom: 1rem;
+		}
+		
+		.feature-item p {
+			font-size: 0.9rem;
+			color: var(--primary-color);
+			margin: 0;
+		}
+		
+		.read-more-btn {
+			background-color: var(--primary-color);
+			color: #fff;
+			border: #cccccc;
+			padding: 0.75rem 1.5rem;
+			font-size: 1rem;
+			border-radius: 5px;
+			cursor: pointer;
+			text-decoration: none;
+		}
+		
+		.read-more-btn:hover {
+			background-color: #0056b3;
+			text-decoration: none;
+		}
+		
+		.head_section {
+			position: relative;
+			isolation: isolate;
+			height: 600px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			color: white;
+			overflow: hidden;
+		}
+		
+		.head_section::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background-image: url("../img/img_4.png");
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			z-index: -1;
+		}
+		
+		.content {
+			z-index: 1;
+			color: white;
+			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+		}
+		
+		.content h1 {
+			font-size: 5rem;
+			margin: 0;
+			font-family: "DM Sans", sans-serif;
+		}
+		
+		.content p {
+			font-size: 2rem;
+			margin: 0.5rem 0 0;
+			font-family: "DM Sans", sans-serif;
+		}
+		
+		.container {
+			text-align: center;
+			padding: 20px;
+			max-width: 1200px;
+			margin: 10px auto;
+		}
+		
+		h1 {
+			color: white;
+			font-size: 2.5rem;
+			margin-bottom: 10px;
+		}
+		
+		.subtitle {
+			font-size: 1.1rem;
+			color: #555;
+			margin-bottom: 30px;
+		}
+		.faq-container {
+			text-align: center;
+			padding: 20px;
+			background-color: #f9f9f9;
+			font-family: 'Arial', sans-serif;
+		}
+		
+		.faq-container h1 {
+			font-size: 2.5rem;
+			color: #2a2a2a;
+			margin-bottom: 10px;
+		}
+		
+		.faq-container .subtitle {
+			font-size: 1.2rem;
+			color: #555;
+			margin-bottom: 30px;
+		}
+		
+		.topics {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 20px;
+		}
+		
+		.topic {
+			background-color: #fff;
+			border-radius: 12px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			width: 200px;
+			padding: 15px;
+			text-align: center;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			transition: transform 0.2s ease, box-shadow 0.2s ease;
+		}
+		.topic:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+		}
+		
+		.icon {
+			width: 50px;
+			height: 50px;
+			margin-bottom: 10px;
+		}
+		
+		.topic a {
+			text-decoration: none;
+			font-size: 1rem;
+			font-weight: bold;
+			color: var(--primary-color);
+			transition: color 0.2s ease;
+			margin-top: 10px;
+		}
+		.topic a:hover {
+			color: var(--primary-color-dark);
+		}
+	
+	</style>
 </head>
 <body>
 
 <div id="nav" style="position: sticky; top: 0; z-index: 1000; background-color: white;"></div>
+
+<section class="head_section">
+	<div class="content">
+		<p>Why cruising is the best vacation</p>
+		<h1>First Time Cruiser tips</h1>
+	</div>
+</section>
 
 <section class="cruise-features">
 	<div class="container">
@@ -45,6 +263,35 @@
 		<a href="../html/read-more.html" class="read-more-btn">Read More On What's Included On A Cruise</a>
 	</div>
 </section>
+
+<div class="faq-container">
+	<h1>VIEW FAQS</h1>
+	<p class="subtitle">
+		Have a question? Don’t be shy. We’re here to help you make the most of your adventure. Find answers to our most frequently asked questions below.
+	</p>
+	<div class="topics">
+		<div class="topic">
+			<img src="../img/documents.png" alt="Travel Documents Icon" class="icon">
+			<a href="#">Travel Documents</a>
+		</div>
+		<div class="topic">
+			<img src="../img/payment.png" alt="Payment & Cancellation Policies Icon" class="icon">
+			<a href="#">Payment & Cancellation Policies</a>
+		</div>
+		<div class="topic">
+			<img src="../img/transport.png" alt="Embarkation & Transportation Icon" class="icon">
+			<a href="#">Embarkation & Transportation</a>
+		</div>
+		<div class="topic">
+			<img src="../img/internet.png" alt="Onboard Internet Icon" class="icon">
+			<a href="#">Onboard Internet</a>
+		</div>
+		<div class="topic">
+			<img src="../img/luggage.png" alt="Luggage Icon" class="icon">
+			<a href="#">Luggage, Dress Code & Packing</a>
+		</div>
+	</div>
+</div>
 
 <div id="footer"></div>
 
