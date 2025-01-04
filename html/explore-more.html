@@ -24,6 +24,12 @@
 			font-family: Arial, sans-serif;
 		}
 		
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 2rem;
+		}
+		
 		.cruise-features {
 			background-color: #d3f1f2;
 			margin: 5rem auto 5rem;
@@ -138,6 +144,13 @@
 			margin: 0.5rem 0 0;
 			font-family: "DM Sans", sans-serif;
 		}
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #f9f9f9;
+			color: #333;
+		}
 		
 		.container {
 			text-align: center;
@@ -217,7 +230,56 @@
 		.topic a:hover {
 			color: var(--primary-color-dark);
 		}
-	
+		
+		.modal {
+			display: none;
+			position: fixed;
+			z-index: 1000;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgba(0, 0, 0, 0.5);
+		}
+		
+		.modal-content {
+			background-color: #fff;
+			margin: 10% auto;
+			padding: 20px;
+			border-radius: 10px;
+			width: 80%;
+			max-width: 600px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+			text-align: center;
+		}
+		
+		.modal-header, .modal-body, .modal-footer {
+			margin: 10px 0;
+		}
+		
+		.modal-header {
+			font-size: 1.5rem;
+			font-weight: bold;
+		}
+		
+		.close-btn {
+			float: right;
+			font-size: 1.5rem;
+			font-weight: bold;
+			color: #333;
+			cursor: pointer;
+		}
+		
+		.close-btn:hover {
+			color: red;
+		}
+		
+		.open-modal {
+			cursor: pointer;
+			text-decoration: none;
+			color: var(--primary-color);
+		}
 	</style>
 </head>
 <body>
@@ -272,23 +334,73 @@
 	<div class="topics">
 		<div class="topic">
 			<img src="../img/documents.png" alt="Travel Documents Icon" class="icon">
-			<a href="#">Travel Documents</a>
+			<a class="open-modal" data-modal="travel-documents-modal">Travel Documents</a>
 		</div>
 		<div class="topic">
 			<img src="../img/payment.png" alt="Payment & Cancellation Policies Icon" class="icon">
-			<a href="#">Payment & Cancellation Policies</a>
+			<a class="open-modal" data-modal="payment-modal">Payment & Cancellation Policies</a>
 		</div>
 		<div class="topic">
 			<img src="../img/transport.png" alt="Embarkation & Transportation Icon" class="icon">
-			<a href="#">Embarkation & Transportation</a>
+			<a class="open-modal" data-modal="transport-modal">Embarkation & Transportation</a>
 		</div>
 		<div class="topic">
 			<img src="../img/internet.png" alt="Onboard Internet Icon" class="icon">
-			<a href="#">Onboard Internet</a>
+			<a class="open-modal" data-modal="internet-modal">Onboard Internet</a>
 		</div>
 		<div class="topic">
 			<img src="../img/luggage.png" alt="Luggage Icon" class="icon">
-			<a href="#">Luggage, Dress Code & Packing</a>
+			<a class="open-modal" data-modal="luggage-modal">Luggage, Dress Code & Packing</a>
+		</div>
+	</div>
+</div>
+
+<div id="travel-documents-modal" class="modal">
+	<div class="modal-content">
+		<span class="close-btn">&times;</span>
+		<div class="modal-header">Travel Documents</div>
+		<div class="modal-body">
+			<p>Here is the information about travel documents. You can also upload or download relevant files.</p>
+		</div>
+	</div>
+</div>
+
+<div id="payment-modal" class="modal">
+	<div class="modal-content">
+		<span class="close-btn">&times;</span>
+		<div class="modal-header">Payment & Cancellation Policies</div>
+		<div class="modal-body">
+			<p>Details about payment options, cancellation policies, and refund eligibility.</p>
+		</div>
+	</div>
+</div>
+
+<div id="transport-modal" class="modal">
+	<div class="modal-content">
+		<span class="close-btn">&times;</span>
+		<div class="modal-header">Embarkation & Transportation</div>
+		<div class="modal-body">
+			<p>Learn about embarkation procedures, transportation options, and related guidelines.</p>
+		</div>
+	</div>
+</div>
+
+<div id="internet-modal" class="modal">
+	<div class="modal-content">
+		<span class="close-btn">&times;</span>
+		<div class="modal-header">Onboard Internet</div>
+		<div class="modal-body">
+			<p>Explore the onboard internet packages, connection details, and pricing.</p>
+		</div>
+	</div>
+</div>
+
+<div id="luggage-modal" class="modal">
+	<div class="modal-content">
+		<span class="close-btn">&times;</span>
+		<div class="modal-header">Luggage, Dress Code & Packing</div>
+		<div class="modal-body">
+			<p>Find out what's allowed in your luggage, dress code policies, and packing tips.</p>
 		</div>
 	</div>
 </div>
@@ -296,6 +408,23 @@
 <div id="footer"></div>
 
 <script type="text/javascript">
+	$(document).ready(function () {
+		$(".open-modal").on("click", function (e) {
+			e.preventDefault();
+			let targetModal = $(this).data("modal");
+			$("#" + targetModal).fadeIn();
+		});
+		
+		$(".close-btn").on("click", function () {
+			$(this).closest(".modal").fadeOut();
+		});
+		
+		$(window).on("click", function (e) {
+			if ($(e.target).hasClass("modal")) {
+				$(".modal").fadeOut();
+			}
+		});
+	});
 	$('#nav').load('../nav/nav.html');
 	$('#footer').load('../footer/footer.html');
 </script>
