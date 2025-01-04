@@ -9,11 +9,14 @@
 					integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
 					crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<link rel="stylesheet" href="../css/style.css"/>
+	<!-- Remix Icon CDN -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
+	<!-- Google Material Icons CDN -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 	<script>
 		document.title = "Web 24";
 	</script>
-</head>
-
 <body>
 
 <!--inline css-->
@@ -60,6 +63,38 @@
 		<button type = "button" id = "play-btn">
 			<i class = "fas fa-play"></i>
 		</button>
+	</div>
+</section>
+
+<!-- test -->
+<section class="section__container">
+	<h2 class="section__header">Journey To The Sea Made Simple</h2>
+	<p class="section__description">Traveling Is A Wonderful Way To Explore New Places, Learn About Different Cultures, And Gain Unique Experiences.</p>
+	<div class="page-card-container">
+		<div class="page-card">
+			<i class="fa fa-map-marker-alt"></i>
+			<div>
+				<a href="#">Find</a>
+				<a href="#">Your Destination</a>	
+			</div>
+		</div>
+		<div class="page-card">
+			<i class="fa fa-plane"></i>
+			<div class="middle-page-card">
+				<img src="../img/indeximg.jpg" alt="">
+				<h3>Book</h3>
+				<h3>A Ticket</h3>
+			</div>
+			<p>Traveling is a wonderful way to explore new places, learn about different cultures, and gain unique experiences.</p>
+			<div><a href="cruises.html">LEARN MORE</a></div>
+		</div>
+		<div class="page-card">
+			<i class="fa fa-wallet"></i>
+			<div>
+				<a href="cruise-find.html">Find</a>
+				<a href="cruise-find.html">Your Deal</a>
+			</div>
+		</div>
 	</div>
 </section>
 
@@ -249,6 +284,10 @@
         });
 
 	destinationCard.innerHTML = popularDestinations;
+
+	// test
+
+
 </script>
 
 </body>

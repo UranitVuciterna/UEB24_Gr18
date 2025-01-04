@@ -279,6 +279,86 @@ header::before {
     object-fit: cover;
 }
 
+.page-card-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 15px;
+    margin: 0 auto;
+    width: 90%;
+    height: 500px; 
+}
+
+.page-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    flex: 1;
+    padding: 50px;
+    height: 300px;
+    background-color:#f5f5f5;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    transition: all 0.4s ease-in-out;
+}
+
+.page-card:nth-child(2){
+    position: relative;
+    color: white;
+    flex: 1.5;
+    height: 450px;
+    background-color: #2887ff;
+    overflow: hidden;
+    i{
+        border: 1px solid white;
+        border-radius: 100%;
+        padding: 20px;
+    }
+    img {
+        position: absolute;
+        border-radius: 50%;
+        width: 260px;
+        top: -55px;
+        right: -65px;
+        border: 1px solid white;
+        padding: 20px;
+    }
+    a {
+        text-decoration: none;
+        color: white;
+        display: block;
+    }
+}
+
+.page-card  > * {
+    margin: -3px;
+}
+
+.page-card:nth-child(1), .page-card:nth-child(3) {
+    i {
+        color: #2887ff;
+        font-size: 22px;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+        font-weight: bolder;
+        display: block;
+    }
+}
+.page-card:hover {
+    flex: 1.5;
+    height: 450px;
+}
+
+.page-card-container:hover .page-card:not(:hover) {
+    flex: 1;
+    height: 300px;
+}
+#video {
+    margin-top: 2rem;
+}
 /* Responsive Design */
 
 /* (Phones) */
@@ -307,11 +387,20 @@ header::before {
     .client__card {
         width: 95%;
     }
+
+    .page-card-container {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+    }
+    .page-card {
+        width: 100%;
+        i {
+            padding-bottom: 15px;
+        }
+    }
 }
 
-#video {
-    margin-top: 2rem;
-}
 
 /* (Tablets) */
 @media (min-width: 541px) and (max-width: 1024px) {
@@ -368,6 +457,7 @@ body {
     margin: 0; padding: 0;
     height: 2000px;
 }
+
 #scrollToTop {
     position: fixed; bottom: 20px; right: 20px;
     background-color: var(--primary-color); color: #fff; border: dotted; border-radius: 50%;
