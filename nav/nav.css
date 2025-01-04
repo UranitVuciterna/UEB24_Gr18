@@ -61,6 +61,11 @@ nav {
     color: var(--text-dark);
 }
 
+.nav__btns a {
+    color: black;
+    text-decoration: none;
+}
+
 .btnn {
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
@@ -99,12 +104,18 @@ nav {
         flex-direction: column;
     }
 
-    .btnn, #fullname {
+    .btnn{
         display: none;
     }
 
     #menu-icon {
         display: block;
+    }
+    
+    .nav__btns {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
@@ -115,12 +126,18 @@ nav {
         flex-direction: column;
     }
 
-    .btnn, #fullname {
+    .btnn{
         display: none;
     }
 
     #menu-icon {
         display: block;
+    }
+
+    .nav__btns {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 

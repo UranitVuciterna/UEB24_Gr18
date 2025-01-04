@@ -22,8 +22,10 @@
     </ul>
     <div class="nav__btns">
         <a href="cruises.html"><button class="btnn">BOOK A TRIP</button></a>
-        <div id="menu-icon" onclick="toggleNavLinks()"><i class="ri-menu-line"></i></div>
-        <span id="fullname" class="user-fullname"></span>
+        <a href="profile.html"><span id="fullname" class="user-fullname"></span></a>
+        <a href="book.html" style="color: black; border: 1px solid black; padding: 10px 11px; border-radius: 100%;"><i class="fa-solid fa-cart-shopping"></i></a>
+        <a href="index.html" onclick="signout()" style="color: black; border: 1px solid black; padding: 10px 11px; border-radius: 100%;"><i class="fa-solid fa-right-to-bracket"></i></a>
+        <div id="menu-icon" onclick="togglenav()"><i class="ri-menu-line"></i></div>
     </div>
 </nav>
 
@@ -37,17 +39,23 @@
     ctx.fillText('Web24', canvas.width / 2, canvas.height / 2);
 
     const user = JSON.parse(localStorage.getItem('user'));
-    const fullnameElement = document.getElementById('fullname');
+    const fullname = document.getElementById('fullname');
     
     if (user && user.fullname) {
-        fullnameElement.innerHTML = `<i class="fa fa-user"></i> ${user.fullname}`;
+        fullname.innerHTML = `<i class="fa fa-user"></i> ${user.fullname}`;
     } else {
-        fullnameElement.remove();
+        fullname.remove();
     }
 
-    function toggleNavLinks() {
-        const navLinks = document.getElementById("nav-links");
-        navLinks.style.display = navLinks.style.display === "block" ? "none" : "block";
+    function togglenav() {
+        const navlinks = document.getElementById("nav-links");
+        navlinks.style.display = navlinks.style.display === "block" ? "none" : "block";
+    }
+
+    function signout() {
+        localStorage.setItem('isloggedin', 'false');
+        localStorage.removeItem('user');
+        window.location.href = 'index.html';
     }
 </script>
 
