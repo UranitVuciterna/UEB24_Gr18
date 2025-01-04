@@ -8,20 +8,22 @@
 					crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<title>ReadMore</title>
 	<style>
+		:root {
+			--primary-color: #007BFF;
+			--primary-color-dark: #0056b3;
+		}
 		body {
 			margin: 0;
 			font-family: Arial, sans-serif;
 		}
-		
-		.hero-section {
+		.h-section {
 			padding-inline: 1rem;
 			position: relative;
 			isolation: isolate;
 			overflow: hidden;
 			height: 600px;
 		}
-		
-		.hero-section::before {
+		.h-section::before {
 			position: absolute;
 			content: "";
 			height: 100%;
@@ -33,9 +35,7 @@
 			background-size: cover;
 			background-repeat: no-repeat;
 			z-index: -1;
-			background-origin: border-box;
 		}
-		
 		.content {
 			position: absolute;
 			bottom: 20px;
@@ -47,33 +47,112 @@
 			background-color: rgba(0, 0, 0, 0.5);
 			border-radius: 8px;
 			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-		
+		}
 		.content h1 {
 			font-size: 5rem;
 			margin: 0;
 			text-transform: uppercase;
 			font-weight: bold;
-			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /
+			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 		}
-		
 		.content p {
 			font-size: 10px;
 			margin: 0;
 			font-style: italic;
 			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+		}
+		.container {
+			text-align: center;
+			padding: 20px;
+			max-width: 1200px;
+			margin: 10px auto;
+		}
+		.food-container {
+			text-align: center;
+			padding: 20px;
+			background-color: #f9f9f9;
+		}
+		.food-container h1 {
+			font-size: 2.5rem;
+			color: #2a2a2a;
+			margin-bottom: 10px;
+		}
+		.food-container .subtitle {
+			font-size: 1.2rem;
+			color: #555;
+			margin-bottom: 30px;
+		}
+		.topics {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 20px;
+		}
+		.topic {
+			background-color: #fff;
+			border-radius: 12px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			width: 200px;
+			padding: 15px;
+			text-align: center;
+			transition: transform 0.2s ease, box-shadow 0.2s ease;
+		}
+		.topic:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+		}
+		.icon {
+			width: 50px;
+			height: 50px;
+			margin-bottom: 10px;
+		}
+		.topic p {
+			text-decoration: none;
+			font-size: 1rem;
+			font-weight: bold;
+			color: var(--primary-color);
+			transition: color 0.2s ease;
+			margin-top: 10px;
+		}
+		.topic a:hover {
+			color: var(--primary-color-dark);
+		}
 	</style>
-	
 </head>
 <body>
-
 <div id="nav" style="position: sticky; top: 0; z-index: 1000; background-color: white;"></div>
-
-<section class="hero-section">
+<section class="h-section">
 	<div class="content">
 		<h1>What Is Included On A Cruise?</h1>
 		<p>Discover What Things Do You Pay For On A Cruise & What Is Typically Included</p>
 	</div>
 </section>
+<div class="food-container">
+	<h1>WHAT FOOD IS INCLUDED</h1>
+	<p class="subtitle">All ships have at least seven dining venues, with enough free options that you can feast your way through an entire cruise without paying extra for a single meal.</p>
+	<div class="topics">
+		<div class="topic">
+			<img src="../img/starters.png" alt="Starters" class="icon">
+			<p>Starters</p>
+		</div>
+		<div class="topic">
+			<img src="../img/drinks.png" alt="Drinks" class="icon">
+			<p>Starters</p>
+		</div>
+		<div class="topic">
+			<img src="../img/breakfast.png" alt="Breakfast" class="icon">
+			<p>Breakfast</p>
+		</div>
+		<div class="topic">
+			<img src="../img/coffe.png" alt="Coffe" class="icon">
+			<p>Coffe</p>
+		</div>
+		<div class="topic">
+			<img src="../img/pasta.png" alt="Pasta" class="icon">
+			<p>Pasta</p>
+		</div>
+	</div>
+</div>
 <div id="footer"></div>
 <script type="text/javascript">
 	$('#nav').load('../nav/nav.html');

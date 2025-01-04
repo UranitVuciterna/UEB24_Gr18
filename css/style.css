@@ -22,7 +22,7 @@
 .section__container {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 3rem 1rem;
+    padding: 5rem 1rem;
 }
 
 .section__header {
@@ -192,6 +192,7 @@ header::before {
     border-radius: 5rem;
     transition: 0.3s;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .btn:focus {
@@ -469,8 +470,8 @@ body {
 
 .banner {
     position: relative;
-    background: url('../img/banner.jpg') no-repeat center center/cover;
-    height: 400px; /* Adjust as needed */
+    background: url('../img/img_6.png') no-repeat center center/cover;
+    height: 400px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -482,7 +483,6 @@ body {
     padding: 3rem 1rem;
 }
 
-/* Overlay for the background image */
 .banner::before {
     content: '';
     position: absolute;
@@ -494,7 +494,6 @@ body {
     z-index: 1;
 }
 
-/* Banner Content */
 .banner-content {
     position: relative;
     z-index: 2;
@@ -512,20 +511,3 @@ body {
     margin: 0 0 20px;
     line-height: 1.5;
 }
-
-/*!* Button Style *!*/
-/*.btn {*/
-/*    display: inline-block;*/
-/*    background-color: #007bff; !* Blue color *!*/
-/*    color: white;*/
-/*    padding: 10px 20px;*/
-/*    text-decoration: none;*/
-/*    font-size: 14px;*/
-/*    font-weight: bold;*/
-/*    border-radius: 5px;*/
-/*    transition: background 0.3s;*/
-/*}*/
-
-/*.btn:hover {*/
-/*    background-color: #0056b3;*/
-/*}*/
