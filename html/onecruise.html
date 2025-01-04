@@ -41,12 +41,15 @@
     
     
     .clicked-cruise-text {
-        font-family: 'Montserrat', sans-serif;
         display: flex;
         flex-direction: column;
         gap: 2px;
+        p {
+            color: #929292;
+        }
         span {
-            color: #666666;
+            font-family: 'Montserrat', sans-serif;
+            color: #626262;
         }
     }
     
@@ -100,7 +103,6 @@
     .room-card {
         box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.16);
         border-radius: 15px;
-        height: 450px;
         img {
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
@@ -129,15 +131,14 @@
 
     h6 {
         font-family: "Montserrat", serif;
-        font-size: 22px;
+        font-size: 25px;
         text-transform: uppercase;
-        padding: 25px 0;
+        padding: 45px 0;
         color: #12014e;
     }
 
     .room-card-text {
         padding: 15px;
-        height: 40%;
     }
 
     .room-card img {
@@ -153,7 +154,6 @@
     }
 
     .book-btn-wrapper {
-        width: 100%;
         padding: 15px;
     }
 
@@ -165,7 +165,48 @@
         border: none;
         width: 100%;
     }
+    /* (Phone) */
+    @media (max-width: 540px) {
+        section {
+            width: 90%;
+        }
 
+        #room-cruise {
+        grid-template-columns: repeat(1, 1fr);
+        }
+
+        #cruise-container {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        
+        .clicked-cruise {
+            grid-template-columns: repeat(1, 1fr);
+            img {
+                border-radius: 15px;
+            }
+        }
+    }
+
+    /* (Tablets) */
+    @media (min-width: 541px) and (max-width: 1024px) {
+        section {
+            width: 90%;
+        }
+        #room-cruise {
+        grid-template-columns: repeat(2, 1fr);
+        }
+
+        #cruise-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .clicked-cruise {
+            grid-template-columns: repeat(1, 1fr);
+            img {
+                border-radius: 15px;
+            }
+        }
+    }
 </style>
 </head>
 <body>
@@ -183,33 +224,33 @@
         const urlParams = new URLSearchParams(window.location.search);
         const cruiseid = Number(urlParams.get('id'));
 				let cruise = null;
-				if (cruiseid > Number.MAX_VALUE) {
+				if (cruiseid > Number.MAX_VALUE) { // perdorimi i MAX_VALUE
 					alert('Invalid cruise id');
 				} else {
-					 cruise = cruises[cruiseid];
+					cruise = cruises[cruiseid];
 				}
-        const cruiseDetailsContainer = document.getElementById('one-cruise');
-        const roomDetailsContainer = document.getElementById('room-cruise');
+
+        const cruisedetailsdiv = document.getElementById('one-cruise');
+        const roomdetailsdiv = document.getElementById('room-cruise');
         const cruisecontainer = document.getElementById("cruise-container");
         let onecruise = "";
         let onecruisedetails = "";
 				
 				const cruiseValidation = (cruise) => {
-					if (isNaN(cruiseid)) {
+					if (isNaN(cruiseid)) { // perdorimi i NaN
 						alert('Invalid cruise id');
 						return false;
 					}
-					
 					if (!cruise) {
 						alert('Cruise not found!');
 						return false;
 					}
-					
 					return true;
 				}
 
         if (cruiseValidation(cruise)) {
-            cruiseDetailsContainer.innerHTML = `
+            // current clicked cruise
+            cruisedetailsdiv.innerHTML = `
             <div class="clicked-cruise">
                 <div class="clicked-cruise-grid1">
                     <img src="${cruise.image}"/>
@@ -220,21 +261,21 @@
                 </div>
                 <div class="clicked-cruise-text">
                     <h2>${cruise.name}</h2> 
-                    <p><span>${cruise.description}</span></p> 
+                    <p>${cruise.description}</p> 
                     <span><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i> ${cruise.rating}</span>
-                    <p>Destination: <span>${cruise.destination}</span></p>
-										<p>Distance: <span>${cruise.distanceFromThePort.toExponential(2)}km</span></p>
-                    <p>Price: <span>$${cruise.price.toString(10)}</span></p>
-                    <p>Departure Date: <span>${cruise.departuredate}</span></p> 
-                    <p>Return Date: <span>${cruise.returndate}</span></p> 
-                    <p>Ports: <span>${cruise.ports.join(', ')}</span></p> 
-                    <p>Activities: <span>${cruise.activities.join(', ')}</span></p> 
-                    <p>Dining: <span>${cruise.dining.join(', ')}</span></p> 
+                    <p><span>Destination: </span>${cruise.destination}</p>
+					<p><span>Distance: </span>${cruise.distanceFromThePort.toExponential(2)}km</p>
+                    <p><span>Price: </span>$${cruise.price.toString(10)}</p>
+                    <p><span>Departure Date: </span>${cruise.departuredate}</p> 
+                    <p><span>Return Date: </span>${cruise.returndate}</p> 
+                    <p><span>Ports: </span>${cruise.ports.join(' &#9679; ')}</p> 
+                    <p><span>Activities: </span>${cruise.activities.join(', ')}</p> 
+                    <p><span>Dining: </span>${cruise.dining.join(', ')}</p> 
                 </div>
             </div> `;
-
-            cruise.rooms.forEach(room => {
-                roomDetailsContainer.innerHTML += `
+            // clciked cruise rooms
+            cruise.rooms.forEach((room, index) => {
+                roomdetailsdiv.innerHTML += `
                     <div class="room-card">
                         <img src="${room.roomsimage ? room.roomsimage : '../cruiseimages/default-room.jpg'}" alt="${room.type}" class="room-image">
                         <div class="room-card-text">
@@ -247,12 +288,14 @@
                                 <p>${room.description.join('. ')}</p>
                             </div>
                         </div>
-                        <div class="book-btn-wrapper"><button class="book-btn">BOOK A ROOM</button></div>
+                        <div class="book-btn-wrapper">
+                            <button class="book-btn" data-room-index="${index}">BOOK A ROOM</button>
+                        </div>
                     </div>
                 `;
             });
         } else {
-            cruiseDetailsContainer.innerHTML = '<p>Cruise not found!</p>';
+            cruisedetailsdiv.innerHTML = '<p>Cruise not found!</p>';
         }
         // explore more 
         cruises.forEach((cruise, index) => {
@@ -281,10 +324,27 @@
                 </div>
             `;
         });
-
         cruisecontainer.innerHTML = onecruise;
 
+        const bookbtn = document.querySelectorAll('.book-btn');
+            bookbtn.forEach(button => {
+                button.addEventListener('click', () => {
+                    const roomindex = button.getAttribute('data-room-index');
+                    const room = cruise.rooms[roomindex];
 
+                    const book = JSON.parse(localStorage.getItem('book')) || [];
+                    book.push({id: room.id,
+                        type: room.type,
+                        price: room.price,
+                        sleeps: room.sleeps,
+                        description: room.description,
+                        image: room.roomsimage || '../cruiseimages/default-room.jpg',
+                    });
+
+                    localStorage.setItem('book', JSON.stringify(book));
+                    alert(`You have booked ${cruise.name} room, type ${room.type}!`);
+                });
+            });
     </script>
     <script type="text/javascript">
         $('#nav').load('../nav/nav.html');
