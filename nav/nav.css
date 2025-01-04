@@ -99,7 +99,7 @@ nav {
         flex-direction: column;
     }
 
-    .btnn {
+    .btnn, #fullname {
         display: none;
     }
 
@@ -115,7 +115,7 @@ nav {
         flex-direction: column;
     }
 
-    .btnn {
+    .btnn, #fullname {
         display: none;
     }
 

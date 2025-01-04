@@ -18,6 +18,7 @@ const cruises = [
         rating: 4.5,
         rooms: [
             {
+                id: "room1",
                 type: "Interior",
                 price: 452,
                 sleeps: "1-6",
@@ -29,6 +30,7 @@ const cruises = [
                 roomsimage: "../cruiseimages/Facebook.jpg",
             },
             {
+                id: "room2",
                 type: "Ocean View",
                 price: 615,
                 sleeps: "1-6",
@@ -40,11 +42,12 @@ const cruises = [
                 roomsimage: "../cruiseimages/oceanview1.jpg",
             },
             {
+                id: "room3",
                 type: "Balcony",
                 price: 899,
                 sleeps: "1-4",
                 description: [
-                    "Private balcony with stunning views",
+                    "Private balcony with stunning window views",
                     "Perfect for romantic getaways",
                     "190 - 276 sq. ft. stateroom"
                 ],
@@ -70,6 +73,7 @@ const cruises = [
         rating: 4.7,
         rooms: [
             {
+                id: "room4",
                 type: "Interior",
                 price: 499,
                 sleeps: "1-4",
@@ -81,6 +85,7 @@ const cruises = [
                 roomsimage: "../cruiseimages/interior1.jpg",
             },
             {
+                id: "room5",
                 type: "Ocean View",
                 price: 700,
                 sleeps: "1-6",
@@ -92,6 +97,7 @@ const cruises = [
                 roomsimage: "../cruiseimages/oceanview2.jpg",
             },
             {
+                id: "room6",
                 type: "Suite",
                 price: 1450,
                 sleeps: "1-4",
@@ -122,6 +128,7 @@ const cruises = [
         rating: 4.9,
         rooms: [
             {
+                id: "room7",
                 type: "Interior",
                 price: 550,
                 sleeps: "1-4",
@@ -133,6 +140,7 @@ const cruises = [
                 roomsimage: "../cruiseimages/interior2.jpg",
             },
             {
+                id: "room8",
                 type: "Ocean View",
                 price: 850,
                 sleeps: "1-6",
@@ -144,6 +152,7 @@ const cruises = [
                 roomsimage: "../cruiseimages/oceanview3.jpg",
             },
             {
+                id: "room9",
                 type: "Balcony",
                 price: 1400,
                 sleeps: "1-4",
@@ -155,6 +164,7 @@ const cruises = [
                 roomsimage: "",
             },
             {
+                id: "room10",
                 type: "Suite",
                 price: 2200,
                 sleeps: "1-4",
@@ -185,6 +195,7 @@ const cruises = [
         rating: 4.6,
         rooms: [
             {
+                id: "room11",
                 type: "Interior",
                 price: 499,
                 sleeps: "1-4",
@@ -196,6 +207,7 @@ const cruises = [
                 roomsimage: "../cruiseimages/interior3.jpg",
             },
             {
+                id: "room12",
                 type: "Ocean View",
                 price: 750,
                 sleeps: "1-6",
@@ -207,6 +219,7 @@ const cruises = [
                 roomsimage: "../cruiseimages/oceanview4.jpg",
             },
             {
+                id: "room13",
                 type: "Balcony",
                 price: 1050,
                 sleeps: "1-4",
@@ -218,6 +231,7 @@ const cruises = [
                 roomsimage: "",
             },
             {
+                id: "room14",
                 type: "Suite",
                 price: 1800,
                 sleeps: "1-4",
@@ -248,17 +262,19 @@ const cruises = [
         rating: 4.4,
         rooms: [
             {
+                id: "room15",
                 type: "Interior",
                 price: 400,
                 sleeps: "1-4",
                 description: [
-                    "Affordable and practical accommodation",
+                    "Affordable and practical for swaccommodation",
                     "Perfect for minimalist travelers",
                     "130 - 300 sq. ft. stateroom"
                 ],
                 roomsimage: "../cruiseimages/interior4.jpg",
             },
             {
+                id: "room16",
                 type: "Ocean View",
                 price: 700,
                 sleeps: "1-6",
@@ -270,6 +286,7 @@ const cruises = [
                 roomsimage: "../cruiseimages/oceanview5.jpg",
             },
             {
+                id: "room17",
                 type: "Balcony",
                 price: 1200,
                 sleeps: "1-4",
@@ -281,6 +298,7 @@ const cruises = [
                 roomsimage: "",
             },
             {
+                id: "room18",
                 type: "Suite",
                 price: 2000,
                 sleeps: "1-4",
@@ -311,6 +329,7 @@ const cruises = [
         rating: 4.8,
         rooms: [
             {
+                id: "room19",
                 type: "Interior",
                 price: 800,
                 sleeps: "1-4",
@@ -322,6 +341,7 @@ const cruises = [
                 roomsimage: "../cruiseimages/interior5.jpg",
             },
             {
+                id: "room20",
                 type: "Ocean View",
                 price: 1200,
                 sleeps: "1-6",
@@ -333,6 +353,7 @@ const cruises = [
                 roomsimage: "../cruiseimages/oceanview6.jpg",
             },
             {
+                id: "room21",
                 type: "Balcony",
                 price: 1800,
                 sleeps: "1-4",
@@ -344,6 +365,7 @@ const cruises = [
                 roomsimage: "",
             },
             {
+                id: "room22",
                 type: "Suite",
                 price: 3000,
                 sleeps: "1-4",
@@ -374,17 +396,19 @@ const cruises = [
         rating: 4.7,
         rooms: [
             {
+                id: "room23",
                 type: "Interior",
                 price: 600,
                 sleeps: "1-4",
                 description: [
-                    "Compact and affordable",
+                    "Compact and affordable room",
                     "Ideal for adventurers focused on excursions",
                     "140 - 280 sq. ft. stateroom"
                 ],
                 roomsimage: "../cruiseimages/interior6.jpg",
             },
             {
+                id: "room24",
                 type: "Ocean View",
                 price: 950,
                 sleeps: "1-6",
@@ -396,6 +420,7 @@ const cruises = [
                 roomsimage: "../cruiseimages/oceanview5.jpg",
             },
             {
+                id: "room25",
                 type: "Balcony",
                 price: 1500,
                 sleeps: "1-4",
@@ -426,17 +451,19 @@ const cruises = [
         rating: 4.3,
         rooms: [
             {
+                id: "room26",
                 type: "Interior",
                 price: 500,
                 sleeps: "1-4",
                 description: [
-                    "Affordable and cozy",
+                    "Affordable and cozy room",
                     "Perfect for those planning to explore onshore",
                     "140 - 280 sq. ft. stateroom"
                 ],
                 roomsimage: "../cruiseimages/interior7.jpg",
             },
             {
+                id: "room27",
                 type: "Ocean View",
                 price: 800,
                 sleeps: "1-6",
@@ -448,6 +475,7 @@ const cruises = [
                 roomsimage: "../cruiseimages/oceanview4.jpg",
             },
             {
+                id: "room28",
                 type: "Balcony",
                 price: 1400,
                 sleeps: "1-4",

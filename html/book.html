@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+			integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+			crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 30px;
+        }
+
+        .book-grid {
+            display: grid;
+            grid-template-columns: 70% 30%;
+        }
+
+        h1 {
+            padding-bottom: 30px;
+        }
+
+        .book-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0px 0px 11px 3px #ececec;
+            border-radius: 15px;
+            i {
+                width: 10%;
+                text-align: center;
+                color: #d20202;
+            }
+        }
+
+        .book-item img {
+            width: 20%;
+            height: 125px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 15px;
+        }
+
+        .book-item-details {
+            width: 70%;
+            span {
+                text-transform: uppercase;
+                color: #464646;
+                font-size: 14px;
+            }
+            h3 {
+                color: #052d5e;
+                font-family: 'Montserrat';
+                text-transform: uppercase;
+                font-weight: bolder;
+                font-weight: bolder;
+            }
+            h4 {
+                color: #049f2e;
+            }
+            p {
+                color: #787878;
+            }
+        }
+
+        .total-wrapper {
+            box-shadow: 0px 0px 11px 3px #ececec;
+            padding: 15px;
+            margin: 0 10px;
+            border-radius: 10px;
+            p {
+                color: #787878;
+                padding-bottom: 5px;
+            }
+        }
+
+        .input-btn {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        input[type="search"], button {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid grey;
+        }
+
+        input[type="search"]{
+            width: 68%;
+        }
+
+        .total-btn {
+            width: 30%;
+            border: #2887ff;
+            background-color: #2887ff;
+            color: white;
+        }
+
+        .text-space {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        #orderbtn {
+            width: 100%;
+        }
+
+        .order-text-wrapper {
+            padding: 10px 0;    
+        }
+
+         /* (Phone) */
+        @media (max-width: 540px) {
+            section {
+                width: 90%;
+            }
+            
+            .book-item {
+                flex-direction: column;
+                flex-wrap: wrap;
+                img {
+                    width: 100%;
+                }
+                i {
+                    padding: 20px 0;
+                    text-align: left;
+                }
+            }
+
+            .book-item-details {
+                padding-top: 20px;
+                width: 100%;
+            }
+
+            .book-grid {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+        
+        /* (Tablets) */
+        @media (min-width: 541px) and (max-width: 1024px) {
+            section {
+                width: 90%;
+            }
+            
+            .book-grid {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="nav"></div>
+    
+    <section>
+        <div>
+            <h1>Bookings</h1>
+            <div class="book-grid">
+                <div id="book-items"></div>
+                <div id="total"></div>
+            </div>
+        </div>
+    </section>
+    
+    <div id="footer"></div>
+
+    <script type="text/javascript">
+        $('#nav').load('../nav/nav.html');
+        $('#footer').load('../footer/footer.html');
+    </script>
+    
+    <script>
+        function Book() {
+            const book = JSON.parse(localStorage.getItem('book')) || [];
+            const bookdiv = document.getElementById('book-items');
+            const totaldiv = document.getElementById('total');
+            bookdiv.innerHTML = '';
+            total = 0;
+
+            book.forEach(item => {
+                bookdiv.innerHTML += `
+                    <div class="book-item">
+                        <img src="${item.image}" alt="${item.type}">
+                        <div class="book-item-details">
+                            <h3>${item.type}</h3>
+                            <h4>$${item.price}</h4>
+                            <p><span>Capacity: </span>${item.sleeps} people</p>
+                            <p>${item.description.join('. ')}</p>
+                        </div>
+                        <i class="fas fa-trash" onclick="removebook('${item.id}')"></i>
+                    </div>
+                `;
+                total += item.price;
+            });
+            
+            localStorage.setItem('total', total);
+            totaldiv.innerHTML = `
+                <div class="total-wrapper">
+                    <p>Booking details:</p>
+                    <p>Discount code</p>
+                    <div class="input-btn">
+                        <input type="search" placeholder="Enter discount code"/>
+                        <button class="total-btn">APPLY</button>
+                    </div>   
+                    <p>Gift Cards / Vouchers</p>
+                    <div class="input-btn"> 
+                        <input type="search" placeholder="Enter discount code"/>
+                        <button class="total-btn">APPLY</button>
+                    </div>    
+                    <div class="order-text-wrapper">
+                        <div style="background-color: #fafafa;" class="text-space"><p>Subtotal: </p><p>${(total - total * 0.18).toFixed(2)} €</p></div>
+                        <div style="background-color: #f6f6f6;" class="text-space"><p>Transport: </p><p>-</p></div>
+                        <div style="background-color: #fafafa;" class="text-space"><p>TVSH 18%: </p><p>${(total * 0.18).toFixed(2)} €</p></div>
+                        <div style="background-color: #f6f6f6;" class="text-space"><p>Total:</p><p class="text-orange-600">${total} €</p></div>
+                    </div>
+                    <button class="total-btn" id="orderbtn">CONTINUE</button>
+                </div>
+            `;
+        }
+
+        function removebook(id) {
+            let book = JSON.parse(localStorage.getItem('book')) || [];
+            book = book.filter(item => item.id !== id);
+            localStorage.setItem('book', JSON.stringify(book));
+            Book();
+        }
+
+        Book();
+    </script>
+</body>
+</html>
