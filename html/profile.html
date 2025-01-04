@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - My Orders</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .profile-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin: 30px 0;
+            img {
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+                border-radius: 100%;
+            }
+        }
+
+        .order-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            margin: 30px 0;
+            box-shadow: 0px 0px 11px 3px #ececec;
+            border-radius: 15px;
+        }
+
+        .order-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+
+        .order-details{
+            h3 {
+                font-family: 'Montserrat';
+                text-transform: uppercase;
+                color: #052D5E;
+            }
+            p:nth-child(2) {
+                color: #049f2e;
+                font-weight: bold;
+            }
+            p {
+                color: #787878;
+            }
+            p span {
+                color: #464646;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="nav"></div>
+    <section>
+        <h1>Profile</h1>
+        <div class="profile-info" id="profile-info"></div>
+        <h1>Booked</h1>
+        <div id="orders-container"></div>
+    </section>
+    <div id="footer"></div>
+
+    <script>
+        $('#nav').load('../nav/nav.html');
+        $('#footer').load('../footer/footer.html');
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const user = JSON.parse(localStorage.getItem('user'));
+            const orders = JSON.parse(localStorage.getItem('orders')) || [];
+            const profile = document.getElementById('profile-info');
+            const orderdiv = document.getElementById('orders-container');
+            let orderitems = "";
+
+            if (user) {
+                profile.innerHTML = `
+                    <div class="profile-wrapper">
+                        <img src="../img/noimage.jpg">
+                        <div>
+                            <h2>${user.fullname}</h2>      
+                            <p>${user.email}</p>
+                        </div>
+                    </div>
+                    `;
+            } else {
+                profile.innerHTML = '<p>No user information found.</p>';
+            }
+
+            if (orders.length === 0) {
+                orderdiv.innerHTML = '<p id="no-orders">No bookings found.</p>';
+            } else {
+                orders.forEach(order => {
+                    if(order.user.email === user.email) {
+                        order.items.forEach(item => {
+                            orderitems += `
+                                <div class="order-item">
+                                    <img src="${item.image}" alt="${item.type}">
+                                    <div class="order-details">
+                                        <h3>${item.type}</h3>
+                                        <p>$${item.price.toFixed(2)}</p>
+                                        <p><span>CAPACITY:</span> ${item.sleeps} people</p>
+                                        <p>${item.description.join('. ')}</p>
+                                    </div>
+                                </div>`;
+                        });
+                    }
+                });
+                orderdiv.innerHTML = orderitems || '<p id="no-orders">No bookings found.</p>';
+            }
+        });
+    </script>
+</body>
+</html>

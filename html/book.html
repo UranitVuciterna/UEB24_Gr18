@@ -42,11 +42,11 @@
         }
 
         .book-item img {
-            width: 20%;
-            height: 125px;
+            width: 100px;
+            height: 100px;
             object-fit: cover;
-            border-radius: 4px;
-            margin-right: 15px;
+            border-radius: 10px;
+            margin-right: 20px;
         }
 
         .book-item-details {
@@ -179,62 +179,88 @@
     </script>
     
     <script>
-        function Book() {
-            const book = JSON.parse(localStorage.getItem('book')) || [];
-            const bookdiv = document.getElementById('book-items');
-            const totaldiv = document.getElementById('total');
-            bookdiv.innerHTML = '';
-            total = 0;
+    function Book() {
+        const book = JSON.parse(localStorage.getItem('book')) || [];
+        const bookdiv = document.getElementById('book-items');
+        const totaldiv = document.getElementById('total');
+        const user = JSON.parse(localStorage.getItem('user')); 
+        const filteruser = book.filter(item => user && item.user === user.email);
+        bookdiv.innerHTML = '';
+        let total = 0;
 
-            book.forEach(item => {
-                bookdiv.innerHTML += `
-                    <div class="book-item">
-                        <img src="${item.image}" alt="${item.type}">
-                        <div class="book-item-details">
-                            <h3>${item.type}</h3>
-                            <h4>$${item.price}</h4>
-                            <p><span>Capacity: </span>${item.sleeps} people</p>
-                            <p>${item.description.join('. ')}</p>
-                        </div>
-                        <i class="fas fa-trash" onclick="removebook('${item.id}')"></i>
+        filteruser.forEach(item => {
+            bookdiv.innerHTML += `
+                <div class="book-item">
+                    <img src="${item.image}" alt="${item.type}">
+                    <div class="book-item-details">
+                        <h3>${item.type}</h3>
+                        <h4>$${item.price.toFixed(2)}</h4>
+                        <p><span>Capacity: </span>${item.sleeps} people</p>
+                        <p>${item.description.join('. ')}</p>
                     </div>
-                `;
-                total += item.price;
-            });
-            
-            localStorage.setItem('total', total);
-            totaldiv.innerHTML = `
-                <div class="total-wrapper">
-                    <p>Booking details:</p>
-                    <p>Discount code</p>
-                    <div class="input-btn">
-                        <input type="search" placeholder="Enter discount code"/>
-                        <button class="total-btn">APPLY</button>
-                    </div>   
-                    <p>Gift Cards / Vouchers</p>
-                    <div class="input-btn"> 
-                        <input type="search" placeholder="Enter discount code"/>
-                        <button class="total-btn">APPLY</button>
-                    </div>    
-                    <div class="order-text-wrapper">
-                        <div style="background-color: #fafafa;" class="text-space"><p>Subtotal: </p><p>${(total - total * 0.18).toFixed(2)} €</p></div>
-                        <div style="background-color: #f6f6f6;" class="text-space"><p>Transport: </p><p>-</p></div>
-                        <div style="background-color: #fafafa;" class="text-space"><p>TVSH 18%: </p><p>${(total * 0.18).toFixed(2)} €</p></div>
-                        <div style="background-color: #f6f6f6;" class="text-space"><p>Total:</p><p class="text-orange-600">${total} €</p></div>
-                    </div>
-                    <button class="total-btn" id="orderbtn">CONTINUE</button>
+                    <i class="fas fa-trash" onclick="removebook('${item.id}')"></i>
                 </div>
             `;
-        }
+            total += item.price;
+        });
+        
+        localStorage.setItem('total', total);
+        totaldiv.innerHTML = `
+            <div class="total-wrapper">
+                <p>Booking details:</p>
+                <p>Discount code</p>
+                <div class="input-btn">
+                    <input type="search" placeholder="Enter discount code"/>
+                    <button class="total-btn">APPLY</button>
+                </div>   
+                <p>Gift Cards / Vouchers</p>
+                <div class="input-btn"> 
+                    <input type="search" placeholder="Enter discount code"/>
+                    <button class="total-btn">APPLY</button>
+                </div>    
+                <div class="order-text-wrapper">
+                    <div style="background-color: #fafafa;" class="text-space"><p>Subtotal: </p><p>${(total - total * 0.18).toFixed(2)} €</p></div>
+                    <div style="background-color: #f6f6f6;" class="text-space"><p>Transport: </p><p>-</p></div>
+                    <div style="background-color: #fafafa;" class="text-space"><p>TVSH 18%: </p><p>${(total * 0.18).toFixed(2)} €</p></div>
+                    <div style="background-color: #f6f6f6;" class="text-space"><p>Total:</p><p class="text-orange-600">${total.toFixed(2)} €</p></div>
+                </div>
+                <button class="total-btn" id="orderbtn">CONTINUE</button>
+            </div>
+        `;
 
-        function removebook(id) {
-            let book = JSON.parse(localStorage.getItem('book')) || [];
-            book = book.filter(item => item.id !== id);
-            localStorage.setItem('book', JSON.stringify(book));
-            Book();
-        }
+        let orders = JSON.parse(localStorage.getItem('orders')) || [];
 
+        document.getElementById('orderbtn').addEventListener('click', e => {
+            e.preventDefault();
+            if (user) {
+                const order = {
+                    user: user,
+                    items: filteruser
+                };
+
+                orders.push(order);
+                localStorage.setItem('orders', JSON.stringify(orders));
+
+                const remainingbookings = book.filter(item => !(user && item.user === user.email));
+                localStorage.setItem('book', JSON.stringify(remainingbookings));
+                window.location.href = 'index.html';
+            } else {
+                alert('Please login first!');
+            }
+        });
+    }
+
+    function removebook(id) {
+        let book = JSON.parse(localStorage.getItem('book')) || [];
+        const user = JSON.parse(localStorage.getItem('user'));
+        book = book.filter(item => !(item.id === id && item.user === user.email));
+        localStorage.setItem('book', JSON.stringify(book));
         Book();
+    }
+
+    Book();
+
+
     </script>
 </body>
 </html>

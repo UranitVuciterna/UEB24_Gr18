@@ -234,7 +234,6 @@
         const roomdetailsdiv = document.getElementById('room-cruise');
         const cruisecontainer = document.getElementById("cruise-container");
         let onecruise = "";
-        let onecruisedetails = "";
 				
 				const cruiseValidation = (cruise) => {
 					if (isNaN(cruiseid)) { // perdorimi i NaN
@@ -251,28 +250,28 @@
         if (cruiseValidation(cruise)) {
             // current clicked cruise
             cruisedetailsdiv.innerHTML = `
-            <div class="clicked-cruise">
-                <div class="clicked-cruise-grid1">
-                    <img src="${cruise.image}"/>
-                    <div class="clicked-cruise-img-text">
-                        <span>${cruise.duration} days</span>   
-                        <p>${cruise.ship}</p>     
+                <div class="clicked-cruise">
+                    <div class="clicked-cruise-grid1">
+                        <img src="${cruise.image}"/>
+                        <div class="clicked-cruise-img-text">
+                            <span>${cruise.duration} days</span>   
+                            <p>${cruise.ship}</p>     
+                        </div>
                     </div>
-                </div>
-                <div class="clicked-cruise-text">
-                    <h2>${cruise.name}</h2> 
-                    <p>${cruise.description}</p> 
-                    <span><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i> ${cruise.rating}</span>
-                    <p><span>Destination: </span>${cruise.destination}</p>
-					<p><span>Distance: </span>${cruise.distanceFromThePort.toExponential(2)}km</p>
-                    <p><span>Price: </span>$${cruise.price.toString(10)}</p>
-                    <p><span>Departure Date: </span>${cruise.departuredate}</p> 
-                    <p><span>Return Date: </span>${cruise.returndate}</p> 
-                    <p><span>Ports: </span>${cruise.ports.join(' &#9679; ')}</p> 
-                    <p><span>Activities: </span>${cruise.activities.join(', ')}</p> 
-                    <p><span>Dining: </span>${cruise.dining.join(', ')}</p> 
-                </div>
-            </div> `;
+                    <div class="clicked-cruise-text">
+                        <h2>${cruise.name}</h2> 
+                        <p>${cruise.description}</p> 
+                        <span><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i> ${cruise.rating}</span>
+                        <p><span>Destination: </span>${cruise.destination}</p>
+                        <p><span>Distance: </span>${cruise.distanceFromThePort.toExponential(2)}km</p>
+                        <p><span>Price: </span>$${cruise.price.toString(10)}</p>
+                        <p><span>Departure Date: </span>${cruise.departuredate}</p> 
+                        <p><span>Return Date: </span>${cruise.returndate}</p> 
+                        <p><span>Ports: </span>${cruise.ports.join(' &#9679; ')}</p> 
+                        <p><span>Activities: </span>${cruise.activities.join(', ')}</p> 
+                        <p><span>Dining: </span>${cruise.dining.join(', ')}</p> 
+                    </div>
+                </div> `;
             // clciked cruise rooms
             cruise.rooms.forEach((room, index) => {
                 roomdetailsdiv.innerHTML += `
@@ -325,15 +324,18 @@
             `;
         });
         cruisecontainer.innerHTML = onecruise;
-
+        // book
         const bookbtn = document.querySelectorAll('.book-btn');
             bookbtn.forEach(button => {
                 button.addEventListener('click', () => {
                     const roomindex = button.getAttribute('data-room-index');
                     const room = cruise.rooms[roomindex];
+                    const user = JSON.parse(localStorage.getItem('user')); 
 
                     const book = JSON.parse(localStorage.getItem('book')) || [];
-                    book.push({id: room.id,
+                    book.push({
+                        user: user.email,
+                        id: room.id,
                         type: room.type,
                         price: room.price,
                         sleeps: room.sleeps,
