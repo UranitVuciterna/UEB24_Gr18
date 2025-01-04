@@ -51,6 +51,7 @@ footer {
     color: var(--text-light);
     font-size: 0.95rem;
     text-wrap: wrap;
+    font-family: 'Myfont', serif;
 }
 
 .footer__socials {
@@ -186,4 +187,12 @@ ul li {
     .footer__col input {
         font-size: 0.9rem;
     }
+}
+@font-face {
+    font-family: 'Myfont';
+    src: url('../font/Myfont-Regular.woff2') format('woff2'),
+    url('../font/Myfont-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
