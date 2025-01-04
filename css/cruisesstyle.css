@@ -34,15 +34,27 @@ section {
     gap: 20px;
 }
 
+#background-audio {
+    width: 90%;
+    margin-top: 10px;
+}
+
 label {
     display: flex;
     gap: 10px;
 }
 
+.price-range-container{
+    width: 100%;
+    input {
+        width: 90%;
+    }
+}
+
 .price-range-text {
     display: flex;
     justify-content: space-between;
-    width: 130px;
+    width: 90%;
 }
 
 .flatpickr-input {

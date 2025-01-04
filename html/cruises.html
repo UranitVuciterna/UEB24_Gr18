@@ -34,9 +34,7 @@
                 <div>
                     <h2>Price Range</h2>
                     <div class="price-range-container">
-                        <label>
-                            <input type="range" class="custom-range" min="0" max="3000" value="300" />
-                        </label>
+                        <input type="range" class="custom-range" min="0" max="3000" value="300" />
                     </div>
                     <div class="price-range-text">
                         <span>0</span>
@@ -69,15 +67,12 @@
                     <label><input type="checkbox" value="8">8 days</label>
                     <label><input type="checkbox" value="9">9 days</label>
                     <label><input type="checkbox">more than 10 days</label>
+                    <audio id="background-audio" controls loop><source src="../videos/background-sound.mp3" type="audio/mpeg"></audio>
                 </div>
             </div>
             <div id="cruise-container"></div>
-				</div>
+		</div>
     </section>
-    
-    <audio id="background-audio" loop>
-        <source src="../videos/background-sound.mp3" type="audio/mpeg">
-    </audio>
     
     <div id="footer"></div>
     
@@ -110,7 +105,6 @@
                 </div>
 		    `;
 		}, "");
-
         cruisecontainer.innerHTML = onecruise;
 
         document.querySelectorAll(".cruise-image").forEach(image => {
@@ -127,8 +121,6 @@
         enableTime: false, 
         mode: "single",
         });
-        
-		document.getElementById('background-audio').play();
     </script>
     <script type="text/javascript">
         $('#nav').load('../nav/nav.html');
