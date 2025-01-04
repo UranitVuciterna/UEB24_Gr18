@@ -137,3 +137,34 @@ label {
     border: none;
     margin-bottom: 10px;
 }
+
+/* (Phone) */
+@media (max-width: 540px) {
+    section {
+        width: 90%;
+    }
+    .grid1-wrapper {
+        display: none;
+    }
+    .site-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    #cruise-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* (Tablets) */
+@media (min-width: 541px) and (max-width: 1024px) {
+    section {
+        width: 90%;
+    }
+
+    .datediv {
+        display: none;
+    }
+
+    #cruise-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
