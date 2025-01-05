@@ -34,8 +34,8 @@
                 <div>
                     <h2>Price Range</h2>
                     <form oninput="priceoutput.value = priceinput.value" class="price-range-container">
-                        <p><strong>Price: <output name="priceoutput" for="priceinput">4</output></strong></p>
-                        <input type="range" id="priceinput" min="0" max="3000" value="4">
+                        <p><strong>Price: <output name="priceoutput" for="priceinput">0</output></strong></p>
+                        <input type="range" id="priceinput" min="0" max="3000" value="4" step="2"><!-- step value min max. output-->
                     </form>
                     <div class="price-range-text">
                         <span>0</span>
@@ -87,7 +87,7 @@
     <script>
         $('#nav').load('../nav/nav.html');
         $('#footer').load('../footer/footer.html');
-        
+
         const cruisecontainer = document.getElementById("cruise-container");
         let onecruise = cruises.reduce((acc, cruise, index) => {
             return acc + `
