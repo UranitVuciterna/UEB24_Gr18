@@ -23,6 +23,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+const heroBanner = document.querySelector(".hero-banner");
+const video = document.querySelector(".hero-banner__video");
+console.log('a jemi ktu')
+heroBanner.addEventListener("mouseover", () => {
+  video.play();
+});
+
+heroBanner.addEventListener("mouseout", () => {
+  video.pause();
+  video.currentTime = 0;
+});
 
 const btn = document.getElementById('scrollToTop'), sound = document.getElementById('scrollSound');
 btn.onclick = () => {
