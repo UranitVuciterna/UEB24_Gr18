@@ -22,7 +22,7 @@
 .section__container {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 5rem 1rem;
+    padding-top: 5rem;
 }
 
 .section__header {
@@ -130,11 +130,21 @@ header::before {
     height: 100%;
 }
 
+.swiper-button-prev,
+.swiper-button-next{
+    padding-bottom: 45px;
+}
+
+.swiper-pagination {
+    position: absolute;
+    transform: translateY(-60px);
+}
+
 .client__card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 0 auto;
+    margin: 0 auto 60px auto;
     height: 100%;
     background-color: var(--extra-light);
     border-radius: 1rem;
@@ -194,6 +204,7 @@ header::before {
     transition: 0.3s;
     cursor: pointer;
     text-decoration: none;
+    margin: 10px 0;
 }
 
 .btn:focus {
@@ -305,25 +316,47 @@ header::before {
     transition: all 0.4s ease-in-out;
 }
 
-.page-card:nth-child(2){
-    position: relative;
-    color: white;
+.page-card:nth-child(2) {
+    background-color: #2887ff;
     flex: 1.5;
     height: 450px;
-    background-color: #2887ff;
-    overflow: hidden;
     i{
         border: 1px solid white;
         border-radius: 100%;
         padding: 20px;
     }
     img {
+        border: 1px solid white;
+    }
+}
+
+.page-card:nth-child(1),
+.page-card:nth-child(3){
+    p {
+        display: none;
+    }
+}
+
+.page-card:nth-child(1):hover,
+.page-card:nth-child(3):hover{
+    p {
+        display: block;
+        color: #0a0a0a;
+    }
+}
+
+.page-card:nth-child(1),
+.page-card:nth-child(2),
+.page-card:nth-child(3){
+    position: relative;
+    color: white;
+    overflow: hidden;
+    img {
         position: absolute;
         border-radius: 50%;
         width: 260px;
-        top: -55px;
+        top: -65px;
         right: -65px;
-        border: 1px solid white;
         padding: 20px;
     }
     a {
@@ -401,6 +434,15 @@ header::before {
             padding-bottom: 15px;
         }
     }
+
+    .swiper-wrapper {
+        height: 350px;
+    }
+
+    .swiper-pagination {
+        position: absolute;
+        transform: translateY(0px);
+    }
 }
 
 
@@ -429,9 +471,17 @@ header::before {
         height: auto;
     }
 
+    .swiper-wrapper {
+        height: 350px;
+    }
+
     .swiper-slide{
         width: 100%;
         height: 100%;
+    }
+    .swiper-pagination {
+        position: absolute;
+        transform: translateY(0px);
     }
 }
 

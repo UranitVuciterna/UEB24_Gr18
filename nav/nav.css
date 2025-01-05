@@ -66,22 +66,6 @@ nav {
     text-decoration: none;
 }
 
-.btnn {
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    white-space: nowrap;
-    color: var(--white); 
-    background-color: var(--text-dark); 
-    border-radius: 5rem;
-    border: none;
-    cursor: pointer;
-}
-
-.btnn:hover {
-    background-color: #3e3e3e; 
-    color: var(--white); 
-}
-
 .user-fullname {
     border: 1px solid black;
     padding: 0.75rem 1.5rem;
@@ -104,10 +88,6 @@ nav {
         flex-direction: column;
     }
 
-    .btnn{
-        display: none;
-    }
-
     #menu-icon {
         display: block;
     }
@@ -124,10 +104,6 @@ nav {
     .nav__links {
         display: none;
         flex-direction: column;
-    }
-
-    .btnn{
-        display: none;
     }
 
     #menu-icon {

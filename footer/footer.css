@@ -146,6 +146,9 @@ ul li {
     list-style-type: circle;
 }
 
+mark {
+    background-color: #bebebe;
+}
 
 @media (max-width: 1024px) {
     .footer__container {
