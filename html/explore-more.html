@@ -261,6 +261,7 @@
 		.modal-header {
 			font-size: 1.5rem;
 			font-weight: bold;
+			color: var(--primary-color);
 		}
 		
 		.close-btn {
@@ -280,6 +281,60 @@
 			text-decoration: none;
 			color: var(--primary-color);
 		}
+	
+		#startup-checklist ul {
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+		}
+		
+		#startup-checklist li {
+			font-family: Arial, sans-serif;
+			font-size: 1rem;
+			color: #333;
+			margin: 5px 0;
+			padding: 5px 10px;
+			border-radius: 5px;
+			transition: background-color 0.3s ease, color 0.3s ease;
+		}
+		
+		#startup-checklist li:hover {
+			background-color: var(--primary-color);
+			color: #fff;
+		}
+		
+		#startup-checklist ul ul {
+			margin-left: 20px;
+			border-left: 2px solid var(--primary-color);
+			padding-left: 10px;
+		}
+		
+		#startup-checklist ul ul ul {
+			margin-left: 20px;
+			border-left: 2px dashed var(--primary-color-dark);
+		}
+		
+		#startup-checklist ul > li {
+			font-weight: bold;
+		}
+		
+		#startup-checklist li.title-item {
+			font-size: 1.1rem;
+			font-weight: 600;
+			color: var(--primary-color);
+			margin-top: 10px;
+			margin-bottom: 5px;
+		}
+		
+		#startup-checklist li.title-item + ul li {
+			font-size: 1rem;
+			font-weight: normal;
+			color: #555;
+		}
+		#startup-checklist li.title-item:hover {
+			color: #fff; /* Change the color to white when hovered */
+		}
+	
 	</style>
 </head>
 <body>
@@ -360,7 +415,39 @@
 		<span class="close-btn">&times;</span>
 		<div class="modal-header">Travel Documents</div>
 		<div class="modal-body">
-			<p>Here is the information about travel documents. You can also upload or download relevant files.</p>
+			<p>Here is the information about travel documents.</p>
+			<div id="startup-checklist">
+				<ul>
+					<li class="title-item">Passports are Best
+						<ul>
+							<li>A passport is the best ID document for travel.
+								Make sure yours doesn't expire for 6 months after your cruise ends.</li>
+						</ul>
+					</li>
+					<li class="title-item">Birth Certificates
+						<ul>
+							<li>U.S. Citizens can cruise with a U.S. birth certificate on most sailings from the U.S.
+							But your birth certificate needs to meet the requirements.</li>
+						</ul>
+					</li>
+					<li class="title-item">Names must match
+						<ul>
+							<li>If you've had a name change, and the name used across your documents does not match, you will need to take an extra step. </li>
+						</ul>
+					</li>
+					<li class="title-item">Cruising with Kids that Aren't Yours
+						<ul>
+							<li>When a minor (age 17 and under) travels without their legal guardian,
+								an accompanying adult must present a notarized form signed by the child's guardian.</li>
+						</ul>
+					</li>
+					<li class="title-item">Visas my be required
+						<ul>
+							<li>Some countries require an entry visa or electronic visa based on your nationality. </li>
+						</ul>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>
