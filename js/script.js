@@ -1,82 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const swiper = new Swiper('.swiper', {
-        loop: true,
-        slidesPerView: 1,
-        spaceBetween: 10,
-        grabCursor: true,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        breakpoints: {
-            768: {
-                slidesPerView: 2,
-            },
-            1024: {
-                slidesPerView: 1,
-            },
-        },
-    });
-});
-
-const heroBanner = document.querySelector(".hero-banner");
-const video = document.querySelector(".hero-banner__video");
-heroBanner.addEventListener("mouseover", () => {
-  video.play();
-});
-
-heroBanner.addEventListener("mouseout", () => {
-  video.pause();
-  video.currentTime = 0;
-});
-
-const btn = document.getElementById('scrollToTop'), sound = document.getElementById('scrollSound');
-btn.onclick = () => {
-    sound.play().catch(err => console.error('Sound error:', err));
-    window.scrollTo({top: 0, behavior: 'smooth'});
-};
-window.onscroll = () => {
-    btn.style.display = (window.scrollY > 100) ? 'flex' : 'none';
-};
-
-    const scrollToTopButton = document.getElementById("scrollToTop");
-
-
-    let isDragging = false;
-    let offsetX = 0;
-    let offsetY = 0;
-
-
-    scrollToTopButton.addEventListener("mousedown", (e) => {
-    isDragging = true;
-
-    offsetX = e.clientX - scrollToTopButton.getBoundingClientRect().left;
-    offsetY = e.clientY - scrollToTopButton.getBoundingClientRect().top;
-
-    e.preventDefault();
-});
-
-    document.addEventListener("mousemove", (e) => {
-    if (isDragging) {
-
-    const x = e.clientX - offsetX;
-    const y = e.clientY - offsetY;
-    
-    scrollToTopButton.style.position = "fixed";
-    scrollToTopButton.style.left = `${x}px`;
-    scrollToTopButton.style.top = `${y}px`;
-}
-});
-
-    document.addEventListener("mouseup", () => {
-    isDragging = false;
-});
-
-
 
 const destinations = [
     {
@@ -123,3 +44,69 @@ const destinations = [
     }
 ];
 
+document.addEventListener("DOMContentLoaded", function () {
+    const swiper = new Swiper('.swiper', {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 10,
+        grabCursor: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            768: {
+                slidesPerView: 2,
+            },
+            1024: {
+                slidesPerView: 1,
+            },
+        },
+    });
+});
+
+const btn = document.getElementById('scrollToTop'), sound = document.getElementById('scrollSound');
+btn.onclick = () => {
+    sound.play().catch(err => console.error('Sound error:', err));
+    window.scrollTo({top: 0, behavior: 'smooth'});
+};
+window.onscroll = () => {
+    btn.style.display = (window.scrollY > 100) ? 'flex' : 'none';
+};
+
+    const scrollToTopButton = document.getElementById("scrollToTop");
+
+
+    let isDragging = false;
+    let offsetX = 0;
+    let offsetY = 0;
+
+
+    scrollToTopButton.addEventListener("mousedown", (e) => {
+    isDragging = true;
+
+    offsetX = e.clientX - scrollToTopButton.getBoundingClientRect().left;
+    offsetY = e.clientY - scrollToTopButton.getBoundingClientRect().top;
+
+    e.preventDefault();
+});
+
+    document.addEventListener("mousemove", (e) => {
+    if (isDragging) {
+
+    const x = e.clientX - offsetX;
+    const y = e.clientY - offsetY;
+    
+    scrollToTopButton.style.position = "fixed";
+    scrollToTopButton.style.left = `${x}px`;
+    scrollToTopButton.style.top = `${y}px`;
+}
+});
+
+    document.addEventListener("mouseup", () => {
+    isDragging = false;
+});

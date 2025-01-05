@@ -294,6 +294,17 @@
     <script type="text/javascript">
       $("#nav").load("../nav/nav.html");
       $("#footer").load("../footer/footer.html");
+
+      const heroBanner = document.querySelector(".hero-banner");
+      const video = document.querySelector(".hero-banner__video");
+      heroBanner.addEventListener("mouseover", () => {
+        video.play();
+      });
+
+      heroBanner.addEventListener("mouseout", () => {
+        video.pause();
+        video.currentTime = 0;
+      });
     </script>
 
   </body>
