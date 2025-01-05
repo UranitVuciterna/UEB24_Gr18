@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const heroBanner = document.querySelector(".hero-banner");
 const video = document.querySelector(".hero-banner__video");
-console.log('a jemi ktu')
 heroBanner.addEventListener("mouseover", () => {
   video.play();
 });
