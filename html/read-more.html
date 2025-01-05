@@ -6,157 +6,248 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
 					integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
 					crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<title>ReadMore</title>
+	<title>Read More</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Oswald:wght@200..700&display=swap');
+
 		:root {
 			--primary-color: #007BFF;
 			--primary-color-dark: #0056b3;
 		}
-		body {
-			margin: 0;
-			font-family: Arial, sans-serif;
-		}
-		.h-section {
-			padding-inline: 1rem;
-			position: relative;
-			isolation: isolate;
-			overflow: hidden;
-			height: 600px;
-		}
-		.h-section::before {
-			position: absolute;
-			content: "";
-			height: 100%;
-			width: 100%;
-			top: 0;
-			left: 0;
-			background-image: url("../img/kidss.jpg");
-			background-position: center center;
-			background-size: cover;
-			background-repeat: no-repeat;
-			z-index: -1;
-		}
-		.content {
-			position: absolute;
-			bottom: 20px;
-			right: 20px;
-			z-index: 2;
-			text-align: right;
-			color: white;
-			padding: 15px;
-			background-color: rgba(0, 0, 0, 0.5);
-			border-radius: 8px;
-			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-		}
-		.content h1 {
-			font-size: 5rem;
-			margin: 0;
-			text-transform: uppercase;
-			font-weight: bold;
-			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-		}
-		.content p {
-			font-size: 10px;
-			margin: 0;
-			font-style: italic;
-			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-		}
-		.container {
-			text-align: center;
-			padding: 20px;
+		
+		section {
 			max-width: 1200px;
-			margin: 10px auto;
+			margin: 0 auto;
 		}
-		.food-container {
-			text-align: center;
-			padding: 20px;
-			background-color: #f9f9f9;
-		}
-		.food-container h1 {
-			font-size: 2.5rem;
-			color: #2a2a2a;
-			margin-bottom: 10px;
-		}
-		.food-container .subtitle {
-			font-size: 1.2rem;
-			color: #555;
-			margin-bottom: 30px;
-		}
-		.topics {
+
+		.dining-text {
 			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
+			flex-direction: column;
+			align-items: center;
+			padding-bottom: 40px;
+			h3 {
+				font-size: 47px;
+				color: #15264C;
+				font-family: "Antonio", serif;
+			}
+			p{
+				text-align: center;
+				color: #4A4A4A;
+				width: 80%;
+			}
+		}
+
+		#dining-options {
+			display: flex;
 			gap: 20px;
 		}
-		.topic {
-			background-color: #fff;
-			border-radius: 12px;
-			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-			width: 200px;
-			padding: 15px;
+
+		.dining-card {
+			img {
+				width: 100%;
+				border-radius: 10px;
+			}
+			h3 {
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				color: #4A4A4A;
+				padding: 10px 0;
+			}
+			p{
+				color: #4A4A4A;
+			}
+		}
+
+		.swiper{
+			height: 383px;
+		}
+
+		.swiper-text {
+			color: #15264C;
+			padding: 40px 0;
+		}
+
+        .swiper-slide{
+			position: relative;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+            img {
+				width: 100%;
+				height: 100%;
+				border-radius: 5px;
+				object-fit: cover;
+			}
+        }	
+
+		.swiper-slide::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background: rgba(0, 0, 0, 0.4);
+			z-index: 1;
+		}
+
+		.overimg-text {
+			font-family: "Antonio", serif;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			color: white;
 			text-align: center;
-			transition: transform 0.2s ease, box-shadow 0.2s ease;
+			z-index: 2;
 		}
-		.topic:hover {
-			transform: translateY(-5px);
-			box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+		/* multiple background images*/
+		.multiple-bg {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background: 
+                url('https://assets.dm.rccl.com/is/image/RoyalCaribbeanCruises/royal/data/dining/playmaker/assets/playmakers-burger-fries-beer-sports-bar-dining-cruise-crop.jpg?$1040x520$'),
+                url('https://assets.dm.rccl.com/is/image/RoyalCaribbeanCruises/royal/onboard/food-and-beverage/the-mason-jar/the-mason-jar-pretty-as-a-peach-palmer.jpg?$1040x520$');
+            background-size: 50% 100%;
+            background-repeat: no-repeat;
+            background-position: left top, right top;
+        }
+
+        .multiple-bg-wrapper {
+			width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            color: white;
+			margin: 30px;
+        }
+
+		.multiple-bg-text{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: 100%;
+			a {
+				width: 25%;
+			}
 		}
-		.icon {
-			width: 50px;
-			height: 50px;
-			margin-bottom: 10px;
-		}
-		.topic p {
-			text-decoration: none;
-			font-size: 1rem;
-			font-weight: bold;
-			color: var(--primary-color);
-			transition: color 0.2s ease;
-			margin-top: 10px;
-		}
-		.topic a:hover {
-			color: var(--primary-color-dark);
-		}
+
+        .multiple-bg-text a {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: 1px solid white;
+            color: white;
+            text-decoration: none;
+        }
+
+        .multiple-bg-text a:hover {
+            background: white;
+            color: black;
+        }
+
+        .multiple-bg::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+		
+        .multiple-bg-wrapper {
+            position: relative;
+            z-index: 2;
+        }
 	</style>
 </head>
 <body>
-<div id="nav" style="position: sticky; top: 0; z-index: 1000; background-color: white;"></div>
-<section class="h-section">
-	<div class="content">
-		<h1>What Is Included On A Cruise?</h1>
-		<p>Discover What Things Do You Pay For On A Cruise & What Is Typically Included</p>
-	</div>
-</section>
-<div class="food-container">
-	<h1>WHAT FOOD IS INCLUDED</h1>
-	<p class="subtitle">All ships have at least seven dining venues, with enough free options that you can feast your way through an entire cruise without paying extra for a single meal.</p>
-	<div class="topics">
-		<div class="topic">
-			<img src="../img/starters.png" alt="Starters" class="icon">
-			<p>Starters</p>
+	<div id="nav"></div>
+
+	<section>
+		<div class="dining-text">
+			<h3>DINING OPTIONS FOR EVERY DAY AND NIGHT</h3>
+			<p>When you cruise with us, the dining options are as diverse as the flavors you'll find on each menu. From casual bites to elevated dinner and cocktail spots that raise the bar, you'll find something onboard for every craving and occasion during your cruise.</p>
 		</div>
-		<div class="topic">
-			<img src="../img/drinks.png" alt="Drinks" class="icon">
-			<p>Starters</p>
+		<div id="dining-options"></div>
+	</section>
+
+	<section>
+		<div class="multiple-bg">
+			<div class="multiple-bg-wrapper">
+				<div class="multiple-bg-text">
+					<h2>DINING PACKAGES</h2>
+					<a href="#">LEARN MORE</a>
+				</div>
+				<div class="multiple-bg-text">
+					<h2>BEVERAGE PACKAGES</h2>
+					<a href="#">LEARN MORE</a>
+				</div>
+			</div>
 		</div>
-		<div class="topic">
-			<img src="../img/breakfast.png" alt="Breakfast" class="icon">
-			<p>Breakfast</p>
+	</section>
+
+	<section>
+		<div class="swiper-text">
+			<p style="font-size: 25px; font-family: 'Antonio', serif; letter-spacing: 3px;">ALL INCLUDED</p>
+			<h3 style="font-size: 45px; font-family: 'Antonio', serif;">COMPLIMENTARY DINING</h3>
 		</div>
-		<div class="topic">
-			<img src="../img/coffe.png" alt="Coffe" class="icon">
-			<p>Coffe</p>
+		<div class="swiper">
+			<div class="swiper-wrapper" id="swiper-wrapper"></div>
+			<div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
 		</div>
-		<div class="topic">
-			<img src="../img/pasta.png" alt="Pasta" class="icon">
-			<p>Pasta</p>
-		</div>
-	</div>
-</div>
-<div id="footer"></div>
-<script type="text/javascript">
-	$('#nav').load('../nav/nav.html');
-	$('#footer').load('../footer/footer.html');
-</script>
+	</section>	
+
+	<div id="footer"></div>
+
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+	<script src="../js/diningoptions.js"></script>
+	<script>
+		$('#nav').load('../nav/nav.html');
+		$('#footer').load('../footer/footer.html');
+
+		const diningdiv = document.getElementById('dining-options');
+		let dininghtml = "";
+
+		diningoptions.forEach(item => {
+			dininghtml += `
+				<div class="dining-card">
+					<img src="${item.image}">
+					<h3>${item.category}</h3>
+					<p>${item.description}</p>
+				</div>
+			`
+		});
+		diningdiv.innerHTML = dininghtml;
+
+		const swiperdiv = document.getElementById('swiper-wrapper');
+		diningswiper.forEach(item => {
+			swiperdiv.innerHTML += `
+				<div class="swiper-slide">
+					<img src="${item.image}" alt="${item.text}">
+					<div class="overimg-text"><h3>${item.text}</h3></div>
+				</div>
+			`;
+		});
+		// swiper
+		const swiper = new Swiper('.swiper', {
+			loop: true,
+			spaceBetween: 10,
+			centeredSlides: true,
+			grabCursor: true,
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false
+			},
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev'
+			},
+			breakpoints: {
+				0: { slidesPerView: 2},
+				600: { slidesPerView: 4 },
+				1024: { slidesPerView: 6 }
+			}
+		});
+	</script>
 </body>
 </html>

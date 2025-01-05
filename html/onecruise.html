@@ -221,31 +221,32 @@
 
     <script src="../js/cruisesapi.js"></script>
     <script>
+        $('#nav').load('../nav/nav.html');
+        $('#footer').load('../footer/footer.html');
         const urlParams = new URLSearchParams(window.location.search);
         const cruiseid = Number(urlParams.get('id'));
-				let cruise = null;
-				if (cruiseid > Number.MAX_VALUE) { // perdorimi i MAX_VALUE
-					alert('Invalid cruise id');
-				} else {
-					cruise = cruises[cruiseid];
-				}
+		let cruise = null;
+		if (cruiseid > Number.MAX_VALUE) { // perdorimi i MAX_VALUE
+			alert('Invalid cruise id');
+		} else {
+			cruise = cruises[cruiseid];
+		}
 
         const cruisedetailsdiv = document.getElementById('one-cruise');
         const roomdetailsdiv = document.getElementById('room-cruise');
         const cruisecontainer = document.getElementById("cruise-container");
         let onecruise = "";
-				
-				const cruiseValidation = (cruise) => {
-					if (isNaN(cruiseid)) { // perdorimi i NaN
-						alert('Invalid cruise id');
-						return false;
-					}
-					if (!cruise) {
-						alert('Cruise not found!');
-						return false;
-					}
-					return true;
-				}
+		const cruiseValidation = (cruise) => {
+			if (isNaN(cruiseid)) { // perdorimi i NaN
+				alert('Invalid cruise id');
+				return false;
+			}
+			if (!cruise) {
+				alert('Cruise not found!');
+				return false;
+			}
+			return true;
+		}
 
         if (cruiseValidation(cruise)) {
             // current clicked cruise
@@ -347,10 +348,6 @@
                     alert(`You have booked ${cruise.name} room, type ${room.type}!`);
                 });
             });
-    </script>
-    <script type="text/javascript">
-        $('#nav').load('../nav/nav.html');
-        $('#footer').load('../footer/footer.html');
     </script>
 </body>
 </html>

@@ -32,6 +32,8 @@
     <div id="footer"></div>
 
     <script type="module">
+        $('#nav').load('../nav/nav.html');
+        $('#footer').load('../footer/footer.html');
         const form = document.querySelector('#login');
         const isloggedin = localStorage.getItem('isloggedin') ?? false;
         const messageContainer = document.getElementById('message-container');
@@ -65,11 +67,6 @@
                 messageContainer.style.color = "red";
             }
         });
-    </script>
-
-    <script type="text/javascript">
-        $('#nav').load('../nav/nav.html');
-        $('#footer').load('../footer/footer.html');
     </script>
 </body>
 </html>

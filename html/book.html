@@ -172,13 +172,10 @@
     </section>
     
     <div id="footer"></div>
-
-    <script type="text/javascript">
-        $('#nav').load('../nav/nav.html');
-        $('#footer').load('../footer/footer.html');
-    </script>
     
     <script>
+    $('#nav').load('../nav/nav.html');
+    $('#footer').load('../footer/footer.html');
     function Book() {
         const book = JSON.parse(localStorage.getItem('book')) || [];
         const bookdiv = document.getElementById('book-items');

@@ -64,6 +64,7 @@ header::before {
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: scroll; /*background-attachment*/
     z-index: -1;
     background-origin: border-box;
 }
