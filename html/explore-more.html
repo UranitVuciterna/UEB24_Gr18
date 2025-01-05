@@ -630,16 +630,16 @@
 		$(".open-modal").on("click", function (e) {
 			e.preventDefault();
 			let targetModal = $(this).data("modal");
-			$("#" + targetModal).slideDown(); // Use slideDown for showing the modal
+			$("#" + targetModal).slideDown();
 		});
 		
 		$(".close-btn").on("click", function () {
-			$(this).closest(".modal").slideUp(); // Use slideUp for hiding the modal
+			$(this).closest(".modal").slideUp();
 		});
 		
 		$(window).on("click", function (e) {
 			if ($(e.target).hasClass("modal")) {
-				$(".modal").slideUp(); // Use slideUp when clicking outside the modal
+				$(".modal").slideUp();
 			}
 		});
 	});
