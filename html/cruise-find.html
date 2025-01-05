@@ -233,9 +233,10 @@
                 const destination = $("#destination").val();
                 const startDate = $("#date-start").val();
                 const endDate = $("#date-end").val();
-                const duration = $("#duration").val();
-
-                if (validateDestination(destination) && validateDateRange(startDate, endDate) && validateDuration(duration)) {
+							const duration = $("input[name='duration']:checked").val();
+							
+							
+							if (validateDestination(destination) && validateDateRange(startDate, endDate) && validateDuration(duration)) {
                     let matches = cruises.filter(c =>
                         (!destination || c.destination === destination) &&
                         (!duration || c.duration.includes(duration)) &&
@@ -266,7 +267,7 @@
                 }
             });
         });
-    </script>
+		</script>
     <script src="../js/script.js"></script>
     <script type="text/javascript">
         $('#nav').load('../nav/nav.html');

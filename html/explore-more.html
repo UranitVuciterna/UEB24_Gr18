@@ -24,6 +24,12 @@
 			font-family: Arial, sans-serif;
 		}
 		
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 2rem;
+		}
+		
 		.cruise-features {
 			background-color: #d3f1f2;
 			margin: 5rem auto 5rem;
@@ -138,6 +144,13 @@
 			margin: 0.5rem 0 0;
 			font-family: "DM Sans", sans-serif;
 		}
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #f9f9f9;
+			color: #333;
+		}
 		
 		.container {
 			text-align: center;
@@ -217,6 +230,110 @@
 		.topic a:hover {
 			color: var(--primary-color-dark);
 		}
+		
+		.modal {
+			display: none;
+			position: fixed;
+			z-index: 1000;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgba(0, 0, 0, 0.5);
+		}
+		
+		.modal-content {
+			background-color: #fff;
+			margin: 10% auto;
+			padding: 20px;
+			border-radius: 10px;
+			width: 80%;
+			max-width: 600px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+			text-align: center;
+		}
+		
+		.modal-header, .modal-body, .modal-footer {
+			margin: 10px 0;
+		}
+		
+		.modal-header {
+			font-size: 1.5rem;
+			font-weight: bold;
+			color: var(--primary-color);
+		}
+		
+		.close-btn {
+			float: right;
+			font-size: 1.5rem;
+			font-weight: bold;
+			color: #333;
+			cursor: pointer;
+		}
+		
+		.close-btn:hover {
+			color: red;
+		}
+		
+		.open-modal {
+			cursor: pointer;
+			text-decoration: none;
+			color: var(--primary-color);
+		}
+	
+		#startup-checklist ul {
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+		}
+		
+		#startup-checklist li {
+			font-family: Arial, sans-serif;
+			font-size: 0.8rem;
+			color: #333;
+			margin: 5px 0;
+			padding: 5px 10px;
+			border-radius: 5px;
+			transition: background-color 0.3s ease, color 0.3s ease;
+		}
+		
+		#startup-checklist li:hover {
+			background-color: var(--primary-color);
+			color: #fff;
+		}
+		
+		#startup-checklist ul ul {
+			margin-left: 20px;
+			border-left: 2px solid var(--primary-color);
+			padding-left: 10px;
+		}
+		
+		#startup-checklist ul ul ul {
+			margin-left: 20px;
+			border-left: 2px dashed var(--primary-color-dark);
+		}
+		
+		#startup-checklist ul > li {
+			font-weight: bold;
+		}
+		
+		#startup-checklist li.title-item {
+			font-size: 1rem;
+			font-weight: 600;
+			color: var(--primary-color);
+			margin-top: 10px;
+			margin-bottom: 5px;
+		}
+		
+		#startup-checklist li.title-item + ul li {
+			font-size: 1rem;
+			font-weight: normal;
+			color: #555;
+		}
+		#startup-checklist li.title-item:hover {
+			color: #fff; /* Change the color to white when hovered */
+		}
 	
 	</style>
 </head>
@@ -272,23 +389,233 @@
 	<div class="topics">
 		<div class="topic">
 			<img src="../img/documents.png" alt="Travel Documents Icon" class="icon">
-			<a href="#">Travel Documents</a>
+			<a class="open-modal" data-modal="travel-documents-modal">Travel Documents</a>
 		</div>
 		<div class="topic">
 			<img src="../img/payment.png" alt="Payment & Cancellation Policies Icon" class="icon">
-			<a href="#">Payment & Cancellation Policies</a>
+			<a class="open-modal" data-modal="payment-modal">Payment & Cancellation Policies</a>
 		</div>
 		<div class="topic">
 			<img src="../img/transport.png" alt="Embarkation & Transportation Icon" class="icon">
-			<a href="#">Embarkation & Transportation</a>
+			<a class="open-modal" data-modal="transport-modal">Embarkation & Transportation</a>
 		</div>
 		<div class="topic">
 			<img src="../img/internet.png" alt="Onboard Internet Icon" class="icon">
-			<a href="#">Onboard Internet</a>
+			<a class="open-modal" data-modal="internet-modal">Onboard Internet</a>
 		</div>
 		<div class="topic">
 			<img src="../img/luggage.png" alt="Luggage Icon" class="icon">
-			<a href="#">Luggage, Dress Code & Packing</a>
+			<a class="open-modal" data-modal="luggage-modal">Luggage, Dress Code & Packing</a>
+		</div>
+	</div>
+</div>
+
+<div id="travel-documents-modal" class="modal">
+	<div class="modal-content">
+		<span class="close-btn">&times;</span>
+		<div class="modal-header">Travel Documents</div>
+		<div class="modal-body">
+			<p>Here is the information about travel documents.</p>
+			<div id="startup-checklist">
+				<ul>
+					<li class="title-item">Passports are Best
+						<ul>
+							<li>A passport is the best ID document for travel.
+								Make sure yours doesn't expire for 6 months after your cruise ends.</li>
+						</ul>
+					</li>
+					<li class="title-item">Birth Certificates
+						<ul>
+							<li>U.S. Citizens can cruise with a U.S. birth certificate on most sailings from the U.S.
+							But your birth certificate needs to meet the requirements.</li>
+						</ul>
+					</li>
+					<li class="title-item">Names must match
+						<ul>
+							<li>If you've had a name change, and the name used across your documents does not match, you will need to take an extra step. </li>
+						</ul>
+					</li>
+					<li class="title-item">Cruising with Kids that Aren't Yours
+						<ul>
+							<li>When a minor (age 17 and under) travels without their legal guardian,
+								an accompanying adult must present a notarized form signed by the child's guardian.</li>
+						</ul>
+					</li>
+					<li class="title-item">Visas my be required
+						<ul>
+							<li>Some countries require an entry visa or electronic visa based on your nationality. </li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="payment-modal" class="modal">
+	<div class="modal-content">
+		<span class="close-btn">&times;</span>
+		<div class="modal-header">Payment & Cancellation Policies</div>
+		<div class="modal-body">
+			<p>Details about payment options, cancellation policies, and refund eligibility.</p>
+			<div id="startup-checklist">
+				<ul>
+					<li class="title-item">Passports are Best
+						<ul>
+							<li>A passport is the best ID document for travel.
+								Make sure yours doesn't expire for 6 months after your cruise ends.</li>
+						</ul>
+					</li>
+					<li class="title-item">Birth Certificates
+						<ul>
+							<li>U.S. Citizens can cruise with a U.S. birth certificate on most sailings from the U.S.
+								But your birth certificate needs to meet the requirements.</li>
+						</ul>
+					</li>
+					<li class="title-item">Names must match
+						<ul>
+							<li>If you've had a name change, and the name used across your documents does not match, you will need to take an extra step. </li>
+						</ul>
+					</li>
+					<li class="title-item">Cruising with Kids that Aren't Yours
+						<ul>
+							<li>When a minor (age 17 and under) travels without their legal guardian,
+								an accompanying adult must present a notarized form signed by the child's guardian.</li>
+						</ul>
+					</li>
+					<li class="title-item">Visas my be required
+						<ul>
+							<li>Some countries require an entry visa or electronic visa based on your nationality. </li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="transport-modal" class="modal">
+	<div class="modal-content">
+		<span class="close-btn">&times;</span>
+		<div class="modal-header">Embarkation & Transportation</div>
+		<div class="modal-body">
+			<p>Learn about embarkation procedures, transportation options, and related guidelines.</p>
+			<div id="startup-checklist">
+				<ul>
+					<li class="title-item">Passports are Best
+						<ul>
+							<li>A passport is the best ID document for travel.
+								Make sure yours doesn't expire for 6 months after your cruise ends.</li>
+						</ul>
+					</li>
+					<li class="title-item">Birth Certificates
+						<ul>
+							<li>U.S. Citizens can cruise with a U.S. birth certificate on most sailings from the U.S.
+								But your birth certificate needs to meet the requirements.</li>
+						</ul>
+					</li>
+					<li class="title-item">Names must match
+						<ul>
+							<li>If you've had a name change, and the name used across your documents does not match, you will need to take an extra step. </li>
+						</ul>
+					</li>
+					<li class="title-item">Cruising with Kids that Aren't Yours
+						<ul>
+							<li>When a minor (age 17 and under) travels without their legal guardian,
+								an accompanying adult must present a notarized form signed by the child's guardian.</li>
+						</ul>
+					</li>
+					<li class="title-item">Visas my be required
+						<ul>
+							<li>Some countries require an entry visa or electronic visa based on your nationality. </li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="internet-modal" class="modal">
+	<div class="modal-content">
+		<span class="close-btn">&times;</span>
+		<div class="modal-header">Onboard Internet</div>
+		<div class="modal-body">
+			<p>Explore the onboard internet packages, connection details, and pricing.</p>
+			<div id="startup-checklist">
+				<ul>
+					<li class="title-item">Passports are Best
+						<ul>
+							<li>A passport is the best ID document for travel.
+								Make sure yours doesn't expire for 6 months after your cruise ends.</li>
+						</ul>
+					</li>
+					<li class="title-item">Birth Certificates
+						<ul>
+							<li>U.S. Citizens can cruise with a U.S. birth certificate on most sailings from the U.S.
+								But your birth certificate needs to meet the requirements.</li>
+						</ul>
+					</li>
+					<li class="title-item">Names must match
+						<ul>
+							<li>If you've had a name change, and the name used across your documents does not match, you will need to take an extra step. </li>
+						</ul>
+					</li>
+					<li class="title-item">Cruising with Kids that Aren't Yours
+						<ul>
+							<li>When a minor (age 17 and under) travels without their legal guardian,
+								an accompanying adult must present a notarized form signed by the child's guardian.</li>
+						</ul>
+					</li>
+					<li class="title-item">Visas my be required
+						<ul>
+							<li>Some countries require an entry visa or electronic visa based on your nationality. </li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="luggage-modal" class="modal">
+	<div class="modal-content">
+		<span class="close-btn">&times;</span>
+		<div class="modal-header">Luggage, Dress Code & Packing</div>
+		<div class="modal-body">
+			<p>Find out what's allowed in your luggage, dress code policies, and packing tips.</p>
+			<div id="startup-checklist">
+				<ul>
+					<li class="title-item">Passports are Best
+						<ul>
+							<li>A passport is the best ID document for travel.
+								Make sure yours doesn't expire for 6 months after your cruise ends.</li>
+						</ul>
+					</li>
+					<li class="title-item">Birth Certificates
+						<ul>
+							<li>U.S. Citizens can cruise with a U.S. birth certificate on most sailings from the U.S.
+								But your birth certificate needs to meet the requirements.</li>
+						</ul>
+					</li>
+					<li class="title-item">Names must match
+						<ul>
+							<li>If you've had a name change, and the name used across your documents does not match, you will need to take an extra step. </li>
+						</ul>
+					</li>
+					<li class="title-item">Cruising with Kids that Aren't Yours
+						<ul>
+							<li>When a minor (age 17 and under) travels without their legal guardian,
+								an accompanying adult must present a notarized form signed by the child's guardian.</li>
+						</ul>
+					</li>
+					<li class="title-item">Visas my be required
+						<ul>
+							<li>Some countries require an entry visa or electronic visa based on your nationality. </li>
+						</ul>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>
@@ -296,6 +623,23 @@
 <div id="footer"></div>
 
 <script type="text/javascript">
+	$(document).ready(function () {
+		$(".open-modal").on("click", function (e) {
+			e.preventDefault();
+			let targetModal = $(this).data("modal");
+			$("#" + targetModal).slideDown(); // Use slideDown for showing the modal
+		});
+		
+		$(".close-btn").on("click", function () {
+			$(this).closest(".modal").slideUp(); // Use slideUp for hiding the modal
+		});
+		
+		$(window).on("click", function (e) {
+			if ($(e.target).hasClass("modal")) {
+				$(".modal").slideUp(); // Use slideUp when clicking outside the modal
+			}
+		});
+	});
 	$('#nav').load('../nav/nav.html');
 	$('#footer').load('../footer/footer.html');
 </script>
