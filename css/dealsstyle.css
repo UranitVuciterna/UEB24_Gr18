@@ -61,6 +61,7 @@
 
 .hero-banner__btn:hover {
   background-color: #b0b0b0;
+  text-decoration: underline;
 }
 
 /****************************************
@@ -89,10 +90,17 @@
   border-radius: 5px;
   font-weight: bold;
   transition: background-color 0.3s;
+  text-decoration: none;
 }
 
 .blue-banner__btn:hover {
   background-color: #b0b0b0;
+  text-decoration: underline;
+  transform: scale(1.1);
+}
+
+.blue-banner__content p {
+  font-size: 20px;
 }
 
 /****************************************
@@ -157,8 +165,12 @@
 
 .card-content .price {
   font-weight: bold;
-  color: #ff5722;
+  color: #666;
   margin-bottom: 1rem;
+}
+
+.card-content .price span {
+  color: red;
 }
 
 .btn {
@@ -175,6 +187,11 @@
 
 .btn:hover {
   background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+.cruise-benefits ul, li{
+  list-style-type: none;
 }
 
 /****************************************
