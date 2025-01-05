@@ -35,33 +35,27 @@ window.onscroll = () => {
 
     const scrollToTopButton = document.getElementById("scrollToTop");
 
-    // Initialize variables for dragging
+
     let isDragging = false;
     let offsetX = 0;
     let offsetY = 0;
 
-    // Set initial position for the button (for fixed positioning)
-    let initialX = scrollToTopButton.offsetLeft;
-    let initialY = scrollToTopButton.offsetTop;
 
     scrollToTopButton.addEventListener("mousedown", (e) => {
     isDragging = true;
 
-    // Calculate offset relative to the button
     offsetX = e.clientX - scrollToTopButton.getBoundingClientRect().left;
     offsetY = e.clientY - scrollToTopButton.getBoundingClientRect().top;
 
-    // Prevent text selection while dragging
     e.preventDefault();
 });
 
     document.addEventListener("mousemove", (e) => {
     if (isDragging) {
-    // Calculate new position
+
     const x = e.clientX - offsetX;
     const y = e.clientY - offsetY;
-
-    // Update the button's position while keeping it visible
+    
     scrollToTopButton.style.position = "fixed";
     scrollToTopButton.style.left = `${x}px`;
     scrollToTopButton.style.top = `${y}px`;
