@@ -208,20 +208,25 @@
             }
 
             function validateDateRange(startDate, endDate) {
-                if (!startDate || !endDate) {
-                    showError("Both start and end dates are required!");
-                    return false;
-                }
+ const currentDate = new Date().toISOString().split("T")[0];
+    if (!startDate || !endDate) {
+        showError("Both start and end dates are required!");
+        return false;
+    }
 
-                const start = new Date(startDate);
-                const end = new Date(endDate);
-                if (start > end) {
-                    showError("Start date must be before end date!");
-                    return false;
-                }
+    if (startDate < currentDate) {
+        showError("Start date cannot be in the past!");
+        return false;
+    }
 
-                return true;
-            }
+    if (new Date(startDate) > new Date(endDate)) {
+        showError("Start date must be before end date!");
+        return false;
+    }
+
+    return true;
+}
+
 
             function validateDuration(duration) {
                 if (!duration) {
