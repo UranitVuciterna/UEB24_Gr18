@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="sq">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -134,10 +134,7 @@
                     <label for="date-start">Departure Date Range (Start):</label>
                     <input type="date" id="date-start">
                 </div>
-                <div class="form-group">
-                    <label for="date-end">Departure Date Range (End):</label>
-                    <input type="date" id="date-end">
-                </div>
+              
                 <div class="form-group">
 										<label>Duration (days):</label>
 										<div class="radio-group">
@@ -170,111 +167,103 @@
     <div id="footer"></div>
 
     <script>
-        $(document).ready(function () {
-            const $message = $("#message");
-            const $results = $("#results");
-            const $searchButton = $("#search-button");
+       $(document).ready(function () {
+    const $message = $("#message");
+    const $results = $("#results");
+    const $searchButton = $("#search-button");
 
-            function Cruise(destination, date, duration, price) {
-                this.destination = destination;
-                this.date = date;
-                this.duration = duration;
-                this.price = price;
-            }
-
-            const cruises = [
-                new Cruise("Caribbean", "2025-01-15", "7 Days", "$1200"),
-                new Cruise("Alaska", "2025-06-10", "5 Days", "$800"),
-                new Cruise("Mediterranean", "2025-04-22", "10+ Days", "$1500"),
-                new Cruise("Miami", "2026-02-20", "7 Days", "$1400"),
-                new Cruise("Bahamas", "2026-05-10", "5 Days", "$950"),
-                new Cruise("Texas", "2026-07-15", "3 Days", "$700")
-            ];
-
-            function showError(message) {
-                try {
-                    throw new Error(message);
-                } catch (error) {
-                    $message.text(error.message).fadeIn().delay(3000).fadeOut();
-                }
-            }
-
-            function validateDestination(destination) {
-                if (!destination) {
-                    showError("Destination is required!");
-                    return false;
-                }
-                return true;
-            }
-
-            function validateDateRange(startDate, endDate) {
- const currentDate = new Date().toISOString().split("T")[0];
-    if (!startDate || !endDate) {
-        showError("Both start and end dates are required!");
-        return false;
+    function Cruise(destination, date, duration, price) {
+        this.destination = destination;
+        this.date = date;
+        this.duration = duration;
+        this.price = price;
     }
 
-    if (startDate < currentDate) {
-        showError("Start date cannot be in the past!");
-        return false;
+    const cruises = [
+        new Cruise("Caribbean", "2025-01-15", "7 Days", "$1200"),
+        new Cruise("Alaska", "2025-06-10", "5 Days", "$800"),
+        new Cruise("Mediterranean", "2025-04-22", "10+ Days", "$1500"),
+        new Cruise("Miami", "2026-02-20", "7 Days", "$1400"),
+        new Cruise("Bahamas", "2026-05-10", "5 Days", "$950"),
+        new Cruise("Texas", "2026-07-15", "3 Days", "$700")
+    ];
+
+    function showError(message) {
+        try {
+            throw new Error(message);
+        } catch (error) {
+            $message.text(error.message).fadeIn().delay(3000).fadeOut();
+        }
     }
 
-    if (new Date(startDate) > new Date(endDate)) {
-        showError("Start date must be before end date!");
-        return false;
+    function validateDestination(destination) {
+        if (!destination) {
+            showError("Destination is required!");
+            return false;
+        }
+        return true;
     }
 
-    return true;
-}
+    function validateStartDate(startDate) {
+        const currentDate = new Date().toISOString().split("T")[0];
+        if (!startDate) {
+            showError("Start date is required!");
+            return false;
+        }
 
+        if (startDate < currentDate) {
+            showError("Start date cannot be in the past!");
+            return false;
+        }
 
-            function validateDuration(duration) {
-                if (!duration) {
-                    showError("Duration is required!");
-                    return false;
-                }
-                return true;
+        return true;
+    }
+
+    function validateDuration(duration) {
+        if (!duration) {
+            showError("Duration is required!");
+            return false;
+        }
+        return true;
+    }
+
+    // callback function for search button click event
+    $searchButton.click(function () {
+        const destination = $("#destination").val();
+        const startDate = $("#date-start").val();
+        const duration = $("input[name='duration']:checked").val();
+
+        if (validateDestination(destination) && validateStartDate(startDate) && validateDuration(duration)) {
+            let matches = cruises.filter(c =>
+                (!destination || c.destination === destination) &&
+                (!duration || c.duration.includes(duration)) &&
+                (new Date(c.date) >= new Date(startDate))
+            );
+
+            const $tbody = $results.find("tbody");
+            $tbody.empty();
+
+            if (matches.length > 0) {
+                matches.forEach(cruise => {
+                    let formattedPrice = cruise.price.replace('$', 'USD ');
+                    $tbody.append(`
+                        <tr>
+                            <td>${cruise.destination}</td>
+                            <td>${cruise.date}</td>
+                            <td>${cruise.duration}</td>
+                            <td>${formattedPrice}</td>
+                        </tr>
+                    `);
+                });
+            } else {
+                $tbody.append('<tr class="no-results"><td colspan="4">No cruises match your search criteria.</td></tr>');
             }
 
-						// callback function for search button click event
-            $searchButton.click(function () {
-                const destination = $("#destination").val();
-                const startDate = $("#date-start").val();
-                const endDate = $("#date-end").val();
-							const duration = $("input[name='duration']:checked").val();
-							
-							
-							if (validateDestination(destination) && validateDateRange(startDate, endDate) && validateDuration(duration)) {
-                    let matches = cruises.filter(c =>
-                        (!destination || c.destination === destination) &&
-                        (!duration || c.duration.includes(duration)) &&
-                        (new Date(c.date) >= new Date(startDate)) &&
-                        (new Date(c.date) <= new Date(endDate))
-                    );
+            $results.show().hide().fadeIn(1000); // Advanced jQuery Effect (fadeIn)
+        }
+    });
+});
 
-                    const $tbody = $results.find("tbody");
-                    $tbody.empty();
-
-                    if (matches.length > 0) {
-                        matches.forEach(cruise => {
-                            let formattedPrice = cruise.price.replace('$', 'USD ');
-                            $tbody.append(`
-                                <tr>
-                                    <td>${cruise.destination}</td>
-                                    <td>${cruise.date}</td>
-                                    <td>${cruise.duration}</td>
-                                    <td>${formattedPrice}</td>
-                                </tr>
-                            `);
-                        });
-                    } else {
-                        $tbody.append('<tr class="no-results"><td colspan="4">No cruises match your search criteria.</td></tr>');
-                    }
-
-                    $results.show().hide().fadeIn(1000); // Advanced jQuery Effect (fadeIn)
-                }
-            });
-        });
 		</script>
     <script src="../js/script.js"></script>
     <script type="text/javascript">
