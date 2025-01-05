@@ -1,274 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Find a Cruise</title>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
-    <div id="nav" style="position: sticky; top: 0; z-index: 1000; background-color: white;"></div>
-
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background-color: white;
-        }
-        .container {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        .form-container {
-            width: 100%;
-            max-width: 600px;
-            display: grid;
-            box-sizing: border-box;
-            padding: 5%;
-            margin: 3%;
-            border-radius: 10px;
-            box-shadow: 0 0 15px 3px rgba(0,0,0,0.15);
-            background-color: white;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            font-weight: bold;
-        }
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-					  border-radius: 5px;
-					  border: 1px solid #ccc;
-        }
-        button {
-            background-color:#2887ff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-top: 10px;
-					  border-radius: 5px;
-        }
-        button:hover {
-            background-color: #004080;
-        }
-        #reset-button {
-            background-color: #e60000;
-        }
-        #reset-button:hover {
-            background-color: #cc0000;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-        }
-        th {
-            background-color: #2887ff;
-            color: white;
-        }
-        tbody tr.no-results td {
-            text-align: center;
-            color: #e60000;
-        }
-        #message {
-            color: red;
-            display: none;
-            margin-top: 10px;
-        }
-				.radio-group {
-					margin-top: 1rem;
-					display: flex;
-					align-items: center;
-					gap: 15px;
-					flex-wrap: nowrap;
-				}
-				
-				.radio-group label {
-					display: flex;
-					align-items: center;
-					font-weight: normal;
-					cursor: pointer;
-					white-space: nowrap;
-				}
-				
-				.radio-group input[type="radio"] {
-					margin-right: 0.5rem;
-				}
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="form-container">
-		<h1>Find a Cruise</h1>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Find a Cruise</title>
+      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+      <div id="nav" style="position: sticky; top: 0; z-index: 1000; background-color: white;"></div>
+      <style>
+         html, body {
+         height: 100%;
+         margin: 0;
+         display: flex;
+         flex-direction: column;
+         }
+         body {
+         font-family: Arial, sans-serif;
+         background-color: white;
+         }
+         .container {
+         flex: 1;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         padding: 20px;
+         }
+         .form-container {
+         width: 100%;
+         max-width: 600px;
+         display: grid;
+         box-sizing: border-box;
+         padding: 5%;
+         margin: 3%;
+         border-radius: 10px;
+         box-shadow: 0 0 15px 3px rgba(0,0,0,0.15);
+         background-color: white;
+         }
+         .form-group {
+         margin-bottom: 15px;
+         }
+         .form-group label {
+         display: block;
+         font-weight: bold;
+         }
+         .form-group input, .form-group select {
+         width: 100%;
+         padding: 8px;
+         margin-top: 5px;
+         border-radius: 5px;
+         border: 1px solid #ccc;
+         }
+         button {
+         background-color:#2887ff;
+         color: white;
+         border: none;
+         padding: 10px 20px;
+         cursor: pointer;
+         transition: background-color 0.3s ease;
+         margin-top: 10px;
+         border-radius: 5px;
+         }
+         button:hover {
+         background-color: #004080;
+         }
+         #reset-button {
+         background-color: #e60000;
+         }
+         #reset-button:hover {
+         background-color: #cc0000;
+         }
+         table {
+         width: 100%;
+         border-collapse: collapse;
+         margin-top: 20px;
+         }
+         table, th, td {
+         border: 1px solid #ddd;
+         padding: 10px;
+         }
+         th {
+         background-color: #2887ff;
+         color: white;
+         }
+         tbody tr.no-results td {
+         text-align: center;
+         color: #e60000;
+         }
+         #message {
+         color: red;
+         display: none;
+         margin-top: 10px;
+         }
+         .radio-group {
+         margin-top: 1rem;
+         display: flex;
+         align-items: center;
+         gap: 15px;
+         flex-wrap: nowrap;
+         }
+         .radio-group label {
+         display: flex;
+         align-items: center;
+         font-weight: normal;
+         cursor: pointer;
+         white-space: nowrap;
+         }
+         .radio-group input[type="radio"] {
+         margin-right: 0.5rem;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="container">
+         <div class="form-container">
+            <h1>Find a Cruise</h1>
             <form id="cruise-form">
-                <div class="form-group">
-                    <label for="destination">Destination:</label>
-                    <select id="destination">
-                        <option value="">Select a destination</option>
-                        <option value="Caribbean">Caribbean</option>
-                        <option value="Alaska">Alaska</option>
-                        <option value="Mediterranean">Mediterranean</option>
-                        <option value="Miami">Miami</option>
-                        <option value="Bahamas">Bahamas</option>
-                        <option value="Texas">Texas</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="date-start">Departure Date Range (Start):</label>
-                    <input type="date" id="date-start">
-                </div>
-              
-                <div class="form-group">
-										<label>Duration (days):</label>
-										<div class="radio-group">
-												<label><input type="radio" name="duration" value="3"> 3 Days</label>
-												<label><input type="radio" name="duration" value="5"> 5 Days</label>
-												<label><input type="radio" name="duration" value="7"> 7 Days</label>
-												<label><input type="radio" name="duration" value="10"> 10+ Days</label>
-										</div>
-								</div>
-                <button type="button" id="search-button">Search Cruises</button>
-		<button type="reset" id="reset-button">Reset Form</button>
+               <div class="form-group">
+                  <label for="destination">Destination:</label>
+                  <select id="destination">
+                     <option value="">Select a destination</option>
+                     <option value="Caribbean">Caribbean</option>
+                     <option value="Alaska">Alaska</option>
+                     <option value="Mediterranean">Mediterranean</option>
+                     <option value="Miami">Miami</option>
+                     <option value="Bahamas">Bahamas</option>
+                     <option value="Texas">Texas</option>
+                  </select>
+               </div>
+               <div class="form-group">
+                  <label for="date-start">Departure Date Range (Start):</label>
+                  <input type="date" id="date-start">
+               </div>
+               <div class="form-group">
+                  <label>Duration (days):</label>
+                  <div class="radio-group">
+                     <label><input type="radio" name="duration" value="3"> 3 Days</label>
+                     <label><input type="radio" name="duration" value="5"> 5 Days</label>
+                     <label><input type="radio" name="duration" value="7"> 7 Days</label>
+                     <label><input type="radio" name="duration" value="10"> 10+ Days</label>
+                  </div>
+               </div>
+               <button type="button" id="search-button">Search Cruises</button>
+               <button type="reset" id="reset-button">Reset Form</button>
             </form>
             <div id="results" style="display:none;">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Destination</th>
-                            <th>Date</th>
-                            <th>Duration</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
+               <table>
+                  <thead>
+                     <tr>
+                        <th>Destination</th>
+                        <th>Date</th>
+                        <th>Duration</th>
+                        <th>Price</th>
+                     </tr>
+                  </thead>
+                  <tbody></tbody>
+               </table>
             </div>
-             <div id="message"></div>
-        </div>
-    </div>
-
-    <div id="footer"></div>
-
-    <script>
-       $(document).ready(function () {
-    const $message = $("#message");
-    const $results = $("#results");
-    const $searchButton = $("#search-button");
-
-    function Cruise(destination, date, duration, price) {
-        this.destination = destination;
-        this.date = date;
-        this.duration = duration;
-        this.price = price;
-    }
-
-    const cruises = [
-        new Cruise("Caribbean", "2025-01-15", "7 Days", "$1200"),
-        new Cruise("Alaska", "2025-06-10", "5 Days", "$800"),
-        new Cruise("Mediterranean", "2025-04-22", "10+ Days", "$1500"),
-        new Cruise("Miami", "2026-02-20", "7 Days", "$1400"),
-        new Cruise("Bahamas", "2026-05-10", "5 Days", "$950"),
-        new Cruise("Texas", "2026-07-15", "3 Days", "$700")
-    ];
-
-    function showError(message) {
-        try {
-            throw new Error(message);
-        } catch (error) {
-            $message.text(error.message).fadeIn().delay(3000).fadeOut();
-        }
-    }
-
-    function validateDestination(destination) {
-        if (!destination) {
-            showError("Destination is required!");
-            return false;
-        }
-        return true;
-    }
-
-    function validateStartDate(startDate) {
-        const currentDate = new Date().toISOString().split("T")[0];
-        if (!startDate) {
-            showError("Start date is required!");
-            return false;
-        }
-
-        if (startDate < currentDate) {
-            showError("Start date cannot be in the past!");
-            return false;
-        }
-
-        return true;
-    }
-
-    function validateDuration(duration) {
-        if (!duration) {
-            showError("Duration is required!");
-            return false;
-        }
-        return true;
-    }
-
-    // callback function for search button click event
-    $searchButton.click(function () {
-        const destination = $("#destination").val();
-        const startDate = $("#date-start").val();
-        const duration = $("input[name='duration']:checked").val();
-
-        if (validateDestination(destination) && validateStartDate(startDate) && validateDuration(duration)) {
-            let matches = cruises.filter(c =>
-                (!destination || c.destination === destination) &&
-                (!duration || c.duration.includes(duration)) &&
-                (new Date(c.date) >= new Date(startDate))
-            );
-
-            const $tbody = $results.find("tbody");
-            $tbody.empty();
-
-            if (matches.length > 0) {
-                matches.forEach(cruise => {
-                    let formattedPrice = cruise.price.replace('$', 'USD ');
-                    $tbody.append(`
-                        <tr>
-                            <td>${cruise.destination}</td>
-                            <td>${cruise.date}</td>
-                            <td>${cruise.duration}</td>
-                            <td>${formattedPrice}</td>
-                        </tr>
-                    `);
-                });
-            } else {
-                $tbody.append('<tr class="no-results"><td colspan="4">No cruises match your search criteria.</td></tr>');
-            }
-
-            $results.show().hide().fadeIn(1000); // Advanced jQuery Effect (fadeIn)
-        }
-    });
-});
-
-		</script>
-    <script src="../js/script.js"></script>
-    <script type="text/javascript">
-        $('#nav').load('../nav/nav.html');
-        $('#footer').load('../footer/footer.html');
-    </script>
-</body>
+            <div id="message"></div>
+         </div>
+      </div>
+      <div style="text-align: center; margin-top: 20px;">
+         <img src="../img/texas.jpg" alt="Cruise" width="200" height="200">
+         <p style="font-size: 16px; margin-top: 10px;">
+            Destinations include: Caribbean, Alaska, Mediterranean, and more.
+         </p>
+      </div>
+      <div id="footer"></div>
+      <script>
+         $(document).ready(function () {
+         const $message = $("#message");
+         const $results = $("#results");
+         const $searchButton = $("#search-button");
+         
+         function Cruise(destination, date, duration, price) {
+          this.destination = destination;
+          this.date = date;
+          this.duration = duration;
+          this.price = price;
+         }
+         
+         const cruises = [
+          new Cruise("Caribbean", "2025-01-15", "7 Days", "$1200"),
+          new Cruise("Alaska", "2025-06-10", "5 Days", "$800"),
+          new Cruise("Mediterranean", "2025-04-22", "10+ Days", "$1500"),
+          new Cruise("Miami", "2026-02-20", "7 Days", "$1400"),
+          new Cruise("Bahamas", "2026-05-10", "5 Days", "$950"),
+          new Cruise("Texas", "2026-07-15", "3 Days", "$700")
+         ];
+         
+         function showError(message) {
+          try {
+              throw new Error(message);
+          } catch (error) {
+              $message.text(error.message).fadeIn().delay(3000).fadeOut();
+          }
+         }
+         
+         function validateDestination(destination) {
+          if (!destination) {
+              showError("Destination is required!");
+              return false;
+          }
+          return true;
+         }
+         
+         function validateStartDate(startDate) {
+          const currentDate = new Date().toISOString().split("T")[0];
+          if (!startDate) {
+              showError("Start date is required!");
+              return false;
+          }
+         
+          if (startDate < currentDate) {
+              showError("Start date cannot be in the past!");
+              return false;
+          }
+         
+          return true;
+         }
+         
+         function validateDuration(duration) {
+          if (!duration) {
+              showError("Duration is required!");
+              return false;
+          }
+          return true;
+         }
+         
+         // callback function for search button click event
+         $searchButton.click(function () {
+          const destination = $("#destination").val();
+          const startDate = $("#date-start").val();
+          const duration = $("input[name='duration']:checked").val();
+         
+          if (validateDestination(destination) && validateStartDate(startDate) && validateDuration(duration)) {
+              let matches = cruises.filter(c =>
+                  (!destination || c.destination === destination) &&
+                  (!duration || c.duration.includes(duration)) &&
+                  (new Date(c.date) >= new Date(startDate))
+              );
+         
+              const $tbody = $results.find("tbody");
+              $tbody.empty();
+         
+              if (matches.length > 0) {
+                  matches.forEach(cruise => {
+                      let formattedPrice = cruise.price.replace('$', 'USD ');
+                      $tbody.append(`
+                          <tr>
+                              <td>${cruise.destination}</td>
+                              <td>${cruise.date}</td>
+                              <td>${cruise.duration}</td>
+                              <td>${formattedPrice}</td>
+                          </tr>
+                      `);
+                  });
+              } else {
+                  $tbody.append('<tr class="no-results"><td colspan="4">No cruises match your search criteria.</td></tr>');
+              }
+         
+              $results.show().hide().fadeIn(1000); // Advanced jQuery Effect (fadeIn)
+          }
+         });
+         });
+         
+      </script>
+      <script src="../js/script.js"></script>
+      <script type="text/javascript">
+         $('#nav').load('../nav/nav.html');
+         $('#footer').load('../footer/footer.html');
+      </script>
+   </body>
 </html>
