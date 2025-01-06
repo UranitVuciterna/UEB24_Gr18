@@ -22,16 +22,15 @@
 .section__container {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 5rem 1rem;
+    padding-top: 5rem;
 }
 
 .section__header {
-    margin-bottom: 5px;
     font-size: 2.5rem;
     font-weight: 700;
     color: var(--text-dark);
     text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .text-container {
@@ -104,37 +103,21 @@ header::before {
     font-family: "PT Serif", serif;
 }
 
-#price {
-    max-width: 100px;
+.swiper-button-prev,
+.swiper-button-next{
+    padding-bottom: 45px;
 }
 
-#date {
-    color: var(--text-light);
-}
-
-.swiper {
-    width: 100%;
-    height: 100%;
-}
-
-.swiper-wrapper {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: stretch;
-}
-
-.swiper-slide {
-    display: flex;
-    align-items: stretch;
-    height: 100%;
+.swiper-pagination {
+    position: absolute;
+    transform: translateY(-60px);
 }
 
 .client__card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 0 auto;
+    margin: 0 auto 60px auto;
     height: 100%;
     background-color: var(--extra-light);
     border-radius: 1rem;
@@ -194,10 +177,7 @@ header::before {
     transition: 0.3s;
     cursor: pointer;
     text-decoration: none;
-}
-
-.btn:focus {
-    outline: 2px solid var(--primary-color-dark);
+    margin: 10px 0;
 }
 
 .client__card:hover h4 {
@@ -305,25 +285,47 @@ header::before {
     transition: all 0.4s ease-in-out;
 }
 
-.page-card:nth-child(2){
-    position: relative;
-    color: white;
+.page-card:nth-child(2) {
+    background-color: #2887ff;
     flex: 1.5;
     height: 450px;
-    background-color: #2887ff;
-    overflow: hidden;
     i{
         border: 1px solid white;
         border-radius: 100%;
         padding: 20px;
     }
     img {
+        border: 1px solid white;
+    }
+}
+
+.page-card:nth-child(1),
+.page-card:nth-child(3){
+    p {
+        display: none;
+    }
+}
+
+.page-card:nth-child(1):hover,
+.page-card:nth-child(3):hover{
+    p {
+        display: block;
+        color: #0a0a0a;
+    }
+}
+
+.page-card:nth-child(1),
+.page-card:nth-child(2),
+.page-card:nth-child(3){
+    position: relative;
+    color: white;
+    overflow: hidden;
+    img {
         position: absolute;
         border-radius: 50%;
         width: 260px;
-        top: -55px;
+        top: -65px;
         right: -65px;
-        border: 1px solid white;
         padding: 20px;
     }
     a {
@@ -397,9 +399,19 @@ header::before {
     }
     .page-card {
         width: 100%;
+        margin-top: 20px;
         i {
             padding-bottom: 15px;
         }
+    }
+
+    .swiper-wrapper {
+        height: 350px;
+    }
+
+    .swiper-pagination {
+        position: absolute;
+        transform: translateY(0px);
     }
 }
 
@@ -429,9 +441,17 @@ header::before {
         height: auto;
     }
 
+    .swiper-wrapper {
+        height: 350px;
+    }
+
     .swiper-slide{
         width: 100%;
         height: 100%;
+    }
+    .swiper-pagination {
+        position: absolute;
+        transform: translateY(0px);
     }
 }
 
@@ -480,7 +500,6 @@ body {
     border-radius: 10px;
     overflow: hidden;
     max-width: var(--max-width);
-    margin: 5rem auto 0;
     padding: 3rem 1rem;
 }
 
@@ -498,17 +517,65 @@ body {
 .banner-content {
     position: relative;
     z-index: 2;
-    max-width: 600px;
 }
 
-.banner-content h1 {
-    font-size: 28px;
-    font-weight: bold;
-    margin: 0 0 10px;
+/* Crew CSS */
+
+.crew-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
 }
 
-.banner-content p {
-    font-size: 16px;
-    margin: 0 0 20px;
-    line-height: 1.5;
+.crew-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.crew-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.crew-card .crew-details {
+    flex: 1;
+}
+
+.crew-card h4 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.crew-card p {
+    margin: 5px 0;
+    color: #555;
+    font-size: 1rem;
+    word-wrap: break-word;
+}
+
+.crew-card .contact-info {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    color: #e60000;
+}
+
+.contact-info i {
+    font-size: 1.5rem;
+}
+
+#crew {
+    margin-bottom: 70px;
 }

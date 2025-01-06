@@ -11,17 +11,22 @@
 <body>
 <nav class="nav-container">
     <div class="nav__logo">
-        <a href="#"><canvas id="logoCanvas" width="150" height="80"></canvas></a>
+        <h1><a href="index.html">Web24</a></h1>
     </div>
     <ul class="nav__links" id="nav-links">
         <li><a href="../html/index.html">Home</a></li>
+<<<<<<< HEAD
         <li><a href="../html/cruise-find.html">Find a Cruise</a></li>
         <li><a href="../html/destinations.html">Destinations</a></li>
+=======
+        <li><a href="../html/cruise-find.html">Find A Cruise</a></li>
+        <li><a href="#">Destinations</a></li>
+>>>>>>> 6ceb709db6eb8f72d5c313d27ae03f9a900b2379
         <li><a href="../html/deals.html">Deals</a></li>
+        <li><a href="../html/cruises.html">Book A Trip</a></li>
         <li><a href="../html/signup.html">Sign Up</a></li>
     </ul>
     <div class="nav__btns">
-        <a href="cruises.html"><button class="btnn">BOOK A TRIP</button></a>
         <a href="profile.html"><span id="fullname" class="user-fullname"></span></a>
         <a href="book.html" style="color: black; border: 1px solid black; padding: 10px 11px; border-radius: 100%;"><i class="fa-solid fa-cart-shopping"></i></a>
         <a href="index.html" onclick="signout()" style="color: black; border: 1px solid black; padding: 10px 11px; border-radius: 100%;"><i class="fa-solid fa-right-to-bracket"></i></a>
@@ -30,14 +35,6 @@
 </nav>
 
 <script>
-    const canvas = document.getElementById('logoCanvas');
-    const ctx = canvas.getContext('2d');
-    ctx.font = 'bold 34px Arial';
-    ctx.fillStyle = 'black';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText('Web24', canvas.width / 2, canvas.height / 2);
-
     const user = JSON.parse(localStorage.getItem('user'));
     const fullname = document.getElementById('fullname');
     

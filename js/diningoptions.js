@@ -84,3 +84,49 @@ const diningswiper = [
     }
 ];
 
+// activities
+
+const activities = [
+    {
+        image: '../img/activity1.avif',
+        text: 'TIDAL WAVE℠'
+    },
+    {
+        image: '../img/activity2.avif',
+        text: 'FLOWRIDER®'
+    },
+    {
+        image: '../img/activity3.webp',
+        text: 'POOL PARTIES'
+    },
+    {
+        image: '../img/activity4.avif',
+        text: 'THE PERFECT STORM℠'
+    },
+    {
+        image: '../img/activity5.webp',
+        text: 'POOLS'
+    },
+    {
+        image: '../img/activity6.webp',
+        text: 'SPLASHAWAY BAY℠'
+    },
+    {
+        image: '../img/activity7.webp',
+        text: 'WHIRLPOOLS'
+    },
+    {
+        image: '../img/activity8.avif',
+        text: 'SCUBA CERTIFICATION'
+    },
+    {
+        image: '../img/activity9.avif',
+        text: 'RIPTIDE℠'
+    },
+    {
+        image: '../img/activity10.webp',
+        text: 'AQUA THEATER℠'
+    }
+];
+
+

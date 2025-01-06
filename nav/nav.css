@@ -18,25 +18,21 @@ html, body {
     margin: 0;
 }
 
-.nav-container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 10px; 
-    position: relative;
-}
-
 nav {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 10px;
 }
 
-.nav__logo a {
+.nav__logo a{
+    font-size: 35px;
     text-decoration: none;
-    display: flex;
-    justify-content: center;
+    color: black;
 }
 
 .nav__links {
@@ -48,7 +44,6 @@ nav {
     white-space: nowrap;
     top: 100%;
     left: 0;
-    width: 100%;
     background: var(--extra-light);
     padding: 1rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -64,22 +59,6 @@ nav {
 .nav__btns a {
     color: black;
     text-decoration: none;
-}
-
-.btnn {
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    white-space: nowrap;
-    color: var(--white); 
-    background-color: var(--text-dark); 
-    border-radius: 5rem;
-    border: none;
-    cursor: pointer;
-}
-
-.btnn:hover {
-    background-color: #3e3e3e; 
-    color: var(--white); 
 }
 
 .user-fullname {
@@ -100,12 +79,10 @@ nav {
 /* Phones */
 @media (max-width: 540px) {
     .nav__links {
+        width: 100%;
         display: none;
         flex-direction: column;
-    }
-
-    .btnn{
-        display: none;
+        text-align: center;
     }
 
     #menu-icon {
@@ -115,19 +92,17 @@ nav {
     .nav__btns {
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: center;    
     }
 }
 
 /* (Tablets) */
 @media (min-width: 541px) and (max-width: 1024px) {
     .nav__links {
+        width: 100%;
         display: none;
         flex-direction: column;
-    }
-
-    .btnn{
-        display: none;
+        text-align: center;
     }
 
     #menu-icon {
@@ -144,11 +119,11 @@ nav {
 /* (Widescreens) */
 @media (min-width: 1025px) {
     .nav__links {
-        width: 43%;
         display: flex;
         flex-direction: row;
         position: static;
         background: none;
         box-shadow: none;
     }
+
 }

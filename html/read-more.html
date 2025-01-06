@@ -21,11 +21,18 @@
 			margin: 0 auto;
 		}
 
+		#activityimage {
+			background-image: url('../img/activityimg.jpg'); 
+			background-size: cover; 
+			background-position: center; 
+			height: 500px;
+		}
+
 		.dining-text {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			padding-bottom: 40px;
+			padding: 40px;
 			h3 {
 				font-size: 47px;
 				color: #15264C;
@@ -61,6 +68,7 @@
 
 		.swiper{
 			height: 383px;
+			margin-bottom: 60px;
 		}
 
 		.swiper-text {
@@ -105,8 +113,8 @@
             width: 100%;
             height: 300px;
             background: 
-                url('https://assets.dm.rccl.com/is/image/RoyalCaribbeanCruises/royal/data/dining/playmaker/assets/playmakers-burger-fries-beer-sports-bar-dining-cruise-crop.jpg?$1040x520$'),
-                url('https://assets.dm.rccl.com/is/image/RoyalCaribbeanCruises/royal/onboard/food-and-beverage/the-mason-jar/the-mason-jar-pretty-as-a-peach-palmer.jpg?$1040x520$');
+                url('../img/activityimg2.png'),
+                url('../img/activityimg3.png');
             background-size: 50% 100%;
             background-repeat: no-repeat;
             background-position: left top, right top;
@@ -119,7 +127,6 @@
             justify-content: space-around;
             align-items: center;
             color: white;
-			margin: 30px;
         }
 
 		.multiple-bg-text{
@@ -144,14 +151,6 @@
             background: white;
             color: black;
         }
-
-        .multiple-bg::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.3);
-            z-index: 1;
-        }
 		
         .multiple-bg-wrapper {
             position: relative;
@@ -162,6 +161,42 @@
 <body>
 	<div id="nav"></div>
 
+	<header id="activityimage">
+	</header>
+	
+
+	<section>
+		<div class="dining-text">
+			<h2 style="color: #15264C; font-size: medium; font-family: 'Antonio', serif;">INCREDIBLE IS ON THE ITINERARY</h2>
+			<h3>ONBOARD ACTIVITIES & ENTERTAINMENT</h3>
+			<p>Whatever thrills you seek, you'll find all sorts of ways to fill your days onboard Royal Caribbean®. Each day and night brings something new to do, see and explore. From the robot mixologists at Bionic Bar® to the FlowRider® surf simulators, and the tallest slide at sea, Ultimate Abyss℠, to hit Broadway musicals like Grease. And with the award-winning Adventure Ocean® youth program, kids and teens will have a blast — plus parents can get a little time of their own. The hardest part is deciding where to start.</p>
+		</div>
+		<div id=""></div>
+	</section>
+
+	<section>
+		<div class="swiper swiper1">
+			<div class="swiper-wrapper" id="activities-wrapper"></div>
+			<div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+		</div>
+	</section>
+
+	<section>
+		<div class="multiple-bg">
+			<div class="multiple-bg-wrapper">
+				<div class="multiple-bg-text">
+					<h2>CASINO ROYALE</h2>
+					<a href="#">LEARN MORE</a>
+				</div>
+				<div class="multiple-bg-text">
+					<h2>CRUISE NIGHTLIFE</h2>
+					<a href="#">LEARN MORE</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<section>
 		<div class="dining-text">
 			<h3>DINING OPTIONS FOR EVERY DAY AND NIGHT</h3>
@@ -171,26 +206,11 @@
 	</section>
 
 	<section>
-		<div class="multiple-bg">
-			<div class="multiple-bg-wrapper">
-				<div class="multiple-bg-text">
-					<h2>DINING PACKAGES</h2>
-					<a href="#">LEARN MORE</a>
-				</div>
-				<div class="multiple-bg-text">
-					<h2>BEVERAGE PACKAGES</h2>
-					<a href="#">LEARN MORE</a>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section>
 		<div class="swiper-text">
 			<p style="font-size: 25px; font-family: 'Antonio', serif; letter-spacing: 3px;">ALL INCLUDED</p>
 			<h3 style="font-size: 45px; font-family: 'Antonio', serif;">COMPLIMENTARY DINING</h3>
 		</div>
-		<div class="swiper">
+		<div class="swiper swiper2">
 			<div class="swiper-wrapper" id="swiper-wrapper"></div>
 			<div class="swiper-button-next"></div>
 			<div class="swiper-button-prev"></div>
@@ -207,18 +227,51 @@
 
 		const diningdiv = document.getElementById('dining-options');
 		let dininghtml = "";
-
+		// dining options grid
 		diningoptions.forEach(item => {
 			dininghtml += `
 				<div class="dining-card">
-					<img src="${item.image}">
+					<img src="${item.image}" alt="${item.text}">
 					<h3>${item.category}</h3>
 					<p>${item.description}</p>
 				</div>
 			`
 		});
 		diningdiv.innerHTML = dininghtml;
+		// swiper1
+		const activitiesdiv = document.getElementById('activities-wrapper');
+		let activitieshtml = "";
 
+		activities.forEach(item => {
+			activitieshtml += `
+				<div class="swiper-slide">
+					<img src="${item.image}" alt="${item.text}">
+					<div class="overimg-text"><h3>${item.text}</h3></div>
+				</div>
+			`;
+		});
+		activitiesdiv.innerHTML = activitieshtml;
+
+		const swiper1 = new Swiper('.swiper1', {
+			loop: true,
+			spaceBetween: 10,
+			centeredSlides: true,
+			grabCursor: true,
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false
+			},
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev'
+			},
+			breakpoints: {
+				0: { slidesPerView: 2 },
+				600: { slidesPerView: 3 },
+				1024: { slidesPerView: 4 }
+			}
+		});
+		// swiper 2
 		const swiperdiv = document.getElementById('swiper-wrapper');
 		diningswiper.forEach(item => {
 			swiperdiv.innerHTML += `
@@ -228,8 +281,8 @@
 				</div>
 			`;
 		});
-		// swiper
-		const swiper = new Swiper('.swiper', {
+
+		const swiper2 = new Swiper('.swiper2', {
 			loop: true,
 			spaceBetween: 10,
 			centeredSlides: true,
@@ -247,6 +300,18 @@
 				600: { slidesPerView: 4 },
 				1024: { slidesPerView: 6 }
 			}
+		});
+		// animate jquery
+		swiper1.on('slideChangeTransitionStart', function () {
+			$('.swiper-text').animate({
+				opacity: 0
+			}, 300);
+		});
+
+		swiper1.on('slideChangeTransitionEnd', function () {
+			$('.swiper-text').animate({
+				opacity: 1
+			}, 500);
 		});
 	</script>
 </body>

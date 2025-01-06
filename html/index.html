@@ -1,226 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-					integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-					crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<link rel="stylesheet" href="../css/style.css"/>
-	<!-- Remix Icon CDN -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
-	<!-- Google Material Icons CDN -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<script>
-		document.title = "Web 24";
-	</script>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link rel="stylesheet" href="../css/style.css" />
+    <!-- Remix Icon CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
+    />
+    <!-- Google Material Icons CDN -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <script>
+      document.title = "Web 24";
+    </script>
+  </head>
 
-<body>
+  <body>
+    <!--inline css-->
+    <div
+      id="nav"
+      style="position: sticky; top: 0; z-index: 1000; background-color: white"
+    ></div>
 
-<!--inline css-->
-<div id="nav" style="position: sticky; top: 0; z-index: 1000; background-color: white;"></div>
+    <header id="home">
+      <div class="header__container">
+        <div class="header__content">
+          <div class="header__text">
+            <h1><b>Experience the Magic</b></h1>
+            <!--tagu bold -->
+            <h1><b>of the Sea!</b></h1>
+            <p><i>CRUISE HOLIDAYS & DEALS</i></p>
+            <!-- tagu italik -->
+            <div class="header-form">
+              <a href="cruises.html"
+                ><button class="btn">BOOK A TRIP</button></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
 
-<header id="home">
-	<div class="header__container">
-		<div class="header__content">
-			<div class="header__text">
-				<h1><b>Experience the Magic</b></h1> <!--tagu bold -->
-				<h1><b>of the Sea!</b></h1>
-				<p><i>CRUISE HOLIDAYS & DEALS</i></p> <!-- tagu italik -->
-				<div class="header-form">
-					<h2>Choose your travel location</h2>
-					<form class="form-input"> <!-- required min max -->
-						<label for="destination"></label><input type="text" id="destination" class="form-control" placeholder="Destination name" required>
-						<label for="date"></label><input type="date" id="date" class="form-control" required>
-						<label for="price"></label><input type="number" id="price" class="form-control" placeholder="Price ($)" min="0" max="999999999" required>
-						<input type="submit" class="btn" value="Search">
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</header>
+    <section class="section__container destination__container" id="about">
+      <div class="text-container">
+        <h2 class="section__header">Popular Destinations</h2>
+        <p class="section__description">
+          Discover the Most Loved Destinations Around the Globe
+        </p>
+      </div>
+      <div id="destination__grid"></div>
+    </section>
 
-<section class="section__container destination__container" id="about">
-	<div class="text-container">
-		<h2 class="section__header">Popular Destinations</h2>
-		<p class="section__description">
-			Discover the Most Loved Destinations Around the Globe
-		</p>
-	</div>
-    <div id="destination__grid">
+    <section id="video">
+      <div class="video-wrapper">
+        <video loop autoplay muted>
+          <source src="../videos/short.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </section>
 
-    </div>
-</section>
+    <!-- test -->
+    <section class="section__container">
+      <h2 class="section__header">Journey To The Sea Made Simple</h2>
+      <p class="section__description">
+        Traveling Is A Wonderful Way To Explore New Places, Learn About
+        Different Cultures, And Gain Unique Experiences.
+      </p>
+      <div class="page-card-container">
+        <div class="page-card">
+          <i class="fa fa-map-marker-alt"></i>
+          <p>
+            Discover new places and embark on unforgettable adventures. Explore
+            diverse cultures and landscapes waiting for you.
+          </p>
+          <div>
+            <img src="../img/indeximg2.png" alt="" />
+            <a href="#">Find</a>
+            <a href="#">Your Destination</a>
+          </div>
+        </div>
+        <div class="page-card">
+          <i class="fa fa-plane"></i>
+          <div class="middle-page-card">
+            <img src="../img/indeximg.jpg" alt="" />
+            <h3>Book</h3>
+            <h3>A Ticket</h3>
+          </div>
+          <p>
+            Traveling is a wonderful way to explore new places, learn about
+            different cultures, and gain unique experiences.
+          </p>
+          <div><a href="cruises.html">LEARN MORE</a></div>
+        </div>
+        <div class="page-card">
+          <i class="fa fa-wallet"></i>
+          <p>
+            Unlock exclusive travel offers tailored just for you. Save on
+            unforgettable trips and make your journey memorable.
+          </p>
+          <div>
+            <img src="../img/indeximg3.png" alt="" />
+            <a href="cruise-find.html">Find</a>
+            <a href="cruise-find.html">Your Deal</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section id = "video">
-	<div class = "video-wrapper">
-		<video loop autoplay muted>
-			<source src="../videos/short.mp4" type="video/mp4">
-		</video>
-		<button type = "button" id = "play-btn">
-			<i class = "fas fa-play"></i>
-		</button>
-	</div>
-</section>
+    <section class="section__container">
+      <div class="banner">
+        <div class="banner-content">
+          <h1>FIRST-TIME CRUISER: EVERYTHING YOU NEED TO KNOW</h1>
+          <p>
+            Discover why cruising is the ultimate vacation and unlock insider
+            tips and tricks.
+          </p>
+          <p>Start your journey now!</p>
+          <a href="../html/explore-more.html"
+            ><button class="btn">EXPLORE MORE</button></a
+          >
+        </div>
+      </div>
+    </section>
 
-<!-- test -->
-<section class="section__container">
-	<h2 class="section__header">Journey To The Sea Made Simple</h2>
-	<p class="section__description">Traveling Is A Wonderful Way To Explore New Places, Learn About Different Cultures, And Gain Unique Experiences.</p>
-	<div class="page-card-container">
-		<div class="page-card">
-			<i class="fa fa-map-marker-alt"></i>
-			<div>
-				<a href="#">Find</a>
-				<a href="#">Your Destination</a>
-			</div>
-		</div>
-		<div class="page-card">
-			<i class="fa fa-plane"></i>
-			<div class="middle-page-card">
-				<img src="../img/indeximg.jpg" alt="">
-				<h3>Book</h3>
-				<h3>A Ticket</h3>
-			</div>
-			<p>Traveling is a wonderful way to explore new places, learn about different cultures, and gain unique experiences.</p>
-			<div><a href="cruises.html">LEARN MORE</a></div>
-		</div>
-		<div class="page-card">
-			<i class="fa fa-wallet"></i>
-			<div>
-				<a href="cruise-find.html">Find</a>
-				<a href="cruise-find.html">Your Deal</a>
-			</div>
-		</div>
-	</div>
-</section>
+    <section class="section__container">
+      <div class="text-container">
+        <h2 class="section__header">Loved By Over Thousand Travelers</h2>
+        <p class="section__description">
+          Discover the stories of wanderlust and cherished memories through the
+          eyes of our valued clients.
+        </p>
+      </div>
+      <!-- Slider main container -->
+      <div class="swiper">
+        <div class="swiper-wrapper"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
 
-<div class="banner">
-	<div class="banner-content">
-		<h1>FIRST-TIME CRUISER: EVERYTHING YOU NEED TO KNOW</h1>
-		<p>Discover why cruising is the ultimate vacation and unlock insider tips and tricks. Start your journey now!</p>
-		<a href="../html/explore-more.html" class="btn">EXPLORE MORE</a>
-	</div>
-</div>
+	<section id="crew" class="section__container">
+        <div class="text-container">
+            <h2 class="section__header">Meet Our Crew</h2>
+            <p class="section__description">
+                Learn more about the talented professionals who make your cruise unforgettable.
+            </p>
+        </div>
+        <div id="crew-container" class="crew-grid">
+        </div>
+    </section>
 
-<section class="section__container">
-	<div class="text-container">
-		<h2 class="section__header">Loved By Over Thousand Travelers</h2>
-		<p class="section__description">
-			Discover the stories of wanderlust and cherished memories through the
-			eyes of our valued clients.
-		</p>
-	</div>
-	<!-- Slider main container -->
-	<div class="swiper">
-		<!-- Additional required wrapper -->
-		<div class="swiper-wrapper">
-			<!-- Slides -->
-			<div class="swiper-slide">
-				<div class="client__card">
-					<div class="client__content">
-						<div class="client__rating">
-							<span><i class="ri-star-fill"></i></span>
-							<span><i class="ri-star-fill"></i></span>
-							<span><i class="ri-star-fill"></i></span>
-							<span><i class="ri-star-fill"></i></span>
-							<span><i class="ri-star-fill"></i></span>
-						</div>
-						<p style="text-wrap: wrap">
-							"An unforgettable voyage with breathtaking views!
-							The cruise exceeded all expectations with its luxurious amenities,
-							exceptional service, and captivating destinations.
-							Like a dream come true.
-							Highly recommended!"
-						</p>
-					</div>
-					<div class="client__details">
-						<img src="../img/client-1.jpg" alt="client"/>
-						<div>
-							<h4>John Adams</h4>
-							<h5>Travel Blogger</h5>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="swiper-slide">
-				<div class="client__card">
-					<div class="client__content">
-						<div class="client__rating">
-							<span><i class="ri-star-fill"></i></span>
-							<span><i class="ri-star-fill"></i></span>
-							<span><i class="ri-star-fill"></i></span>
-							<span><i class="ri-star-fill"></i></span>
-							<span><i class="ri-star-fill"></i></span>
-						</div>
-						<p>
-							"This cruise was the perfect blend of relaxation and adventure.
-							From exploring hidden islands to enjoying world-class entertainment, it was a seamless and unforgettable
-							experience.
-							I can’t wait to book my next one!"
-						</p>
-					</div>
-					<div class="client__details">
-						<img src="../img/client-2.jpg" alt="client"/>
-						<div>
-							<h4>Emily Thompson</h4>
-							<h5>Adventure Enthusiast</h5>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="swiper-slide">
-				<div class="client__card">
-					<div class="client__content">
-						<div class="client__rating">
-							<span><i class="ri-star-fill"></i></span>
-							<span><i class="ri-star-fill"></i></span>
-							<span><i class="ri-star-fill"></i></span>
-							<span><i class="ri-star-fill"></i></span>
-							<span><i class="ri-star-fill"></i></span>
-						</div>
-						<p>
-							"An extraordinary journey that brought new perspectives on the sea.
-							From the gourmet dining to the impeccable service,
-							every detail made our vacation feel like pure luxury.
-							I highly recommend this cruise for anyone looking to explore in style.
-						</p>
-					</div>
-					<div class="client__details">
-						<img src="../img/client-3.jpg" alt="client"/>
-						<div>
-							<h4>Sarah Lee</h4>
-							<h5>Cultural Historian</h5>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="swiper-button-next"></div>
-		<div class="swiper-button-prev"></div>
-		<div class="swiper-pagination"></div>
-	</div>
-</section>
+    <div id="footer"></div>
 
-<div id="footer"></div>
+    <button id="scrollToTop">↑</button>
+    <audio
+      id="scrollSound"
+      src="https://freesound.org/data/previews/256/256113_3263906-lq.mp3"
+    ></audio>
 
-<button id="scrollToTop">↑</button>
-<audio id="scrollSound" src="https://freesound.org/data/previews/256/256113_3263906-lq.mp3"></audio>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script>
+      $("#nav").load("../nav/nav.html");
+      $("#footer").load("../footer/footer.html");
+      const destinationCard = document.getElementById("destination__grid");
+      let popularDestinations = "";
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="../js/script.js"></script>
-<script>
-	$('#nav').load('../nav/nav.html');
-    $('#footer').load('../footer/footer.html');
-	const destinationCard = document.getElementById('destination__grid')
-	let popularDestinations = "";
-
-	destinations.forEach((destination, index) => {
-            popularDestinations += `
+      destinations.forEach((destination, index) => {
+        popularDestinations += `
 				<div class="destination__grid">
 				<div class="destination__card">
 				<a id="destination-link-${index}" href="${destination.link}" target="_blank">
@@ -240,14 +207,166 @@
 	</div>
 </div>
             `;
+      });
+
+      destinationCard.innerHTML = popularDestinations;
+
+      const btn = document.getElementById("scrollToTop"),
+        sound = document.getElementById("scrollSound");
+      btn.onclick = () => {
+        sound.play().catch((err) => console.error("Sound error:", err));
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      };
+
+      window.onscroll = () => {
+        btn.style.display = window.scrollY > 100 ? "flex" : "none";
+      };
+
+      const scrollToTopButton = document.getElementById("scrollToTop");
+
+      let isDragging = false;
+      let offsetX = 0;
+      let offsetY = 0;
+
+      scrollToTopButton.addEventListener("mousedown", (e) => {
+        isDragging = true;
+
+        offsetX = e.clientX - scrollToTopButton.getBoundingClientRect().left;
+        offsetY = e.clientY - scrollToTopButton.getBoundingClientRect().top;
+
+        e.preventDefault();
+      });
+
+      document.addEventListener("mousemove", (e) => {
+        if (isDragging) {
+          const x = e.clientX - offsetX;
+          const y = e.clientY - offsetY;
+
+          scrollToTopButton.style.position = "fixed";
+          scrollToTopButton.style.left = `${x}px`;
+          scrollToTopButton.style.top = `${y}px`;
+        }
+      });
+
+      document.addEventListener("mouseup", () => {
+        isDragging = false;
+      });
+
+      function CustomerReview(name, profession, image, rating, review) {
+        this.name = name;
+        this.profession = profession;
+        this.image = image;
+        this.rating = rating;
+        this.review = review;
+      }
+
+      const customerReviews = [
+        new CustomerReview(
+          "John Adams",
+          "Travel Blogger",
+          "../img/client-1.jpg",
+          5,
+          "An unforgettable voyage with breathtaking views! The cruise exceeded all expectations with its luxurious amenities, exceptional service, and captivating destinations. Like a dream come true. Highly recommended!"
+        ),
+        new CustomerReview(
+          "Emily Thompson",
+          "Adventure Enthusiast",
+          "../img/client-2.jpg",
+          5,
+          "This cruise was the perfect blend of relaxation and adventure. From exploring hidden islands to enjoying world-class entertainment, it was a seamless and unforgettable experience. I can’t wait to book my next one!"
+        ),
+        new CustomerReview(
+          "Sarah Lee",
+          "Cultural Historian",
+          "../img/client-3.jpg",
+          5,
+          "An extraordinary journey that brought new perspectives on the sea. From the gourmet dining to the impeccable service, every detail made our vacation feel like pure luxury. I highly recommend this cruise for anyone looking to explore in style."
+        ),
+      ];
+
+      const swiperWrapper = document.querySelector(".swiper-wrapper");
+
+      swiperWrapper.innerHTML = "";
+
+      customerReviews.forEach((review) => {
+        const slide = document.createElement("div");
+        slide.classList.add("swiper-slide");
+
+        slide.innerHTML = `
+        <div class="client__card">
+            <div class="client__content">
+                <div class="client__rating">
+                    ${"⭐".repeat(review.rating)} <!-- Star rating -->
+                </div>
+                <p>${review.review}</p>
+            </div>
+            <div class="client__details">
+                <img src="${review.image}" alt="${review.name}" />
+                <div>
+                    <h4>${review.name}</h4>
+                    <h5>${review.profession}</h5>
+                </div>
+            </div>
+        </div>
+    `;
+
+        swiperWrapper.appendChild(slide);
+      });
+
+      const swiper = new Swiper(".swiper", {
+        loop: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+      });
+
+	  function CrewMember(name, position, phone, email, photo) {
+            this.name = name;
+            this.position = position;
+            this.phone = phone;
+            this.email = email;
+            this.photo = photo;
+        }
+
+        const crewMembers = [
+            new CrewMember("John Smith", "Captain", "+383 44 200 300", "john.smith@cruises.com", "../img/captain.jpg"),
+            new CrewMember("Paul Davis", "Head Chef", "+383 44 601 601", "paul.davis@cruises.com", "../img/chef.jpg"),
+            new CrewMember("Hans Zimmer", "Entertainment Director", "+383 44 800 900", "hans.zimmer@cruises.com", "../img/entertainment.jpg")
+        ];
+
+        const crewContainer = document.getElementById('crew-container');
+        crewContainer.innerHTML = '';
+
+        crewMembers.forEach(member => {
+            const crewCard = document.createElement('div');
+            crewCard.classList.add('crew-card');
+
+            crewCard.innerHTML = `
+                <img src="${member.photo}" alt="${member.name}">
+                <div class="crew-details">
+                    <h4>${member.name}</h4>
+                    <p>${member.position}</p>
+                    <div class="contact-info">
+                        <i class="ri-phone-fill"></i> <span>${member.phone}</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="ri-mail-fill"></i> <span>${member.email}</span>
+                    </div>
+                </div>
+            `;
+
+            crewContainer.appendChild(crewCard);
         });
 
-	destinationCard.innerHTML = popularDestinations;
-
-	// test
-
-
-</script>
-
-</body>
+    </script>
+  </body>
 </html>

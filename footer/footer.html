@@ -14,7 +14,7 @@
 	<div class="section__container footer__container">
 		<div class="footer__col">
 			<div class="footer__logo">
-				<a href="#" class="logo">WEB 24</a>
+				<a href="#" class="logo"><canvas id="logocanvas" width="150" height="50"></canvas></a>
 			</div>
 			<p>
 				Explore the world with ease and excitement through our comprehensive
@@ -67,8 +67,8 @@
 			<form action="/">
 				<label>
 					<input type="email" placeholder="Enter your email" required />
+					<button class="btn" type="submit">Subscribe</button>
 				</label>
-				<button class="btn" type="submit">Subscribe</button>
 			</form>
 		</div>
 	</div>
@@ -76,5 +76,14 @@
 		Copyright © 2024 Web 24. All rights reserved.
 	</div>
 </footer>
+	<script>
+		const canvas = document.getElementById('logocanvas'); // perdorimi i canvas
+		const ctx = canvas.getContext('2d');
+		ctx.font = 'bold 34px Arial';
+		ctx.fillStyle = 'black';
+		ctx.textAlign = 'center';
+		ctx.textBaseline = 'middle';
+		ctx.fillText('Web24', canvas.width / 2, canvas.height / 2);
+	</script>
 </body>
 </html>

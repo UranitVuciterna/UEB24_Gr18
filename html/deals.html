@@ -43,19 +43,19 @@
         <h1 class="hero-banner__headline">UP TO €600 OFF</h1>
         <div class="hero-banner__countdown">
           <span>SALE ENDS IN</span>
-          <span class="countdown-time">36</span> HRS
-          <span class="countdown-time">39</span> MINS
-          <span class="countdown-time">03</span> SECS
+          <span class="countdown-time" id="days">00</span> DAYS
+          <span class="countdown-time" id="hours">00</span> HRS
+          <span class="countdown-time" id="minutes">00</span> MINS
+          <span class="countdown-time" id="seconds">00</span> SECS
         </div>
-        <a href="#" class="hero-banner__btn">SHOP NOW</a>
+        <a href="#card1" class="hero-banner__btn">SHOP NOW</a>
       </div>
     </section>
-
     <!-- Secondary blue Banner -->
     <section class="blue-banner">
       <div class="blue-banner__content">
         <p>60% OFF SECOND GUEST + KIDS SAIL FREE*</p>
-        <a href="#" class="blue-banner__btn">SHOP NOW</a>
+        <a href="#card1" class="blue-banner__btn">SHOP NOW</a>
       </div>
     </section>
 
@@ -70,7 +70,7 @@
 
       <div class="deal-cards">
         <!-- Card 1 -->
-        <div class="deal-card">
+        <div class="deal-card" id="card1">
           <img
             src="../cruiseimages/weekendcruise1.jpg"
             alt="Weekend Getaways"
@@ -83,7 +83,7 @@
               Enjoy a relaxing weekend with tropical breezes, delicious cuisine,
               and unforgettable adventures.
             </p>
-            <a href="#" class="btn">Shop Now</a>
+            <a href="#"  class="btn">Shop Now</a>
           </div>
         </div>
 
@@ -171,7 +171,7 @@
             <p class="price">Starting from <span>€699</span></p>
             <p class="description">
               Explore the hidden gems of the South Pacific with stops at
-              exclusive tropical islands.
+              exclusive tropical beautiful islands.
             </p>
             <a href="#" class="btn">Shop Now</a>
           </div>
@@ -188,8 +188,7 @@
             <h3>Mediterranean Dream</h3>
             <p class="price">Starting from <span>€550</span></p>
             <p class="description">
-              Journey through the Mediterranean and immerse yourself in cultural
-              wonders and coastal beauty.
+              Journey through the Mediterranean and immerse yourself in cultural wonders and coastal beauty. Explore ancient ruins steeped in history, savor the rich flavors of local cuisines.
             </p>
             <a href="#" class="btn">Shop Now</a>
           </div>
@@ -206,8 +205,8 @@
             <h3>Norwegian Fjords</h3>
             <p class="price">Starting from <span>€480</span></p>
             <p class="description">
-              Sail through the dramatic Norwegian fjords and enjoy the beauty of
-              untouched nature.
+              Sail through the dramatic Norwegian fjords and enjoy the beauty of untouched nature, where towering cliffs rise majestically from crystal-clear waters.
+              Immerse yourself in the tranquility of this breathtaking landscape.
             </p>
             <a href="#" class="btn">Shop Now</a>
           </div>
@@ -294,7 +293,62 @@
     <script type="text/javascript">
       $("#nav").load("../nav/nav.html");
       $("#footer").load("../footer/footer.html");
-    </script>
 
+      const heroBanner = document.querySelector(".hero-banner");
+      const video = document.querySelector(".hero-banner__video");
+      heroBanner.addEventListener("mouseover", () => {
+        video.play();
+      });
+      heroBanner.addEventListener("mouseout", () => {
+        video.pause();
+        video.currentTime = 0;
+      });
+
+      const now = new Date();
+      const targetDate = new Date(
+        Date.UTC(
+          now.getUTCFullYear(),
+          now.getUTCMonth(),
+          now.getUTCDate() + 30,
+          now.getUTCMinutes(),
+          now.getUTCSeconds()
+        )
+      );
+
+      const countdown = () => {
+        const now = new Date();
+        const timeLeft = targetDate.getTime() - now.getTime();
+
+        if (timeLeft >= 0) {
+          const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+          const hours = Math.floor(
+            (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          const minutes = Math.floor(
+            (timeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+          document.getElementById("days").textContent = days
+            .toString()
+            .padStart(2, "0");
+          document.getElementById("hours").textContent = hours
+            .toString()
+            .padStart(2, "0");
+          document.getElementById("minutes").textContent = minutes
+            .toString()
+            .padStart(2, "0");
+          document.getElementById("seconds").textContent = seconds
+            .toString()
+            .padStart(2, "0");
+        } else {
+          document.querySelector(".hero-banner__countdown").innerHTML =
+            "SALE ENDED";
+        }
+      };
+
+      setInterval(countdown, 1000);
+      countdown();
+    </script>
   </body>
 </html>
