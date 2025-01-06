@@ -187,6 +187,7 @@
     max-width: 1200px;
     margin: 30px auto;
     overflow-x: hidden;
+    cursor: pointer;
   }
 
   .destination{
