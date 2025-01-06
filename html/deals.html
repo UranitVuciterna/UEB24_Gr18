@@ -48,14 +48,14 @@
           <span class="countdown-time" id="minutes">00</span> MINS
           <span class="countdown-time" id="seconds">00</span> SECS
         </div>
-        <a href="#" class="hero-banner__btn">SHOP NOW</a>
+        <a href="#card1" class="hero-banner__btn">SHOP NOW</a>
       </div>
     </section>
     <!-- Secondary blue Banner -->
     <section class="blue-banner">
       <div class="blue-banner__content">
         <p>60% OFF SECOND GUEST + KIDS SAIL FREE*</p>
-        <a href="#" class="blue-banner__btn">SHOP NOW</a>
+        <a href="#card1" class="blue-banner__btn">SHOP NOW</a>
       </div>
     </section>
 
@@ -70,7 +70,7 @@
 
       <div class="deal-cards">
         <!-- Card 1 -->
-        <div class="deal-card">
+        <div class="deal-card" id="card1">
           <img
             src="../cruiseimages/weekendcruise1.jpg"
             alt="Weekend Getaways"
@@ -83,7 +83,7 @@
               Enjoy a relaxing weekend with tropical breezes, delicious cuisine,
               and unforgettable adventures.
             </p>
-            <a href="#" class="btn">Shop Now</a>
+            <a href="#"  class="btn">Shop Now</a>
           </div>
         </div>
 
@@ -293,6 +293,16 @@
     <script type="text/javascript">
       $("#nav").load("../nav/nav.html");
       $("#footer").load("../footer/footer.html");
+
+      const heroBanner = document.querySelector(".hero-banner");
+      const video = document.querySelector(".hero-banner__video");
+      heroBanner.addEventListener("mouseover", () => {
+        video.play();
+      });
+      heroBanner.addEventListener("mouseout", () => {
+        video.pause();
+        video.currentTime = 0;
+      });
 
       const now = new Date();
       const targetDate = new Date(
