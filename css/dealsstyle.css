@@ -360,4 +360,7 @@
     padding: 0.5rem 1.2rem;
   }
 }
+ .hero-banner__headline{
+  display: none;
+ }
 }
