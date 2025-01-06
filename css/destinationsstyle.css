@@ -187,7 +187,6 @@
     max-width: 1200px;
     margin: 30px auto;
     overflow-x: hidden;
-    cursor: pointer;
   }
 
   .destination{
@@ -232,6 +231,7 @@
     object-fit: cover;
     display: block;
     border-radius: 10px;
+    cursor: pointer;
   }
   
   .left-image{
