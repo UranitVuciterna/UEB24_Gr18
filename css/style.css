@@ -519,3 +519,63 @@ body {
     z-index: 2;
 }
 
+/* Crew CSS */
+
+.crew-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.crew-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.crew-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.crew-card .crew-details {
+    flex: 1;
+}
+
+.crew-card h4 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.crew-card p {
+    margin: 5px 0;
+    color: #555;
+    font-size: 1rem;
+    word-wrap: break-word;
+}
+
+.crew-card .contact-info {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    color: #e60000;
+}
+
+.contact-info i {
+    font-size: 1.5rem;
+}
+
+#crew {
+    margin-bottom: 70px;
+}
