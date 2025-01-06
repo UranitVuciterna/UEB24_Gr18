@@ -43,14 +43,14 @@
         <h1 class="hero-banner__headline">UP TO €600 OFF</h1>
         <div class="hero-banner__countdown">
           <span>SALE ENDS IN</span>
-          <span class="countdown-time">36</span> HRS
-          <span class="countdown-time">39</span> MINS
-          <span class="countdown-time">03</span> SECS
+          <span class="countdown-time" id="days">00</span> DAYS
+          <span class="countdown-time" id="hours">00</span> HRS
+          <span class="countdown-time" id="minutes">00</span> MINS
+          <span class="countdown-time" id="seconds">00</span> SECS
         </div>
         <a href="#" class="hero-banner__btn">SHOP NOW</a>
       </div>
     </section>
-
     <!-- Secondary blue Banner -->
     <section class="blue-banner">
       <div class="blue-banner__content">
@@ -294,17 +294,51 @@
       $("#nav").load("../nav/nav.html");
       $("#footer").load("../footer/footer.html");
 
-      const heroBanner = document.querySelector(".hero-banner");
-      const video = document.querySelector(".hero-banner__video");
-      heroBanner.addEventListener("mouseover", () => {
-        video.play();
-      });
+      const now = new Date();
+      const targetDate = new Date(
+        Date.UTC(
+          now.getUTCFullYear(),
+          now.getUTCMonth(),
+          now.getUTCDate() + 30,
+          now.getUTCMinutes(),
+          now.getUTCSeconds()
+        )
+      );
 
-      heroBanner.addEventListener("mouseout", () => {
-        video.pause();
-        video.currentTime = 0;
-      });
+      const countdown = () => {
+        const now = new Date();
+        const timeLeft = targetDate.getTime() - now.getTime();
+
+        if (timeLeft >= 0) {
+          const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+          const hours = Math.floor(
+            (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          const minutes = Math.floor(
+            (timeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+          document.getElementById("days").textContent = days
+            .toString()
+            .padStart(2, "0");
+          document.getElementById("hours").textContent = hours
+            .toString()
+            .padStart(2, "0");
+          document.getElementById("minutes").textContent = minutes
+            .toString()
+            .padStart(2, "0");
+          document.getElementById("seconds").textContent = seconds
+            .toString()
+            .padStart(2, "0");
+        } else {
+          document.querySelector(".hero-banner__countdown").innerHTML =
+            "SALE ENDED";
+        }
+      };
+
+      setInterval(countdown, 1000);
+      countdown();
     </script>
-
   </body>
 </html>
