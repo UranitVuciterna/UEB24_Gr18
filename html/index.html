@@ -159,15 +159,15 @@
       </div>
     </section>
 
-	<section id="crew" class="section__container">
-        <div class="text-container">
-            <h2 class="section__header">Meet Our Crew</h2>
-            <p class="section__description">
-                Learn more about the talented professionals who make your cruise unforgettable.
-            </p>
-        </div>
-        <div id="crew-container" class="crew-grid">
-        </div>
+    <section id="crew" class="section__container">
+      <div class="text-container">
+        <h2 class="section__header">Meet Our Crew</h2>
+        <p class="section__description">
+          Learn more about the talented professionals who make your cruise
+          unforgettable.
+        </p>
+      </div>
+      <div id="crew-container" class="crew-grid"></div>
     </section>
 
     <div id="footer"></div>
@@ -252,6 +252,7 @@
         isDragging = false;
       });
 
+      //   JS to populate the customer review section
       function CustomerReview(name, profession, image, rating, review) {
         this.name = name;
         this.profession = profession;
@@ -259,7 +260,6 @@
         this.rating = rating;
         this.review = review;
       }
-
       const customerReviews = [
         new CustomerReview(
           "John Adams",
@@ -283,11 +283,11 @@
           "An extraordinary journey that brought new perspectives on the sea. From the gourmet dining to the impeccable service, every detail made our vacation feel like pure luxury. I highly recommend this cruise for anyone looking to explore in style."
         ),
       ];
-
+      // JS for swiper functionality,
       const swiperWrapper = document.querySelector(".swiper-wrapper");
-
+      //  Clear any swiper that existed before
       swiperWrapper.innerHTML = "";
-
+      //  Then we dynamically create the slides by looping through the customer reviews
       customerReviews.forEach((review) => {
         const slide = document.createElement("div");
         slide.classList.add("swiper-slide");
@@ -309,10 +309,10 @@
             </div>
         </div>
     `;
-
+        // Slide gets added
         swiperWrapper.appendChild(slide);
       });
-
+      // We initialize slide
       const swiper = new Swiper(".swiper", {
         loop: true,
         navigation: {
@@ -328,29 +328,47 @@
           disableOnInteraction: false,
         },
       });
+      //   JS to populate crew members section
+      function CrewMember(name, position, phone, email, photo) {
+        this.name = name;
+        this.position = position;
+        this.phone = phone;
+        this.email = email;
+        this.photo = photo;
+      }
+	  // Crew information
+      const crewMembers = [
+        new CrewMember(
+          "John Smith",
+          "Captain",
+          "+383 44 200 300",
+          "john@cruises.com",
+          "../img/captain.jpg"
+        ),
+        new CrewMember(
+          "Paul Davis",
+          "Head Chef",
+          "+383 44 601 601",
+          "paul@cruises.com",
+          "../img/chef.jpg"
+        ),
+        new CrewMember(
+          "Hans Zimmer",
+          "Entertainment Director",
+          "+383 44 800 900",
+          "hans@cruises.com",
+          "../img/entertainment.jpg"
+        ),
+      ];
 
-	  function CrewMember(name, position, phone, email, photo) {
-            this.name = name;
-            this.position = position;
-            this.phone = phone;
-            this.email = email;
-            this.photo = photo;
-        }
+      const crewContainer = document.getElementById("crew-container");
+      crewContainer.innerHTML = "";
 
-        const crewMembers = [
-            new CrewMember("John Smith", "Captain", "+383 44 200 300", "john.smith@cruises.com", "../img/captain.jpg"),
-            new CrewMember("Paul Davis", "Head Chef", "+383 44 601 601", "paul.davis@cruises.com", "../img/chef.jpg"),
-            new CrewMember("Hans Zimmer", "Entertainment Director", "+383 44 800 900", "hans.zimmer@cruises.com", "../img/entertainment.jpg")
-        ];
+      crewMembers.forEach((member) => {
+        const crewCard = document.createElement("div");
+        crewCard.classList.add("crew-card");
 
-        const crewContainer = document.getElementById('crew-container');
-        crewContainer.innerHTML = '';
-
-        crewMembers.forEach(member => {
-            const crewCard = document.createElement('div');
-            crewCard.classList.add('crew-card');
-
-            crewCard.innerHTML = `
+        crewCard.innerHTML = `
                 <img src="${member.photo}" alt="${member.name}">
                 <div class="crew-details">
                     <h4>${member.name}</h4>
@@ -363,10 +381,9 @@
                     </div>
                 </div>
             `;
-
-            crewContainer.appendChild(crewCard);
-        });
-
+        // Card gets created after being populated by the necessary information
+        crewContainer.appendChild(crewCard);
+      });
     </script>
   </body>
 </html>
