@@ -148,10 +148,6 @@ mark {
 }
 
 @media (max-width: 1024px) {
-    .footer__container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
     .footer__col:last-child {
         grid-column: 1/3;
     }
@@ -161,9 +157,12 @@ mark {
     footer {
         padding: 3rem 1rem;
     }
-
+    
     .footer__container {
         grid-template-columns: repeat(1, 1fr);
+    }
+    .footer__col:last-child {
+        grid-column: 2/3;
     }
 
     .footer__logo {
@@ -182,6 +181,9 @@ mark {
 
     .footer__col input {
         font-size: 0.9rem;
+    }
+    .footer__col:last-child {
+        grid-column: 1/2;
     }
 }
 @font-face {

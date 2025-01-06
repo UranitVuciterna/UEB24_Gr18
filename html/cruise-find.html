@@ -25,6 +25,7 @@
          }
          header{
             position: relative;
+            margin-bottom: 60px;
          }
          header::after {
             content: "";
@@ -170,15 +171,6 @@
             color: #004080;
             font-weight: bold;
             font-size: 18px;
-         }
-         .cruise-find-text{
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            p {
-               text-align: end;
-               color: #049f2e;
-               font-weight: bold;
-            }
          }
          @media (max-width: 540px) {
             section {
@@ -327,63 +319,60 @@
           const startDate = $("#date-start").val();
           const duration = $("input[name='duration']:checked").val();
          
-          if (validateDestination(destination) && validateStartDate(startDate) && validateDuration(duration)) {
-              let matches = cruises.filter(c =>
+         if (validateDestination(destination) && validateStartDate(startDate) && validateDuration(duration)) {
+               let matches = cruises.filter(c =>
                   (!destination || c.destination === destination) &&
                   (!duration || c.duration.includes(duration)) &&
                   (new Date(c.date) >= new Date(startDate))
-              );
-         
-              const $tbody = $results.find("tbody");
-              $tbody.empty();
-         
-              if (matches.length > 0) {
-                  matches.forEach(cruise => {
-                      let formattedPrice = cruise.price.replace('$', 'USD ');
-                      $tbody.append(`
-                          <tr">
-                              <td>${cruise.destination}</td>
-                              <td>${cruise.date}</td>
-                              <td>${cruise.duration}</td>
-                              <td>${formattedPrice}</td>
-                          </tr>
-                      `);
-                  });
-              } else {
-                  $tbody.append('<tr class="no-results"><td colspan="4">No cruises match your search criteria.</td></tr>');
-              }
+            );
+      
+            const $tbody = $results.find("tbody");
+            $tbody.empty();
+      
+            if (matches.length > 0) {
+               matches.forEach(cruise => {
+                     let formattedPrice = cruise.price.replace('$', 'USD ');
+                     $tbody.append(`
+                        <tr>
+                           <td>${cruise.destination}</td>
+                           <td>${cruise.date}</td>
+                           <td>${cruise.duration}</td>
+                           <td>${formattedPrice}</td>
+                        </tr>
+                  `);
+               });
+            } else {
+               $tbody.append('<tr class="no-results"><td colspan="4">No cruises match your search criteria.</td></tr>');
+            } 
          
               $results.show().hide().fadeIn(1000); // Advanced jQuery Effect (fadeIn)
-          }
+         }
          });
          });
 
          const cruises = [
-             { destination: "Caribbean", date: "2025-01-15", duration: "7 Days", price: "$1200", image: "../cruiseimages/caribbeancruises1.jpeg" },
-             { destination: "Alaska", date: "2025-06-10", duration: "5 Days", price: "$800", image: "../cruiseimages/alaskacruise1.jpg" },
-             { destination: "Mediterranean", date: "2025-04-22", duration: "10+ Days", price: "$1500", image: "../cruiseimages/mediterraneanescapecruise.jpeg" },
-             { destination: "Miami", date: "2026-02-20", duration: "7 Days", price: "$1400", image:"../cruiseimages/Costa-Luminosa-900x400.jpg" },
-             { destination: "Bahamas", date: "2026-05-10", duration: "5 Days", price: "$950", image: "../cruiseimages/cruise-myths-busted-2-scaled.jpg" },
-             { destination: "Texas", date: "2026-07-15", duration: "3 Days", price: "$700", image: "../cruiseimages/scenic-cruise-french-polynesia-2.jpg" }
+            { destination: "Caribbean", date: "2025-01-15", duration: "7 Days", price: "$1200", image: "../cruiseimages/caribbeancruises1.jpeg" },
+            { destination: "Alaska", date: "2025-06-10", duration: "5 Days", price: "$800", image: "../cruiseimages/alaskacruise1.jpg" },
+            { destination: "Mediterranean", date: "2025-04-22", duration: "10+ Days", price: "$1500", image: "../cruiseimages/mediterraneanescapecruise.jpeg" },
+            { destination: "Miami", date: "2026-02-20", duration: "7 Days", price: "$1400", image:"../cruiseimages/Costa-Luminosa-900x400.jpg" },
+            { destination: "Bahamas", date: "2026-05-10", duration: "5 Days", price: "$950", image: "../cruiseimages/cruise-myths-busted-2-scaled.jpg" },
+            { destination: "Texas", date: "2026-07-15", duration: "3 Days", price: "$700", image: "../cruiseimages/scenic-cruise-french-polynesia-2.jpg" }
          ];
 
             const $cruiseList = $('#cruise-list');
             cruises.forEach(cruise => {
-                $cruiseList.append(`
-                    <div class="swiper-slide find-a-cruise">
+                  $cruiseList.append(`
+                     <div class="swiper-slide find-a-cruise">
                         <div class="cruise-find-img-text">
                            <img src="${cruise.image}"/>
                            <p>${cruise.duration}</p>   
                         </div>
                         <div style="padding: 10px; width: 100%;">
-                           <div class="cruise-find-text">
                               <span class="cruise-find-destination">${cruise.destination}</span>
-                              <p class="cruise-find-price">${cruise.price}</p>   
-                           </div>
                            <p class="cruise-find-date"><span style="color: #525151;">Departure:</span> ${cruise.date}</p>
                         </div>
-                    </div>
-                `);
+                     </div>
+                  `);
             });
 
             const swiper3 = new Swiper('.swiper3', {
