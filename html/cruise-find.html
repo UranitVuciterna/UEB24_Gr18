@@ -38,15 +38,23 @@
             background-image: url('../img/findacruiseimg.avif'); 
             background-size: cover; 
             background-position: center; 
-            height: 400px;
+            height: 70vh;
          }
          .textonimage {
             position: absolute;
-            bottom: 0;
-            left: 15%;
-            top: 40%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
             color: white;
             z-index: 2;
+         }
+
+         .textonimage h1 {
+            font-size: 50px;
+         }
+         .textonimage p {
+            font-size: 22px;
          }
          .container {
          flex: 1;
@@ -176,6 +184,11 @@
             section {
                   width: 90%;
             }
+
+            .radio-group {
+               display: grid;
+               grid-template-columns: repeat(2, 1fr);
+            }
          }
 
          /* (Tablets) */
@@ -184,6 +197,8 @@
                   width: 90%;
             }
          }
+
+         
    </style>
    </head>
    <body>

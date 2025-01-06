@@ -314,33 +314,50 @@
 /****************************************
  * RESPONSIVE ADJUSTMENTS
  ****************************************/
-@media (max-width: 768px) {
-  .deal-cards {
-    grid-template-columns: 1fr;
+ @media (max-width: 768px) {
+  .hero-banner {
+    height: auto; 
   }
 
-  .deal-card {
-    width: 80%;
-    margin: 0 auto;
+  .hero-banner__headline {
+    font-size: 2.5rem;
   }
+
+  .hero-banner__countdown {
+    flex-direction: column;
+    gap: 5px;
+    font-size: 1rem;
+  }
+
+  .countdown-time {
+    font-size: 1.5rem;
+  }
+
+  .hero-banner__btn {
+    font-size: 1rem;
+    padding: 0.6rem 1.5rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .hero-banner {
+    height: auto; 
 
   .hero-banner__headline {
     font-size: 2rem;
   }
 
-  .blue-banner__content {
-    flex-direction: column;
-    text-align: center;
+  .hero-banner__countdown {
+    font-size: 0.9rem;
   }
 
-  .explore-card {
-    width: 90%;
-    height: 250px;
+  .countdown-time {
+    font-size: 1.2rem;
   }
 
-  .explore-more-cards {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
+  .hero-banner__btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1.2rem;
   }
+}
 }
