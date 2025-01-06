@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
 	<!-- Google Material Icons CDN -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	<script>
 		document.title = "Web 24";
 	</script>
@@ -97,13 +98,16 @@
 	</div>
 </section>
 
-<div class="banner">
-	<div class="banner-content">
-		<h1>FIRST-TIME CRUISER: EVERYTHING YOU NEED TO KNOW</h1>
-		<p>Discover why cruising is the ultimate vacation and unlock insider tips and tricks. Start your journey now!</p>
-		<a href="../html/explore-more.html" class="btn">EXPLORE MORE</a>
+<section class="section__container">
+	<div class="banner">
+		<div class="banner-content">
+			<h1>FIRST-TIME CRUISER: EVERYTHING YOU NEED TO KNOW</h1>
+			<p>Discover why cruising is the ultimate vacation and unlock insider tips and tricks.</p>
+			<p>Start your journey now!</p>
+			<a href="../html/explore-more.html"><button class="btn">EXPLORE MORE</button></a>
+		</div>
 	</div>
-</div>
+</section>
 
 <section class="section__container">
 	<div class="text-container">
@@ -242,8 +246,48 @@
 
 	destinationCard.innerHTML = popularDestinations;
 
-	// test
+	const btn = document.getElementById('scrollToTop'), sound = document.getElementById('scrollSound');
+	btn.onclick = () => {
+		sound.play().catch(err => console.error('Sound error:', err));
+		window.scrollTo({top: 0, behavior: 'smooth'});
+	};
 
+	window.onscroll = () => {
+    btn.style.display = (window.scrollY > 100) ? 'flex' : 'none';
+};
+
+    const scrollToTopButton = document.getElementById("scrollToTop");
+
+
+    let isDragging = false;
+    let offsetX = 0;
+    let offsetY = 0;
+
+
+    scrollToTopButton.addEventListener("mousedown", (e) => {
+		isDragging = true;
+
+		offsetX = e.clientX - scrollToTopButton.getBoundingClientRect().left;
+		offsetY = e.clientY - scrollToTopButton.getBoundingClientRect().top;
+
+		e.preventDefault();
+	});
+
+	document.addEventListener("mousemove", (e) => {
+		if (isDragging) {
+
+		const x = e.clientX - offsetX;
+		const y = e.clientY - offsetY;
+		
+		scrollToTopButton.style.position = "fixed";
+		scrollToTopButton.style.left = `${x}px`;
+		scrollToTopButton.style.top = `${y}px`;
+	}
+	});
+
+	document.addEventListener("mouseup", () => {
+		isDragging = false;
+	});
 
 </script>
 

@@ -301,6 +301,18 @@
 				1024: { slidesPerView: 6 }
 			}
 		});
+		// animate jquery
+		swiper1.on('slideChangeTransitionStart', function () {
+			$('.swiper-text').animate({
+				opacity: 0
+			}, 300);
+		});
+
+		swiper1.on('slideChangeTransitionEnd', function () {
+			$('.swiper-text').animate({
+				opacity: 1
+			}, 500);
+		});
 	</script>
 </body>
 </html>

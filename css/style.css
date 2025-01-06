@@ -26,12 +26,11 @@
 }
 
 .section__header {
-    margin-bottom: 5px;
     font-size: 2.5rem;
     font-weight: 700;
     color: var(--text-dark);
     text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .text-container {
@@ -102,32 +101,6 @@ header::before {
     border: none;
     outline: none;
     font-family: "PT Serif", serif;
-}
-
-#price {
-    max-width: 100px;
-}
-
-#date {
-    color: var(--text-light);
-}
-
-.swiper {
-    width: 100%;
-    height: 100%;
-}
-
-.swiper-wrapper {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: stretch;
-}
-
-.swiper-slide {
-    display: flex;
-    align-items: stretch;
-    height: 100%;
 }
 
 .swiper-button-prev,
@@ -205,10 +178,6 @@ header::before {
     cursor: pointer;
     text-decoration: none;
     margin: 10px 0;
-}
-
-.btn:focus {
-    outline: 2px solid var(--primary-color-dark);
 }
 
 .client__card:hover h4 {
@@ -430,6 +399,7 @@ header::before {
     }
     .page-card {
         width: 100%;
+        margin-top: 20px;
         i {
             padding-bottom: 15px;
         }
@@ -530,7 +500,6 @@ body {
     border-radius: 10px;
     overflow: hidden;
     max-width: var(--max-width);
-    margin: 5rem auto 0;
     padding: 3rem 1rem;
 }
 
@@ -548,17 +517,5 @@ body {
 .banner-content {
     position: relative;
     z-index: 2;
-    max-width: 600px;
 }
 
-.banner-content h1 {
-    font-size: 28px;
-    font-weight: bold;
-    margin: 0 0 10px;
-}
-
-.banner-content p {
-    font-size: 16px;
-    margin: 0 0 20px;
-    line-height: 1.5;
-}

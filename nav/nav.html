@@ -11,13 +11,14 @@
 <body>
 <nav class="nav-container">
     <div class="nav__logo">
-        <a href="#"><canvas id="logoCanvas" width="150" height="80"></canvas></a>
+        <h1><a href="index.html">Web24</a></h1>
     </div>
     <ul class="nav__links" id="nav-links">
         <li><a href="../html/index.html">Home</a></li>
-        <li><a href="../html/cruise-find.html">Find a Cruise</a></li>
+        <li><a href="../html/cruise-find.html">Find A Cruise</a></li>
         <li><a href="#">Destinations</a></li>
         <li><a href="../html/deals.html">Deals</a></li>
+        <li><a href="../html/cruises.html">Book A Trip</a></li>
         <li><a href="../html/signup.html">Sign Up</a></li>
     </ul>
     <div class="nav__btns">
@@ -29,14 +30,6 @@
 </nav>
 
 <script>
-    const canvas = document.getElementById('logoCanvas');
-    const ctx = canvas.getContext('2d');
-    ctx.font = 'bold 34px Arial';
-    ctx.fillStyle = 'black';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText('Web24', canvas.width / 2, canvas.height / 2);
-
     const user = JSON.parse(localStorage.getItem('user'));
     const fullname = document.getElementById('fullname');
     
