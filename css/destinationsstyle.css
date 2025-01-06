@@ -1,0 +1,293 @@
+/****************************************
+ * GLOBAL STYLES
+ ****************************************/
+ body {
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    overflow-x: hidden;
+  }
+  
+  /****************************************
+   * DESTINATIONS BANNER
+   ****************************************/
+  .destinations-banner {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+  }
+  
+  .destinations-banner__img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .destinations-banner__content {
+    position: relative;
+    z-index: 2; 
+    color: white;
+    text-align: center;
+  }
+  
+  
+  .destinations-banner__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+  }
+  
+  .destinations-banner__headline {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+    .destinations-banner__paragraph {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .destinations-banner__btn {
+    background-color: white;
+    color: #000;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  .destinations-banner__btn:hover {
+    background-color: #b0b0b0;
+    text-decoration: underline;
+  }
+  
+  /****************************************
+   * BLUE BANNER
+   ****************************************/
+  .blue-banner {
+    background-color: #2887ff;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+  }
+  
+  .blue-banner__content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  
+  .blue-banner__btn {
+    background-color: white;
+    color: #000;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    text-decoration: none;
+  }
+  
+  .blue-banner__btn:hover {
+    background-color: #b0b0b0;
+    text-decoration: underline;
+    transform: scale(1.1);
+  }
+  
+  .blue-banner__content p {
+    font-size: 20px;
+  }
+
+  /****************************************
+   * NAVBAR SECTION
+   ****************************************/
+
+   .navigationMenu {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+   .navigation-menu__base {
+    width: 90%;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .navigation-menu__container {
+    font-size: 0;
+    position: relative;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    border-bottom: 1px solid #cdcfd1;
+  }
+
+  .navigation-menu__option {
+    cursor: pointer;
+    display: inline-flex;
+    font-size: 0.875rem;
+    font-weight: normal;
+    letter-spacing: 0.125rem;
+    line-height: 1rem;
+    outline: 0;
+    padding: 0.95rem;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "ProximaNova-Regular", Arial, sans-serif;
+}
+
+.navigation-menu__link {
+  color: #005edc;
+  text-decoration: none;
+}
+  
+  /****************************************
+   * DESTINATIONS SECTION
+   ****************************************/
+  .destinations-section {
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    overflow-x: hidden;
+  }
+  
+  .destinations-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .destinations-section p {
+    font-size: 1rem;
+    max-width: 90%;
+    margin: 0 auto;
+    color: #4a4a4a;
+    text-align: left;
+  }
+
+  .destinations-section-images{
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 30px auto;
+    overflow-x: hidden;
+  }
+
+  .destination{
+    justify-self: center;
+    width: 93%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+
+  .destination-title{
+    font-family: ProximaNova-Regular, Arial, sans-serif;
+    font-size: 1rem;
+    letter-spacing: .125rem;
+    text-transform: uppercase;
+  }
+
+  .destination-subtitle{
+    font-family: Kapra-Optimized, Impact, Arial Narrow, Arial, sans-serif;
+    font-size: 3rem;
+    text-transform: uppercase;
+  }
+
+  .destination-description{
+    color: #4a4a4a;
+    font-family: ProximaNova-Regular, Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 150%;
+  }
+
+  .destination-images{
+    width: 100%;
+    min-width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0;
+  }
+
+  .destination-images img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+  }
+  
+  .left-image{
+    width: 25%;
+    padding-right: 10px;
+  }
+
+  .right-images{
+    width: 75%;
+  }
+
+  .top-right-image{
+    width: 100%;
+    padding-bottom: 10px;
+  }
+
+  .bottom-right-images{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .bottom-image{
+    width: 33.33%;
+  }
+
+  .bottom-middle-image{
+    padding: 0 10px;
+  }
+
+  .image-container{
+    position: relative;
+  }
+
+  .image-container__text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  }
+
+  @media (min-width: 64.0625rem) {
+    .destination-title {
+      font-size: 1.375rem;
+    }
+    .destination-subtitle{
+      font-size: 4rem;
+    }
+  }
+  
+  @media (min-width: 46.875rem) {
+    .destination-description {
+        font-size: 1.125rem;
+    }
+  }
